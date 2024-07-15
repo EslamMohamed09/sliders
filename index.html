@@ -211,6 +211,29 @@
 
         </div>
 
+        <div class="product-item 10%">
+
+          <div class="image">
+            <img src="product.image[0]" alt="">
+            <img src="product.image[1]" alt="">
+          </div>
+
+          <div class="icons">
+            <nuxt-link to="#"><v-icon id="icon">mdi-heart-outline</v-icon></nuxt-link>
+            <nuxt-link to="#"><v-icon id="icon">mdi-cart-outline</v-icon></nuxt-link>
+          </div>
+
+          <div class="product-content d-flex-c-bt-c">
+            <h4>title</h4>
+            <div class="price d-flex-r-c-c">
+              <strong>{{ product.price }}</strong>
+              <strong >{{ product.salePrice }}</strong>
+            </div>
+            <button type="button" class="add-btn">add to card</button>
+          </div>
+
+        </div>
+
       </div>
 
     </div>
@@ -225,6 +248,52 @@
       </ul>
 
       <div class="inner-col">
+
+        <div class="product-item 20%">
+
+          <div class="image">
+            <img :src="product.image[0]" :alt="product.title">
+            <img :src="product.image[1]" v-if="product.image[1]" :alt="product.title">
+          </div>
+
+          <div class="icons">
+            <nuxt-link to="#"><v-icon id="icon">mdi-heart-outline</v-icon></nuxt-link>
+            <nuxt-link to="#"><v-icon id="icon">mdi-cart-outline</v-icon></nuxt-link>
+          </div>
+
+          <div class="product-content d-flex-c-bt-c">
+            <h4>{{ truncateWords(product.title, 3) }}</h4>
+            <div class="price d-flex-r-c-c">
+              <strong>{{ product.price }}</strong>
+              <strong >{{ product.salePrice }}</strong>
+            </div>
+            <button type="button" class="add-btn">add to card</button>
+          </div>
+
+        </div>
+
+        <div class="product-item 20%">
+
+          <div class="image">
+            <img :src="product.image[0]" :alt="product.title">
+            <img :src="product.image[1]" v-if="product.image[1]" :alt="product.title">
+          </div>
+
+          <div class="icons">
+            <nuxt-link to="#"><v-icon id="icon">mdi-heart-outline</v-icon></nuxt-link>
+            <nuxt-link to="#"><v-icon id="icon">mdi-cart-outline</v-icon></nuxt-link>
+          </div>
+
+          <div class="product-content d-flex-c-bt-c">
+            <h4>{{ truncateWords(product.title, 3) }}</h4>
+            <div class="price d-flex-r-c-c">
+              <strong>{{ product.price }}</strong>
+              <strong >{{ product.salePrice }}</strong>
+            </div>
+            <button type="button" class="add-btn">add to card</button>
+          </div>
+
+        </div>
 
         <div class="product-item 20%">
 
