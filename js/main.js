@@ -9,9 +9,7 @@ function hideAllSlides(){
 
 hideAllSlides();
 
-if (index >= 0 && index < slides.length) {
-    slides[index].style.display = "flex";
-}
+if (index >= 0 && index < slides.length) {slides[index].style.display = "flex";}
 
 function prev(){
   index = (index - 1 + slides.length) % slides.length;
@@ -24,6 +22,8 @@ function next(){
   hideAllSlides();
   slides[index].style.display = "flex";
 }
+
+// filter with tabs
 
 
 /**************

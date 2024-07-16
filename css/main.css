@@ -662,6 +662,11 @@ img {max-width:100%;
 }
 
 /********************
+ # offers
+********************/
+.offers-section {}
+
+/********************
  # single-page
 ********************/
 #single-page .product-container {margin-bottom:3rem;}
