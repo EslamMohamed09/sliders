@@ -188,46 +188,92 @@
 
       <div class="inner-col">
         
-        <div class="product-item 10%">
+        <div class="product-item 10%"> <!-- product-item 1-->
 
           <div class="image">
-            <img src="product.image[0]" alt="">
-            <img src="product.image[1]" alt="">
+            <img src="images/clothes/mens/sweatshirts/8/sweatshirt.jpg" alt="">
+            <img src="images/clothes/mens/sweatshirts/8/sweatshirt2.jpg" alt="">
           </div>
 
           <div class="icons">
-            <nuxt-link to="#"><v-icon id="icon">mdi-heart-outline</v-icon></nuxt-link>
-            <nuxt-link to="#"><v-icon id="icon">mdi-cart-outline</v-icon></nuxt-link>
+            <a href="#"><i class="far fa-heart"></i></a>
+            <a href="#"><i class="fas fa-cart-arrow-down"></i></a>
           </div>
 
           <div class="product-content d-flex-c-bt-c">
-            <h4>title</h4>
+            <h4>Niceif Men's Midweight Fleece Pullover Hoodies Casual Color Block Hooded Sweatshirt with Pockets</h4>
             <div class="price d-flex-r-c-c">
-              <strong>{{ product.price }}</strong>
-              <strong >{{ product.salePrice }}</strong>
+              <strong>$36</strong>
+              <strong >$32</strong>
             </div>
             <button type="button" class="add-btn">add to card</button>
           </div>
 
         </div>
 
-        <div class="product-item 10%">
+        <div class="product-item 10%"> <!-- product-item 2-->
 
           <div class="image">
-            <img src="product.image[0]" alt="">
-            <img src="product.image[1]" alt="">
+            <img src="images/clothes/mens/sweatshirts/11/sweatshirt.jpg" alt="">
+            <img src="images/clothes/mens/sweatshirts/11/sweatshirt2.jpg" alt="">
           </div>
 
           <div class="icons">
-            <nuxt-link to="#"><v-icon id="icon">mdi-heart-outline</v-icon></nuxt-link>
-            <nuxt-link to="#"><v-icon id="icon">mdi-cart-outline</v-icon></nuxt-link>
+            <a href="#"><i class="far fa-heart"></i></a>
+            <a href="#"><i class="fas fa-cart-arrow-down"></i></a>
           </div>
 
           <div class="product-content d-flex-c-bt-c">
-            <h4>title</h4>
+            <h4>MOONCOLOUR Mens Novelty Color Block Hoodies Cozy Sport Outwear</h4>
             <div class="price d-flex-r-c-c">
-              <strong>{{ product.price }}</strong>
-              <strong >{{ product.salePrice }}</strong>
+              <strong>$25</strong>
+              <strong >$19</strong>
+            </div>
+            <button type="button" class="add-btn">add to card</button>
+          </div>
+
+        </div>
+
+        <div class="product-item 15%"> <!-- product-item 3-->
+
+          <div class="image">
+            <img src="images/clothes/mens/sweatshirts/6/sweatshirt.jpg" alt="">
+            <img src="images/clothes/mens/sweatshirts/8/sweatshirt2.jpg" alt="">
+          </div>
+
+          <div class="icons">
+            <a href="#"><i class="far fa-heart"></i></a>
+            <a href="#"><i class="fas fa-cart-arrow-down"></i></a>
+          </div>
+
+          <div class="product-content d-flex-c-bt-c">
+            <h4>Vodikar Mens Corduroy Sweatshirts Casual Lapel Collar Mock Neck Button Pullover Sweater</h4>
+            <div class="price d-flex-r-c-c">
+              <strong>$25</strong>
+              <strong >$29</strong>
+            </div>
+            <button type="button" class="add-btn">add to card</button>
+          </div>
+
+        </div>
+
+        <div class="product-item 15%"> <!-- product-item 4-->
+
+          <div class="image">
+            <img src="images/electronics/kettles&heaters/steamiron1/1.PNG" alt="">
+            <img src="images/electronics/kettles&heaters/steamiron1/2.PNG" alt="">
+          </div>
+
+          <div class="icons">
+            <a href="#"><i class="far fa-heart"></i></a>
+            <a href="#"><i class="fas fa-cart-arrow-down"></i></a>
+          </div>
+
+          <div class="product-content d-flex-c-bt-c">
+            <h4>TORNADO Steam Iron 2000-2400 Watt</h4>
+            <div class="price d-flex-r-c-c">
+              <strong>$25</strong>
+              <strong >$19</strong>
             </div>
             <button type="button" class="add-btn">add to card</button>
           </div>
@@ -252,13 +298,36 @@
         <div class="product-item 20%">
 
           <div class="image">
-            <img :src="product.image[0]" :alt="product.title">
-            <img :src="product.image[1]" v-if="product.image[1]" :alt="product.title">
+            <img src="product.image[0]" alt="">
+            <img src="product.image[1]" alt="">
           </div>
 
           <div class="icons">
-            <nuxt-link to="#"><v-icon id="icon">mdi-heart-outline</v-icon></nuxt-link>
-            <nuxt-link to="#"><v-icon id="icon">mdi-cart-outline</v-icon></nuxt-link>
+            <a href="#"><i class="far fa-heart"></i></a>
+            <a href="#"><i class="fas fa-cart-arrow-down"></i></a>
+          </div>
+
+          <div class="product-content d-flex-c-bt-c">
+            <h4>Canon EOS 90D</h4>
+            <div class="price d-flex-r-c-c">
+              <strong>{{ product.price }}</strong>
+              <strong >{{ product.salePrice }}</strong>
+            </div>
+            <button type="button" class="add-btn">add to card</button>
+          </div>
+
+        </div>
+
+        <div class="product-item 20%">
+
+          <div class="image">
+            <img src="product.image[0]" alt="product.title">
+            <img src="product.image[1]" alt="product.title">
+          </div>
+
+          <div class="icons">
+            <a href="#"><i class="far fa-heart"></i></a>
+            <a href="#"><i class="fas fa-cart-arrow-down"></i></a>
           </div>
 
           <div class="product-content d-flex-c-bt-c">
@@ -275,36 +344,13 @@
         <div class="product-item 20%">
 
           <div class="image">
-            <img :src="product.image[0]" :alt="product.title">
-            <img :src="product.image[1]" v-if="product.image[1]" :alt="product.title">
+            <img src="product.image[0]" alt="">
+            <img src="product.image[1]" alt="">
           </div>
 
           <div class="icons">
-            <nuxt-link to="#"><v-icon id="icon">mdi-heart-outline</v-icon></nuxt-link>
-            <nuxt-link to="#"><v-icon id="icon">mdi-cart-outline</v-icon></nuxt-link>
-          </div>
-
-          <div class="product-content d-flex-c-bt-c">
-            <h4>{{ truncateWords(product.title, 3) }}</h4>
-            <div class="price d-flex-r-c-c">
-              <strong>{{ product.price }}</strong>
-              <strong >{{ product.salePrice }}</strong>
-            </div>
-            <button type="button" class="add-btn">add to card</button>
-          </div>
-
-        </div>
-
-        <div class="product-item 20%">
-
-          <div class="image">
-            <img :src="product.image[0]" :alt="product.title">
-            <img :src="product.image[1]" v-if="product.image[1]" :alt="product.title">
-          </div>
-
-          <div class="icons">
-            <nuxt-link to="#"><v-icon id="icon">mdi-heart-outline</v-icon></nuxt-link>
-            <nuxt-link to="#"><v-icon id="icon">mdi-cart-outline</v-icon></nuxt-link>
+            <a href="#"><i class="far fa-heart"></i></a>
+            <a href="#"><i class="fas fa-cart-arrow-down"></i></a>
           </div>
 
           <div class="product-content d-flex-c-bt-c">

@@ -8,7 +8,10 @@ function hideAllSlides(){
 }
 
 hideAllSlides();
-slides[index].style.display = "flex";
+
+if (index >= 0 && index < slides.length) {
+    slides[index].style.display = "flex";
+}
 
 function prev(){
   index = (index - 1 + slides.length) % slides.length;
