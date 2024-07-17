@@ -11,6 +11,56 @@
 </head>
 
 <body>
+  <header>
+    <div class="top-nav d-flex-r-bt-c">
+      <div class="col-left">
+        <div class="d-flex-r-st-c" id="currency-select">
+          <select>
+            <option value="EN"> EN / USD</option>
+            <option value="DE"> DE / EURO</option>
+            <option value="EG"> EG / POUND</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-right">
+        <ul class="d-flex-r-st-c" style="gap:1rem;">
+          <li><a href="#">my account</a></li>
+          <li><a href="#">my cart</a></li>
+          <li><a href="#">checkout</a></li>
+          <button style="color:var(--white);">login</button>
+          <i class="fas fa-bars" style="color:white;"></i>
+        </ul>
+      </div>
+    </div>
+    <div id="main-header" class="main-header">
+
+      <div class="upper d-flex-r-bt-c">
+        <h2 class="web-title"><a href="index.html">shopping</a></h2>
+        <div class="search-block d-flex-r-bt-c">
+          <input type="search">
+          <v-icon>mdi-magnify</v-icon>
+        </div>
+        <div class="icons d-flex-r-st-c">
+          <i class="far fa-heart"></i>
+          <span class="favourite-count" color="yellow" style="cursor:pointer;margin-bottom:1rem;">8</span>
+          <v-icon>mdi-lock</v-icon>
+          <span class="lock-count" color="yellow" style="cursor:pointer;margin-bottom:1rem;">12</span>
+        </div>
+      </div> <!-- End upper -->
+
+      <div class="bottom">
+        <nav>
+          <ul class="d-flex-r-st-c">
+            <li><a href="#">home</a></li>
+            <li><a href="#">electronics</a></li>
+            <li><a href="#">watches</a></li>
+            <li><a href="#">shoes</a></li>
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+  </header>
 
 <section class="banner-section d-flex-r-c-c">
 
