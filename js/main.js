@@ -64,17 +64,15 @@ filterWithTabs($(".offers-section .col-left .tabs-area li"), $(".offers-section 
 filterWithTabs($(".offers-section .col-right .tabs-area li"), $(".offers-section .col-right .inner-col .product-item"));
 
 function truncateWords(title, wordsCount){
-   title.split('').slice(0,wordsCount).join(' ');
+   return title.split(' ').slice(0,wordsCount).join(' ');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.product-content').forEach(element => {
-    const h4 = element.querySelector('h4');
-    const title = h4.textContent;
-    const wordsCount = parseInt(element.getAttribute('data-word-count'), 3);
-    h4.textContent = truncateWords(title, wordsCount);
+  document.querySelectorAll('.offers-section .product-item h4').forEach(h4 => {
+    h4.textContent = truncateWords(h4.textContent, 3);
   });
 });
+
 
 /**************
   SINGLE PAGE
