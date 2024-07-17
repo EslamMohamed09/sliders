@@ -63,6 +63,19 @@ function filterWithTabs(tabButtons, cartItems){
 filterWithTabs($(".offers-section .col-left .tabs-area li"), $(".offers-section .col-left .inner-col .product-item"));
 filterWithTabs($(".offers-section .col-right .tabs-area li"), $(".offers-section .col-right .inner-col .product-item"));
 
+function truncateWords(title, wordsCount){
+   title.split('').slice(0,wordsCount).join(' ');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.product-content').forEach(element => {
+    const h4 = element.querySelector('h4');
+    const title = h4.textContent;
+    const wordsCount = parseInt(element.getAttribute('data-word-count'), 3);
+    h4.textContent = truncateWords(title, wordsCount);
+  });
+});
+
 /**************
   SINGLE PAGE
 **************/
