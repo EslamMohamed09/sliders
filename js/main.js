@@ -73,6 +73,36 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+$(document).ready(function(){
+  $('.offersblock').owlCarousel({
+    loop:true,
+    autoplay:true,
+    dots:true,
+    center:false,
+    margin:0,
+    stagePadding:0,
+    autoplayTimeout:9000,
+    smartSpeed:1500,
+    autoplayHoverPause:true,
+    items:3, 
+    nav:true,
+    navText: [
+        '<i class="fa fa-angle-left" id="slidder-arrow-left"></i>',
+        '<i class="fa fa-angle-right" id="slidder-arrow-right"></i>',
+    ], 
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        800:{
+            items:3
+        }
+    }     
+  }); 
+});
 
 /**************
   SINGLE PAGE
