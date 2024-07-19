@@ -11,13 +11,13 @@ hideAllSlides();
 
 if (index >= 0 && index < slides.length) {slides[index].style.display = "flex";}
 
-function prev(){
+function prevB(){
   index = (index - 1 + slides.length) % slides.length;
   hideAllSlides();
   slides[index].style.display = "flex";
 }
 
-function next(){
+function nextB(){
   index = (index + 1) % slides.length;
   hideAllSlides();
   slides[index].style.display = "flex";
@@ -63,6 +63,8 @@ function filterWithTabs(tabButtons, cartItems){
 filterWithTabs($(".offers-section .col-left .tabs-area li"), $(".offers-section .col-left .inner-col .product-item"));
 filterWithTabs($(".offers-section .col-right .tabs-area li"), $(".offers-section .col-right .inner-col .product-item"));
 
+
+
 function truncateWords(title, wordsCount){
    return title.split(' ').slice(0,wordsCount).join(' ');
 }
@@ -74,7 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 $(document).ready(function(){
-  $('.offersblock').owlCarousel({
+
+  $('.offersblock1').owlCarousel({
     loop:true,
     autoplay:true,
     dots:true,
@@ -84,25 +87,73 @@ $(document).ready(function(){
     autoplayTimeout:9000,
     smartSpeed:1500,
     autoplayHoverPause:true,
-    items:3, 
+    items:1, 
     nav:true,
     navText: [
         '<i class="fa fa-angle-left" id="slidder-arrow-left"></i>',
         '<i class="fa fa-angle-right" id="slidder-arrow-right"></i>',
-    ], 
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:2
-        },
-        800:{
-            items:3
-        }
-    }     
+    ],
   }); 
+
+
+$('.offersblock2').owlCarousel({
+  loop:true,
+  autoplay:true,
+  dots:true,
+  center:false,
+  margin:0,
+  stagePadding:0,
+  autoplayTimeout:9000,
+  smartSpeed:1500,
+  autoplayHoverPause:true,
+  items:1, 
+  nav:true,
+  navText: [
+      '<i class="fa fa-angle-left" id="slidder-arrow-left"></i>',
+      '<i class="fa fa-angle-right" id="slidder-arrow-right"></i>',
+  ],
 });
+
+$('.offersblock3').owlCarousel({
+  loop:true,
+  autoplay:true,
+  dots:true,
+  center:false,
+  margin:0,
+  stagePadding:0,
+  autoplayTimeout:9000,
+  smartSpeed:1500,
+  autoplayHoverPause:true,
+  items:1, 
+  nav:true,
+  navText: [
+      '<i class="fa fa-angle-left" id="slidder-arrow-left"></i>',
+      '<i class="fa fa-angle-right" id="slidder-arrow-right"></i>',
+  ],
+});
+
+$('.offersblock4').owlCarousel({
+  loop:true,
+  autoplay:true,
+  dots:true,
+  center:false,
+  margin:0,
+  stagePadding:0,
+  autoplayTimeout:9000,
+  smartSpeed:1500,
+  autoplayHoverPause:true,
+  items:1, 
+  nav:true,
+  navText: [
+      '<i class="fa fa-angle-left" id="slidder-arrow-left"></i>',
+      '<i class="fa fa-angle-right" id="slidder-arrow-right"></i>',
+  ],
+});
+
+
+});
+
+
 
 /**************
   SINGLE PAGE
