@@ -1060,17 +1060,17 @@ header .main-header .bottom nav ul li:hover {
 /********************
  # offers
 ********************/
-.offers-section .tabs-area {
+.offers-section .tabs {
   gap: 1.5rem;
   margin: 1rem 0;
 }
-.offers-section .tabs-area li {
+.offers-section .tabs li {
   cursor: pointer;
   font-size: 1.2rem;
   font-weight: bold;
   position: relative;
 }
-.offers-section .tabs-area li.btnactive::before {
+.offers-section .tabs li.active::before {
   content: "";
   width: 100%;
   height: 2px;
@@ -1079,7 +1079,7 @@ header .main-header .bottom nav ul li:hover {
   left: 0;
   background-color: var(--yellow9);
 }
-.offers-section .tabs-area li.btnactive::after {
+.offers-section .tabs li.active::after {
   content: "";
   width: 0;
   height: 0;
@@ -1093,15 +1093,18 @@ header .main-header .bottom nav ul li:hover {
 }
 .offers-section .inner-col {
   padding: 0;
-  padding-bottom: 2rem;
+  padding-top: 3rem;
   background-color: var(--white);
 }
-.offers-section .inner-col .product-item {
+.offers-section .inner-col .offersblock {
+  position: relative;
+}
+.offers-section .inner-col .offersblock .product-item {
   overflow: hidden;
   position: relative;
   /* content */
 }
-.offers-section .inner-col .product-item .image {
+.offers-section .inner-col .offersblock .product-item .image {
   width: 90%;
   margin: auto;
   display: flex;
@@ -1110,27 +1113,27 @@ header .main-header .bottom nav ul li:hover {
   overflow: hidden;
   transition: all 1s linear;
 }
-.offers-section .inner-col .product-item .image img {
+.offers-section .inner-col .offersblock .product-item .image img {
   height: 85%;
   object-fit: contain;
   transition: all 1s linear;
 }
-.offers-section .inner-col .product-item .image img:last-child:not(:only-child) {
+.offers-section .inner-col .offersblock .product-item .image img:last-child:not(:only-child) {
   display: none;
   visibility: hidden;
   opacity: 0;
 }
-.offers-section .inner-col .product-item .image:hover img:first-child {
+.offers-section .inner-col .offersblock .product-item .image:hover img:first-child {
   display: none;
   visibility: hidden;
   opacity: 0;
 }
-.offers-section .inner-col .product-item .image:hover img:last-child {
+.offers-section .inner-col .offersblock .product-item .image:hover img:last-child {
   display: block;
   visibility: visible;
   opacity: 1;
 }
-.offers-section .inner-col .product-item .icons {
+.offers-section .inner-col .offersblock .product-item .icons {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1145,43 +1148,78 @@ header .main-header .bottom nav ul li:hover {
   opacity: 0;
   transition: all 0.3s linear;
 }
-.offers-section .inner-col .product-item .icons #icon {
+.offers-section .inner-col .offersblock .product-item .icons #icon {
   font-size: 1.3rem;
   padding: 0.6rem;
   color: var(--gray1);
   background: transparent;
   border: none;
 }
-.offers-section .inner-col .product-item .icons #icon:hover {
+.offers-section .inner-col .offersblock .product-item .icons #icon:hover {
   color: var(--primary);
 }
-.offers-section .inner-col .product-item .product-content {
+.offers-section .inner-col .offersblock .product-item .product-content {
   gap: 0.3rem;
   width: 100%;
   background-color: transparent;
 }
-.offers-section .inner-col .product-item .product-content h4 {
+.offers-section .inner-col .offersblock .product-item .product-content h4 {
   text-align: center;
 }
-.offers-section .inner-col .product-item .product-content .price {
+.offers-section .inner-col .offersblock .product-item .product-content .price {
   flex-wrap: nowrap;
   gap: 1.3rem;
   width: 100%;
   background-color: transparent;
 }
-.offers-section .inner-col .product-item .product-content .price strong:first-child {
+.offers-section .inner-col .offersblock .product-item .product-content .price strong:first-child {
   font-size: 1rem;
   color: var(--gray5);
   text-decoration: line-through !important;
 }
-.offers-section .inner-col .product-item .product-content .price strong:last-child {
+.offers-section .inner-col .offersblock .product-item .product-content .price strong:last-child {
   font-size: 1.2rem;
   color: var(--red9);
 }
-.offers-section .inner-col .product-item:hover .icons {
+.offers-section .inner-col .offersblock .product-item:hover .icons {
   visibility: visible;
   opacity: 1;
   right: 0.3rem;
+}
+.offers-section .inner-col .offersblock .owl-nav {
+  position: absolute;
+  top: -3rem;
+  right: 0.2rem;
+  width: 6rem;
+  height: 2.6rem;
+  padding: 0;
+  display: flex !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+.offers-section .inner-col .offersblock .owl-nav .owl-prev,
+.offers-section .inner-col .offersblock .owl-nav .owl-next {
+  margin: 0 !important;
+  padding: 0;
+  padding-bottom: 0.4rem !important;
+  text-align: center;
+  width: 2.4rem;
+  height: 100% !important;
+  background-color: var(--shin-blue5);
+  color: var(--white);
+  display: flex !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.1rem;
+}
+.offers-section .inner-col .offersblock .owl-nav .owl-prev span,
+.offers-section .inner-col .offersblock .owl-nav .owl-next span {
+  font-size: 2.6rem;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .offers-section .col-left .inner-col {
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -1189,12 +1227,12 @@ header .main-header .bottom nav ul li:hover {
 .offers-section .col-left .inner-col .product-item .image {
   height: 22rem;
 }
-.offers-section .col-right .inner-col .items {
+.offers-section .col-right .inner-col .offersblock .items {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 1rem;
 }
-.offers-section .col-right .inner-col .items .product-item .image {
+.offers-section .col-right .inner-col .offersblock .items .product-item .image {
   height: 10rem;
 }
 

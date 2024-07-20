@@ -24,44 +24,46 @@ function nextB(){
 }
 
 // filter with tabs
-function filterWithTabs(tabButtons, cartItems){
-  tabButtons = Array.isArray(tabButtons) ? tabButtons : Array.from(tabButtons);
-  cartItems = Array.isArray(cartItems) ? cartItems : Array.from(cartItems);
+// function filterWithTabs(tabButtons, cartItems){
+//   tabButtons = Array.isArray(tabButtons) ? tabButtons : Array.from(tabButtons);
+//   cartItems = Array.isArray(cartItems) ? cartItems : Array.from(cartItems);
 
-  function hideAllItems(){
-     cartItems.forEach(cartItem => {
-        cartItem.style.display = "none";
-     });
-  }
+//   offersBlock = document.querySelectorAll(".col-right .inner-col > div");
 
-  function showItemsWithClass(itemClass){
-     cartItems.forEach(cartItem => {
-        if (cartItem.classList.contains(itemClass)){
-            cartItem.style.display = "block";
-        }
-     });
-  }
+//   function hideAllItems(){
+//      cartItems.forEach(cartItem => {
+//         cartItem.style.display = "none";
+//      });
+//   }
 
-  let firstClassTab = tabButtons[0].classList[0];
+//   function showItemsWithClass(itemClass){
+//      cartItems.forEach(cartItem => {
+//         if (cartItem.classList.contains(itemClass)){
+//             cartItem.style.display = "block";
+//         }
+//      });
+//   }
 
-  tabButtons[0].classList.add("btnactive");
-  hideAllItems();
-  showItemsWithClass(firstClassTab);
+//   let firstClassTab = tabButtons[0].classList[0];
 
-  tabButtons.forEach(tabButton => {
-     tabButton.addEventListener("click", function () {
-       tabButtons.forEach(tab => tab.classList.remove("btnactive"));
-       this.classList.add("btnactive");
+//   tabButtons[0].classList.add("btnactive");
+//   hideAllItems();
+//   showItemsWithClass(firstClassTab);
 
-       hideAllItems();
-       showItemsWithClass(this.classList[0]);
-     });
-  });
+//   tabButtons.forEach(tabButton => {
+//      tabButton.addEventListener("click", function () {
+//        tabButtons.forEach(tab => tab.classList.remove("btnactive"));
+//        this.classList.add("btnactive");
 
-}
+//        hideAllItems();
+//        showItemsWithClass(this.classList[0]);
+//      });
+//   });
 
-filterWithTabs($(".offers-section .col-left .tabs-area li"), $(".offers-section .col-left .inner-col .product-item"));
-filterWithTabs($(".offers-section .col-right .tabs-area li"), $(".offers-section .col-right .inner-col .product-item"));
+// }
+
+// filterWithTabs($(".offers-section .col-left .tabs-area li"), $(".offers-section .col-left .inner-col .product-item"));
+// filterWithTabs($(".offers-section .col-right .tabs-area li"), $(".offers-section .col-right .inner-col .product-item"));
 
 
 
@@ -77,79 +79,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 $(document).ready(function(){
 
-  $('.offersblock1').owlCarousel({
-    loop:true,
-    autoplay:true,
-    dots:true,
-    center:false,
-    margin:0,
-    stagePadding:0,
-    autoplayTimeout:9000,
-    smartSpeed:1500,
-    autoplayHoverPause:true,
-    items:1, 
-    nav:true,
-    navText: [
-        '<i class="fa fa-angle-left" id="slidder-arrow-left"></i>',
-        '<i class="fa fa-angle-right" id="slidder-arrow-right"></i>',
-    ],
-  }); 
+  $('.offers-section .col-right .tabs li').first().addClass('active');
+  $('.offers-section .col-right .inner-col > div').hide();
+  $('.offers-section .col-right .inner-col > div').first().show();
 
 
-$('.offersblock2').owlCarousel({
-  loop:true,
-  autoplay:true,
-  dots:true,
-  center:false,
-  margin:0,
-  stagePadding:0,
-  autoplayTimeout:9000,
-  smartSpeed:1500,
-  autoplayHoverPause:true,
-  items:1, 
-  nav:true,
-  navText: [
-      '<i class="fa fa-angle-left" id="slidder-arrow-left"></i>',
-      '<i class="fa fa-angle-right" id="slidder-arrow-right"></i>',
-  ],
-});
+  $('.offers-section .inner-col > div').each(function() {
+    $(this).addClass('owl-carousel');
+    $(this).owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      dots:false,
+      items: 1
+    });
+  });
 
-$('.offersblock3').owlCarousel({
-  loop:true,
-  autoplay:true,
-  dots:true,
-  center:false,
-  margin:0,
-  stagePadding:0,
-  autoplayTimeout:9000,
-  smartSpeed:1500,
-  autoplayHoverPause:true,
-  items:1, 
-  nav:true,
-  navText: [
-      '<i class="fa fa-angle-left" id="slidder-arrow-left"></i>',
-      '<i class="fa fa-angle-right" id="slidder-arrow-right"></i>',
-  ],
-});
-
-$('.offersblock4').owlCarousel({
-  loop:true,
-  autoplay:true,
-  dots:true,
-  center:false,
-  margin:0,
-  stagePadding:0,
-  autoplayTimeout:9000,
-  smartSpeed:1500,
-  autoplayHoverPause:true,
-  items:1, 
-  nav:true,
-  navText: [
-      '<i class="fa fa-angle-left" id="slidder-arrow-left"></i>',
-      '<i class="fa fa-angle-right" id="slidder-arrow-right"></i>',
-  ],
-});
-
+  $('.offers-section .col-right .tabs li').click(function() {
+    var offerClass = '.offersblock' + $(this).attr('class').replace('%', '');
+    $('.offers-section .col-right .tabs li').removeClass('active');
+    $(this).addClass('active');
+    $('.offers-section .col-right .inner-col > div').hide().removeClass('active');
+    $(offerClass).show().addClass('active');
+  });
 
 });
 
