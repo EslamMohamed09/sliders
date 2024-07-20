@@ -469,8 +469,8 @@ header {
              text-transform:capitalize;}
         }
         button {text-transform:capitalize;}
-        i {display:none;
-           cursor:pointer;}
+        #open-mHeader {display:none;
+                       cursor:pointer;}
       }
     }
   }
@@ -520,7 +520,7 @@ header {
 
       .top-nav {padding:0.3rem 1rem;
                 z-index:100000;
-        .col-right ul svg {display:block;}
+        .col-right ul #open-mHeader {display:block;}
       }
 
       .main-header {position:fixed;

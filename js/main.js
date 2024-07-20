@@ -1,3 +1,10 @@
+/*** MOBILE HEADER ***/
+if(document.getElementById("open-mHeader") && document.getElementById("main-header")){
+   const mobileHBtn = document.getElementById("open-mHeader");
+   const mainHeader = document.getElementById("main-header");
+   mobileHBtn.onclick = () => mainHeader.classList.toggle("mobile-header");
+}
+
 let index = 0;
 let slides = document.querySelectorAll('.banner-slide-item');
 

@@ -561,7 +561,7 @@ header .top-nav .col-right ul li a {
 header .top-nav .col-right ul button {
   text-transform: capitalize;
 }
-header .top-nav .col-right ul i {
+header .top-nav .col-right ul #open-mHeader {
   display: none;
   cursor: pointer;
 }
@@ -616,7 +616,7 @@ header .main-header .bottom nav ul li:hover {
     padding: 0.3rem 1rem;
     z-index: 100000;
   }
-  header .top-nav .col-right ul svg {
+  header .top-nav .col-right ul #open-mHeader {
     display: block;
   }
   header .main-header {
