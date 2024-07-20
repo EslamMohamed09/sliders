@@ -79,29 +79,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 $(document).ready(function(){
 
-  $('.offers-section .col-right .tabs li').first().addClass('active');
-  $('.offers-section .col-right .inner-col > div').hide();
-  $('.offers-section .col-right .inner-col > div').first().show();
+  function sliderWithFilterTabs(tabs, blocks, secondClassBlock){
+
+    $(tabs).first().addClass('active');
+    $(blocks).hide();
+    $(blocks).first().show();
 
 
-  $('.offers-section .inner-col > div').each(function() {
-    $(this).addClass('owl-carousel');
-    $(this).owlCarousel({
-      loop: true,
-      margin: 10,
-      nav: true,
-      dots:false,
-      items: 1
+    $(blocks).each(function() {
+      $(this).addClass('owl-carousel');
+      $(this).owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots:false,
+        items: 1
+      });
     });
-  });
 
-  $('.offers-section .col-right .tabs li').click(function() {
-    var offerClass = '.offersblock' + $(this).attr('class').replace('%', '');
-    $('.offers-section .col-right .tabs li').removeClass('active');
-    $(this).addClass('active');
-    $('.offers-section .col-right .inner-col > div').hide().removeClass('active');
-    $(offerClass).show().addClass('active');
-  });
+    $(tabs).click(function() {
+      var offerClass = secondClassBlock + $(this).attr('class').replace('%', '');
+      $(tabs).removeClass('active');
+      $(this).addClass('active');
+      $(blocks).hide().removeClass('active');
+      $(offerClass).show().addClass('active');
+    });
+  }
+
+  sliderWithFilterTabs('.offers-section .col-left .tabs li', '.offers-section .col-left .inner-col > div', '.offersblock');
+
+  sliderWithFilterTabs('.offers-section .col-right .tabs li', '.offers-section .col-right .inner-col > div', '.offersblock');
 
 });
 

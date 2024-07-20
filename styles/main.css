@@ -1222,6 +1222,7 @@ header .main-header .bottom nav ul li:hover {
   padding: 0 !important;
 }
 .offers-section .col-left .inner-col {
+  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 }
 .offers-section .col-left .inner-col .product-item .image {
