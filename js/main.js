@@ -120,6 +120,57 @@ $(document).ready(function(){
 });
 
 
+document.addEventListener("DOMContentLoaded", function() { // create divs according to class name
+  const productItems = Array.from(document.querySelectorAll('.product-item'));
+  const groupedProducts = {};
+
+  // Group products by their class names
+  productItems.forEach(productItem => {
+    const className = productItem.classList[1]; // Assumes 'product-item 20%' format
+    if (!groupedProducts[className]) {
+      groupedProducts[className] = [];
+    }
+    groupedProducts[className].push(productItem);
+  });
+
+  for (const [className, products] of Object.entries(groupedProducts)) { // Create the offersblock and items divs
+    if (products.length > 8) {
+      const offersBlock = document.createElement('div');
+      offersBlock.className = `offersblock offersblock${className.replace('%', '')}`;
+
+      let itemsBlock = document.createElement('div');
+      itemsBlock.className = 'items';
+      let itemCount = 0;
+
+      products.forEach((product, index) => {
+        itemsBlock.appendChild(product);
+        itemCount++;
+
+        if (itemCount === 8 || index === products.length - 1) {
+          offersBlock.appendChild(itemsBlock);
+          itemsBlock = document.createElement('div');
+          itemsBlock.className = 'items';
+          itemCount = 0;
+        }
+      });
+
+      document.body.appendChild(offersBlock);
+    } else {
+      // If the products are less than or equal to 8, you can handle them separately if needed
+      // Here, we assume they don't need to be wrapped in items div
+      const offersBlock = document.createElement('div');
+      offersBlock.className = `offersblock offersblock${className.replace('%', '')}`;
+
+      products.forEach(product => {
+        offersBlock.appendChild(product);
+      });
+
+      document.body.appendChild(offersBlock);
+    }
+  }
+});
+
+
 
 /**************
   SINGLE PAGE
