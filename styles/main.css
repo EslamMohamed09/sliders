@@ -1234,45 +1234,45 @@ header .main-header .bottom nav ul li:hover {
 /********************
  # Today Deal
 ********************/
-.today-deal-section .container {
+.today-deal-section .section-container {
   flex-wrap: wrap;
   padding: 0;
   border-radius: 0.5rem;
   background: radial-gradient(circle at 72% 60%, var(--gray7) 1%, var(--gray) 40%);
 }
-.today-deal-section .container .col-left {
+.today-deal-section .section-container .col-left {
   flex: 1 1 25rem;
   padding: 3rem;
 }
-.today-deal-section .container .col-left .content {
+.today-deal-section .section-container .col-left .content {
   gap: 0.5rem;
 }
-.today-deal-section .container .col-left .content span {
+.today-deal-section .section-container .col-left .content span {
   color: var(--orange-red1);
   font-size: 1.3rem;
   margin-bottom: 1rem;
 }
-.today-deal-section .container .col-left .content h3 {
+.today-deal-section .section-container .col-left .content h3 {
   color: var(--white);
   font-weight: normal;
 }
-.today-deal-section .container .col-left .content p {
+.today-deal-section .section-container .col-left .content p {
   color: var(--white);
   font-size: 1.35rem;
 }
-.today-deal-section .container .col-left .content .btn5 {
+.today-deal-section .section-container .col-left .content .btn5 {
   padding: 0.7rem 1.5rem;
   margin-top: 1rem;
 }
-.today-deal-section .container .col-left .content .btn5:hover {
+.today-deal-section .section-container .col-left .content .btn5:hover {
   color: var(--white);
 }
-.today-deal-section .container .col-right {
+.today-deal-section .section-container .col-right {
   flex: 1 1 25rem;
   padding: 2rem;
   height: 100%;
 }
-.today-deal-section .container .col-right .image img {
+.today-deal-section .section-container .col-right .image img {
   height: 10rem;
 }
 
@@ -1282,6 +1282,13 @@ header .main-header .bottom nav ul li:hover {
     background: radial-gradient(circle at 51% 25%, var(--gray7) 10%, var(--gray) 49%);
   }
 }
+/********************
+ # New Products
+********************/
+.new-products-section .product-card {
+  box-shadow: var(--box-shadow2);
+}
+
 /********************
  # single-page
 ********************/
