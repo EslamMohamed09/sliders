@@ -488,7 +488,7 @@ section {
   text-align: center;
   text-transform: uppercase;
   border-radius: 0.1rem;
-  color: var(--primary7);
+  color: var(--primary5);
   outline: none;
   border: 1px solid var(--yellow10);
   background: var(--yellow10);
@@ -496,7 +496,6 @@ section {
 }
 
 .btn5:hover {
-  color: var(--white);
   background: transparent;
 }
 
@@ -1034,11 +1033,11 @@ header .main-header .bottom nav ul li:hover {
   color: var(--gray4);
   text-transform: uppercase;
 }
-.promo-section .section-container .card-item .content .buy-btn {
+.promo-section .section-container .card-item .content .btn5 {
   margin-top: 0.8rem;
-  color: var(--yellow10);
   text-transform: uppercase;
   font-weight: bold;
+  padding: 0.5rem 1rem;
 }
 .promo-section .section-container .card-item .image {
   width: 40%;
@@ -1264,6 +1263,9 @@ header .main-header .bottom nav ul li:hover {
 .today-deal-section .container .col-left .content .btn5 {
   padding: 0.7rem 1.5rem;
   margin-top: 1rem;
+}
+.today-deal-section .container .col-left .content .btn5:hover {
+  color: var(--white);
 }
 .today-deal-section .container .col-right {
   flex: 1 1 25rem;

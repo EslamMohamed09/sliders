@@ -418,14 +418,13 @@ section {padding:2rem 7%;}
        text-align:center;
        text-transform:uppercase;
        border-radius:0.1rem;
-       color:var(--primary7);
+       color:var(--primary5);
        outline:none;
        border:1px solid var(--yellow10);
        background:var(--yellow10);
        box-shadow:var(--box-shadow-varient);}
 
-.btn5:hover {color:var(--white);
-             background:transparent}
+.btn5:hover {background:transparent}
 
 
 img {max-width:100%;
@@ -827,10 +826,10 @@ header {
              color:var(--gray4);
              text-transform:uppercase;}
           
-          .buy-btn {margin-top:0.8rem;
-                    color:var(--yellow10);
-                    text-transform:uppercase;
-                    font-weight:bold;}
+          .btn5 {margin-top:0.8rem;
+                 text-transform:uppercase;
+                 font-weight:bold;
+                 padding:0.5rem 1rem;}
         }
         .image {width:40%;}
 
@@ -1037,6 +1036,8 @@ header {
            font-size:1.35rem;}
         .btn5 {padding:0.7rem 1.5rem;
                margin-top:1rem;}
+
+        .btn5:hover {color:var(--white);}
       }
     }
 
