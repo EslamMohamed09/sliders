@@ -1391,6 +1391,15 @@ header .main-header .bottom nav ul li:hover {
 }
 
 /********************
+ # Brands
+********************/
+.brand-section img {
+  width: 11rem !important;
+  margin: 4rem auto;
+  cursor: pointer;
+}
+
+/********************
  # single-page
 ********************/
 #single-page .product-container {

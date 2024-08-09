@@ -123,6 +123,31 @@ $(document).ready(function(){
 
   sliderWithFilterTabs('.offers-section .col-right .tabs li', '.offers-section .col-right .inner-col > div', '.offersblock');
 
+  $('.brand-slider').owlCarousel({
+    loop:true,
+    nav:false,
+    dots:false,
+    items:5,
+    autoplay:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        400:{
+            items:2
+        },
+        550:{
+            items:3
+        },
+        700:{
+            items:4
+        },
+        1000:{
+            items:5
+        }
+    }
+  });
+
 });
 
 
