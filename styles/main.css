@@ -1400,6 +1400,130 @@ header .main-header .bottom nav ul li:hover {
 }
 
 /********************
+# Footer
+********************/
+footer {
+  background-color: var(--olive4);
+  padding: 1rem 0 0;
+}
+footer .footer-widget {
+  text-align: left;
+  background-color: transparent;
+}
+footer .footer-widget .h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--gray9);
+}
+footer .footer-widget p {
+  text-transform: capitalize;
+  color: var(--gray8);
+}
+footer .footer-widget p a {
+  color: var(--gray8);
+}
+footer .footer-widget .contacts .v-icon {
+  margin-right: 0.5rem;
+  color: var(--white);
+}
+footer .footer-widget .social {
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+  padding-left: 0.9rem;
+}
+footer .footer-widget .social li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .footer-widget .social li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0 !important;
+  border-radius: 50%;
+  font-size: 1rem;
+  background-color: var(--gray2);
+}
+footer .footer-widget .social li a .svg {
+  color: var(--white);
+  margin: 0 !important;
+}
+footer .footer-widget .social li a:hover {
+  background-color: var(--gray7);
+}
+footer .footer-widget .social li a.facebook:hover .svg {
+  color: var(--blue7);
+}
+footer .footer-widget .social li a.pinterest:hover .svg {
+  color: var(--orange-red1);
+}
+footer .footer-widget .social li a.instagram:hover .svg {
+  color: var(--primary-color1);
+}
+footer .footer-widget .social li a.linkedin:hover .svg {
+  color: var(--shin-blue5);
+}
+footer .footer-widget .social li a.youtube:hover .svg {
+  color: var(--orange-red1);
+}
+footer .corporations-image {
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  gap: 1.5rem;
+}
+footer .corporations-image img {
+  height: 1.9rem;
+}
+footer .bottom-footer {
+  background-color: var(--olive5);
+  padding: 1.3rem 0.9rem;
+}
+footer .bottom-footer .visa-cards {
+  gap: 1rem;
+}
+footer .bottom-footer .visa-cards img {
+  height: 2.4rem;
+}
+footer .bottom-footer p {
+  color: var(--gray8);
+  margin-bottom: 0.7rem;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  footer .corporations-image img {
+    margin-bottom: 1rem;
+    height: 1.5rem;
+  }
+  footer .bottom-footer .visa-cards {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  footer .bottom-footer .visa-cards img {
+    height: 2rem;
+  }
+}
+@media (max-width: 500px) {
+  footer .corporations-image img {
+    height: 1.2rem;
+  }
+  footer .bottom-footer .visa-cards img {
+    height: 1.7rem;
+  }
+}
+@media (max-width: 400px) {
+  footer .corporations-image img {
+    height: 1rem;
+  }
+  footer .bottom-footer .visa-cards img {
+    height: 1.5rem;
+  }
+}
+/********************
  # single-page
 ********************/
 #single-page .product-container {

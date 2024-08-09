@@ -1155,6 +1155,102 @@ header {
                     margin:4rem auto;
                     cursor:pointer;}
 
+/********************
+# Footer
+********************/
+footer {background-color:var(--olive4);
+        padding:1rem 0 0;
+
+  .footer-widget {text-align:left;
+                  background-color:transparent;
+
+    .h3 {text-transform:uppercase;
+                   font-weight:bold;
+                   color:var(--gray9);}
+
+    p {text-transform:capitalize;
+                  color:var(--gray8);
+      a {color:var(--gray8);}
+    }
+
+    .contacts {
+      .v-icon {margin-right:0.5rem;
+               color:var(--white);}
+    }
+
+    .social {gap:0.7rem;
+             margin-top:0.8rem;
+             padding-left:0.9rem;
+      li {display:flex;
+          justify-content:center;
+          align-items:center;
+
+        a {display:flex;
+           justify-content:center;
+           align-items:center;
+           text-align:center;
+           width:2.4rem;
+           height:2.4rem;
+           margin:0 !important;
+           border-radius:50%;
+           font-size:1rem;
+           background-color:var(--gray2);
+          .svg {color:var(--white);
+                margin:0 !important;}
+        }
+
+        a:hover {background-color:var(--gray7);}
+        a.facebook:hover .svg {color:var(--blue7);}
+        a.pinterest:hover .svg {color:var(--orange-red1);}
+        a.instagram:hover .svg {color:var(--primary-color1);}
+        a.linkedin:hover .svg {color:var(--shin-blue5);}
+        a.youtube:hover .svg {color:var(--orange-red1);}
+      }
+    }
+
+  }
+
+  .corporations-image {flex-wrap:wrap;
+                       padding:2rem 0;
+                       gap:1.5rem;
+    img {height:1.9rem;}
+  }
+
+  .bottom-footer {background-color:var(--olive5);
+                  padding:1.3rem 0.9rem;
+
+    .visa-cards {gap:1rem;
+      img {height:2.4rem;}
+    }
+
+    p {color:var(--gray8);
+       margin-bottom:0.7rem;
+       font-size:15px;}
+  }
+
+}
+
+@media(max-width:768px){
+  footer .corporations-image img {margin-bottom:1rem;
+                                  height:1.5rem;}
+
+  footer .bottom-footer .visa-cards {justify-content:center;
+                                     flex-wrap:wrap;}
+
+  footer .bottom-footer .visa-cards img {height:2rem;}
+}
+
+@media(max-width:500px){
+  footer .corporations-image img {height:1.2rem;}
+
+  footer .bottom-footer .visa-cards img {height:1.7rem;}
+}
+
+@media(max-width:400px){
+  footer .corporations-image img {height:1rem;}
+
+  footer .bottom-footer .visa-cards img {height:1.5rem;}
+}
 
 /********************
  # single-page
