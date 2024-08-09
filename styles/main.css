@@ -110,19 +110,20 @@
   --dark-blue3:#202733;
   --transparent-gray:rgba(201, 183, 183, 0.075);
   --transparent-gray2:rgba(214, 214, 214, 0.192);
-  --gray:#8d8d8d;
-  --gray:#222;
-  --gray1:#333;
-  --gray2:#444;
-  --gray3:#666;
-  --gray4:#777;
-  --gray5:#888;
-  --gray6:#999;
-  --gray7:#c9c9ca;
-  --gray8:#e5e5e7;
-  --gray9:#ebebee;
-  --gray10:#f0f0f8;
-  --gray11:#f2f2f7;
+  --light-gray:#8d8d8d;
+  --gray:#111;
+  --gray1:#222;
+  --gray2:#333;
+  --gray3:#444;
+  --gray4:#666;
+  --gray5:#777;
+  --gray6:#888;
+  --gray7:#999;
+  --gray8:#c9c9ca;
+  --gray9:#e5e5e7;
+  --gray10:#ebebee;
+  --gray11:#f0f0f8;
+  --gray12:#f2f2f7;
   --gray-yellow0:rgb(235, 236, 201);
   --gray-yellow:rgb(221, 223, 150);
   --gray-yellow1:rgb(214, 216, 125);
@@ -390,6 +391,7 @@ body {
 
 p {
   font-size: 1rem;
+  margin: 0;
 }
 
 section {
@@ -481,21 +483,21 @@ section {
 }
 
 .btn5 {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  border: none;
-  outline: none;
-  padding: 0.5rem 1rem;
+  border-radius: 0.1rem;
   color: var(--primary7);
-  box-shadow: var(--box-shadow-varient);
+  outline: none;
+  border: 1px solid var(--yellow10);
   background: var(--yellow10);
+  box-shadow: var(--box-shadow-varient);
 }
 
 .btn5:hover {
   color: var(--white);
-  background: var(--shin-orange);
+  background: transparent;
 }
 
 img {
@@ -1230,6 +1232,54 @@ header .main-header .bottom nav ul li:hover {
   height: 10rem;
 }
 
+/********************
+ # Today Deal
+********************/
+.today-deal-section .container {
+  flex-wrap: wrap;
+  padding: 0;
+  border-radius: 0.5rem;
+  background: radial-gradient(circle at 72% 60%, var(--gray7) 1%, var(--gray) 40%);
+}
+.today-deal-section .container .col-left {
+  flex: 1 1 25rem;
+  padding: 3rem;
+}
+.today-deal-section .container .col-left .content {
+  gap: 0.5rem;
+}
+.today-deal-section .container .col-left .content span {
+  color: var(--orange-red1);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.today-deal-section .container .col-left .content h3 {
+  color: var(--white);
+  font-weight: normal;
+}
+.today-deal-section .container .col-left .content p {
+  color: var(--white);
+  font-size: 1.35rem;
+}
+.today-deal-section .container .col-left .content .btn5 {
+  padding: 0.7rem 1.5rem;
+  margin-top: 1rem;
+}
+.today-deal-section .container .col-right {
+  flex: 1 1 25rem;
+  padding: 2rem;
+  height: 100%;
+}
+.today-deal-section .container .col-right .image img {
+  height: 10rem;
+}
+
+@media (max-width: 768px) {
+  .today-deal-section .container {
+    flex-direction: column-reverse;
+    background: radial-gradient(circle at 51% 25%, var(--gray7) 10%, var(--gray) 49%);
+  }
+}
 /********************
  # single-page
 ********************/
