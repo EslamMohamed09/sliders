@@ -1448,6 +1448,7 @@ footer .footer-container .footer-widget .social li {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: var(--white);
 }
 footer .footer-container .footer-widget .social li a {
   display: flex;
