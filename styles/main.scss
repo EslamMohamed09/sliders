@@ -77,6 +77,10 @@
        --green8:#00b135;
        --green9:#03912e;
        --green10:#017524;
+       --green11:#045a1e;
+       --green12:#044919;
+       --green13:#053a15;
+       --green14:#063113;
 
        --olive1:#027a7a;
        --olive2:#026b6b;
@@ -1158,76 +1162,80 @@ header {
 /********************
 # Footer
 ********************/
-footer {background-color:var(--olive4);
-        padding:1rem 0 0;
+footer {background:linear-gradient(to top,rgb(8, 51, 8), rgb(5, 94, 5) 60%);
+        background:radial-gradient(var(--green11), var(--green14));
+        padding:4rem 0 0;
 
-  .footer-widget {text-align:left;
-                  background-color:transparent;
+  .footer-container {width:93%;
+                     margin:0 auto;
 
-    .h3 {text-transform:uppercase;
-                   font-weight:bold;
-                   color:var(--gray9);}
-
-    p {text-transform:capitalize;
-                  color:var(--gray8);
-      a {color:var(--gray8);}
-    }
-
-    .contacts {
-      .v-icon {margin-right:0.5rem;
-               color:var(--white);}
-    }
-
-    .social {gap:0.7rem;
-             margin-top:0.8rem;
-             padding-left:0.9rem;
-      li {display:flex;
-          justify-content:center;
-          align-items:center;
-
-        a {display:flex;
-           justify-content:center;
-           align-items:center;
-           text-align:center;
-           width:2.4rem;
-           height:2.4rem;
-           margin:0 !important;
-           border-radius:50%;
-           font-size:1rem;
-           background-color:var(--gray2);
-          .svg {color:var(--white);
-                margin:0 !important;}
-        }
-
-        a:hover {background-color:var(--gray7);}
-        a.facebook:hover .svg {color:var(--blue7);}
-        a.pinterest:hover .svg {color:var(--orange-red1);}
-        a.instagram:hover .svg {color:var(--primary-color1);}
-        a.linkedin:hover .svg {color:var(--shin-blue5);}
-        a.youtube:hover .svg {color:var(--orange-red1);}
+    .footer-widget {text-align:left;
+                    background-color:transparent;
+      h2,
+      h4 {text-transform:uppercase;
+          font-weight:bold;
+          color:var(--white);
+          margin-bottom:2rem;}
+  
+      p {text-transform:capitalize;
+         color:var(--gray8);
+        a {color:var(--gray8);}
       }
+  
+      .contacts {
+        .v-icon {margin-right:0.5rem;
+                 color:var(--white);}
+      }
+  
+      .social {gap:0.7rem;
+               margin-top:0.8rem;
+               padding-left:0.9rem;
+        li {display:flex;
+            justify-content:center;
+            align-items:center;
+  
+          a {display:flex;
+             justify-content:center;
+             align-items:center;
+             text-align:center;
+             width:2.4rem;
+             height:2.4rem;
+             margin:0 !important;
+             border-radius:50%;
+             font-size:1rem;
+             background-color:var(--gray2);
+            .svg {color:var(--white);
+                  margin:0 !important;}
+          }
+  
+          a:hover {background-color:var(--gray7);}
+          a.facebook:hover .svg {color:var(--blue7);}
+          a.pinterest:hover .svg {color:var(--orange-red1);}
+          a.instagram:hover .svg {color:var(--primary-color1);}
+          a.linkedin:hover .svg {color:var(--shin-blue5);}
+          a.youtube:hover .svg {color:var(--orange-red1);}
+        }
+      }
+  
+    }
+
+    .bottom-footer {border-top:1px solid var(--white);
+                    padding:2rem 0;
+                    height:fit-content;
+
+      p {color:var(--gray9);
+         margin-bottom:0.7rem;
+         font-size:15px;}
+      
+      p:first-child {margin-right:0.9rem;}
     }
 
   }
-
+  
   .corporations-image {flex-wrap:wrap;
                        padding:2rem 0;
                        gap:1.5rem;
     img {height:1.9rem;}
-  }
-
-  .bottom-footer {width:90%;
-                  margin:0 auto;
-                  border-top:1px solid var(--white);
-                  padding:2rem 1.5rem;
-
-    .visa-cards {gap:1rem;
-      img {height:2.4rem;}
-    }
-
-    p {color:var(--gray9);
-       margin-bottom:0.7rem;
-       font-size:15px;}
   }
 
 }
