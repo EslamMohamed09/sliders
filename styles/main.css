@@ -78,6 +78,7 @@
   --green12:#044919;
   --green13:#053a15;
   --green14:#063113;
+  --green15:#05270f;
   --olive1:#027a7a;
   --olive2:#026b6b;
   --olive3:#015050;
@@ -1407,9 +1408,8 @@ header .main-header .bottom nav ul li:hover {
 # Footer
 ********************/
 footer {
-  background: linear-gradient(to top, rgb(8, 51, 8), rgb(5, 94, 5) 60%);
-  background: radial-gradient(var(--green11), var(--green14));
-  padding: 4rem 0 0;
+  background: radial-gradient(var(--green13), var(--green15));
+  padding: 5rem 0 0;
 }
 footer .footer-container {
   width: 93%;
@@ -1428,10 +1428,11 @@ footer .footer-container .footer-widget h4 {
 }
 footer .footer-container .footer-widget p {
   text-transform: capitalize;
-  color: var(--gray8);
+  font-size: 1.1rem;
+  color: var(--gray9);
 }
 footer .footer-container .footer-widget p a {
-  color: var(--gray8);
+  color: var(--gray9);
 }
 footer .footer-container .footer-widget .contacts .v-icon {
   margin-right: 0.5rem;
@@ -1444,6 +1445,7 @@ footer .footer-container .footer-widget .social {
 }
 footer .footer-container .footer-widget .social li {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -1484,6 +1486,7 @@ footer .footer-container .footer-widget .social li a.youtube:hover .svg {
 footer .footer-container .bottom-footer {
   border-top: 1px solid var(--white);
   padding: 2rem 0;
+  margin-top: 6rem;
   height: fit-content;
 }
 footer .footer-container .bottom-footer p {
@@ -1494,12 +1497,11 @@ footer .footer-container .bottom-footer p {
 footer .footer-container .bottom-footer p:first-child {
   margin-right: 0.9rem;
 }
-footer .corporations-image {
+footer .footer-container .bottom-footer .corporations-image {
   flex-wrap: wrap;
-  padding: 2rem 0;
   gap: 1.5rem;
 }
-footer .corporations-image img {
+footer .footer-container .bottom-footer .corporations-image img {
   height: 1.9rem;
 }
 
