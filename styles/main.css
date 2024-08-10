@@ -1479,9 +1479,10 @@ footer .corporations-image img {
   height: 1.9rem;
 }
 footer .bottom-footer {
-  background-color: var(--olive5);
+  width: 90%;
+  margin: 0 auto;
   border-top: 1px solid var(--white);
-  padding: 0.9rem;
+  padding: 2rem 1.5rem;
 }
 footer .bottom-footer .visa-cards {
   gap: 1rem;
@@ -1490,7 +1491,7 @@ footer .bottom-footer .visa-cards img {
   height: 2.4rem;
 }
 footer .bottom-footer p {
-  color: var(--gray8);
+  color: var(--gray9);
   margin-bottom: 0.7rem;
   font-size: 15px;
 }

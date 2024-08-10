@@ -1216,15 +1216,16 @@ footer {background-color:var(--olive4);
     img {height:1.9rem;}
   }
 
-  .bottom-footer {background-color:var(--olive5);
+  .bottom-footer {width:90%;
+                  margin:0 auto;
                   border-top:1px solid var(--white);
-                  padding:0.9rem;
+                  padding:2rem 1.5rem;
 
     .visa-cards {gap:1rem;
       img {height:2.4rem;}
     }
 
-    p {color:var(--gray8);
+    p {color:var(--gray9);
        margin-bottom:0.7rem;
        font-size:15px;}
   }
