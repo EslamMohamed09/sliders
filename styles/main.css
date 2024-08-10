@@ -1480,7 +1480,8 @@ footer .corporations-image img {
 }
 footer .bottom-footer {
   background-color: var(--olive5);
-  padding: 1.3rem 0.9rem;
+  border-top: 1px solid var(--white);
+  padding: 0.9rem;
 }
 footer .bottom-footer .visa-cards {
   gap: 1rem;

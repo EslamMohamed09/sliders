@@ -1217,7 +1217,8 @@ footer {background-color:var(--olive4);
   }
 
   .bottom-footer {background-color:var(--olive5);
-                  padding:1.3rem 0.9rem;
+                  border-top:1px solid var(--white);
+                  padding:0.9rem;
 
     .visa-cards {gap:1rem;
       img {height:2.4rem;}
