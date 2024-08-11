@@ -1399,7 +1399,8 @@ header .main-header .bottom nav ul li:hover {
  # Brands
 ********************/
 .brand-section img {
-  width: 11rem !important;
+  width: 9rem !important;
+  height: 4rem !important;
   margin: 4rem auto;
   cursor: pointer;
 }
@@ -1413,7 +1414,7 @@ footer {
 }
 footer .footer-container {
   width: 93%;
-  margin: 0 auto;
+  margin: 0 auto !important;
 }
 footer .footer-container .footer-widget {
   text-align: left;
@@ -1507,6 +1508,11 @@ footer .footer-container .bottom-footer .corporations-image img {
   height: 1.9rem;
 }
 
+@media (min-width: 768px) and (max-width: 1000px) {
+  footer .footer-container {
+    width: 97%;
+  }
+}
 @media (max-width: 768px) {
   footer .footer-widget {
     margin-bottom: 3rem;
