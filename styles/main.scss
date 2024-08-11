@@ -1166,29 +1166,31 @@ header {
 ********************/
 // background:linear-gradient(to top, var(--green15), var(--green14) 50%, var(--green15) 100%);
 
-footer {background-color:var(--olive4);
-        padding:1rem 0 0;
+footer {background:linear-gradient(to top, var(--green15), var(--green14) 50%, var(--green15) 100%);
+        padding:4rem 0 0;
 
-  .v-card {text-align:left;
-           background-color:transparent;
+  .footer-widget {text-align:left;
+                  background-color:transparent;
 
-    h3 {text-transform:uppercase;
-                   font-weight:bold;
-                   color:var(--gray9);}
+    h4 {text-transform:uppercase;
+        margin-bottom:1.5rem;
+        font-weight:bold;
+        color:var(--gray9);}
 
     p {text-transform:capitalize;
-                  color:var(--gray8);
+       color:var(--gray8);
+       padding:0.5rem 0;
       a {color:var(--gray8);}
     }
 
-    .contacts {
+    .contacts {margin-top:1.5rem;
       svg {margin-right:0.5rem;
            color:var(--white);}
     }
 
     .social {gap:0.7rem;
              margin-top:0.8rem;
-             padding-left:0.9rem;
+             padding-left:0;
       li {display:flex;
           justify-content:center;
           align-items:center;
@@ -1218,14 +1220,9 @@ footer {background-color:var(--olive4);
 
   }
 
-  .corporations-image {flex-wrap:wrap;
-                       padding:2rem 0;
-                       gap:1.5rem;
-    img {height:1.9rem;}
-  }
-
-  .bottom-footer {background-color:var(--olive5);
+  .bottom-footer {background-color:var(--green15);
                   padding:1.3rem 0.9rem;
+                  margin-top:5rem;
 
     .visa-cards {gap:1rem;
       img {height:2.4rem;}
@@ -1239,6 +1236,10 @@ footer {background-color:var(--olive4);
 }
 
 @media(max-width:768px){
+  footer {padding-left:1%;}
+
+  footer .footer-widget {margin-bottom:2rem;}
+
   footer .corporations-image img {margin-bottom:1rem;
                                   height:1.5rem;}
 

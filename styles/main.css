@@ -1409,40 +1409,45 @@ header .main-header .bottom nav ul li:hover {
 # Footer
 ********************/
 footer {
-  background-color: var(--olive4);
-  padding: 1rem 0 0;
+  background: linear-gradient(to top, var(--green15), var(--green14) 50%, var(--green15) 100%);
+  padding: 4rem 0 0;
 }
-footer .v-card {
+footer .footer-widget {
   text-align: left;
   background-color: transparent;
 }
-footer .v-card h3 {
+footer .footer-widget h4 {
   text-transform: uppercase;
+  margin-bottom: 1.5rem;
   font-weight: bold;
   color: var(--gray9);
 }
-footer .v-card p {
+footer .footer-widget p {
   text-transform: capitalize;
   color: var(--gray8);
+  padding: 0.5rem 0;
 }
-footer .v-card p a {
+footer .footer-widget p a {
   color: var(--gray8);
 }
-footer .v-card .contacts svg {
+footer .footer-widget .contacts {
+  margin-top: 1.5rem;
+}
+footer .footer-widget .contacts svg {
   margin-right: 0.5rem;
   color: var(--white);
 }
-footer .v-card .social {
+footer .footer-widget .social {
   gap: 0.7rem;
   margin-top: 0.8rem;
-  padding-left: 0.9rem;
+  padding-left: 0;
 }
-footer .v-card .social li {
+footer .footer-widget .social li {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-footer .v-card .social li a {
+footer .footer-widget .social li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1454,39 +1459,32 @@ footer .v-card .social li a {
   font-size: 1rem;
   background-color: var(--gray2);
 }
-footer .v-card .social li a svg {
+footer .footer-widget .social li a svg {
   color: var(--white);
   margin: 0 !important;
 }
-footer .v-card .social li a:hover {
+footer .footer-widget .social li a:hover {
   background-color: var(--gray7);
 }
-footer .v-card .social li a.facebook:hover svg {
+footer .footer-widget .social li a.facebook:hover svg {
   color: var(--blue7);
 }
-footer .v-card .social li a.pinterest:hover svg {
+footer .footer-widget .social li a.pinterest:hover svg {
   color: var(--orange-red1);
 }
-footer .v-card .social li a.instagram:hover svg {
+footer .footer-widget .social li a.instagram:hover svg {
   color: var(--primary-color1);
 }
-footer .v-card .social li a.linkedin:hover svg {
+footer .footer-widget .social li a.linkedin:hover svg {
   color: var(--shin-blue5);
 }
-footer .v-card .social li a.youtube:hover svg {
+footer .footer-widget .social li a.youtube:hover svg {
   color: var(--orange-red1);
 }
-footer .corporations-image {
-  flex-wrap: wrap;
-  padding: 2rem 0;
-  gap: 1.5rem;
-}
-footer .corporations-image img {
-  height: 1.9rem;
-}
 footer .bottom-footer {
-  background-color: var(--olive5);
+  background-color: var(--green15);
   padding: 1.3rem 0.9rem;
+  margin-top: 5rem;
 }
 footer .bottom-footer .visa-cards {
   gap: 1rem;
@@ -1501,6 +1499,12 @@ footer .bottom-footer p {
 }
 
 @media (max-width: 768px) {
+  footer {
+    padding-left: 1%;
+  }
+  footer .footer-widget {
+    margin-bottom: 2rem;
+  }
   footer .corporations-image img {
     margin-bottom: 1rem;
     height: 1.5rem;
