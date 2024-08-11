@@ -1659,77 +1659,58 @@
 </section>
 
 <footer>
-  <div class="footer-container">
+  <div class="container">
     <div class="row">
-
-      <div class="col-lg-3 col-md-2 col-sm-6 col-xs-12">
-        <div class="footer-widget">
-          <h2>ecommerce</h2>
-        </div>
+      <div class="col-md-3 col-sm-6 col-xs-12" md="3" sm="6" cols="12">
+        <v-card elevation="0">
+          <h3>shop</h3>
+          <!-- <p v-for="category in categories" :key="category.title">
+            <nuxt-link to="/">{{ category.title }}</nuxt-link>
+          </p>           -->
+        </v-card>
       </div>
-
-      <div class="col-lg-9 col-md-10 col-sm-12 col-xs-12">
-
-        <div class="row">
-
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="footer-widget">
-              <h4>further info</h4>
-              <p class="py-2">about</p>
-              <p class="py-2">customer service</p>
-              <p class="py-2">reward program</p>
-              <p class="py-2">shipping & returns</p>
-              <p class="py-2">privacy policy</p>
-              <p class="py-2">terms & conditions</p>
-              <p class="py-2">blog</p>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="footer-widget">
-              <h4>customer service</h4>
-              <p class="py-2">search terms</p>
-              <p class="py-2">advanced search</p>
-              <p class="py-2">orders & returns</p>
-              <p class="py-2">contact us</p>
-              <p class="py-2">Theme FAQs</p>
-              <p class="py-2">consultant</p>
-              <p class="py-2">store locations</p>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="footer-widget">
-              <h4>categories</h4>
-              <p class="py-2">electronics</p>
-              <p class="py-2">women shoes</p>
-              <p class="py-2">phones</p>
-              <p class="py-2">men's sweatshirt</p>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="footer-widget">
-              <h4>social</h4>
-              <ul class="social d-flex-c-st-st">
-                <li><a href="#" class="facebook"><i class="fab fa-facebook" id="facebook"></i><span>facebook</span></a></li>
-                <li><a href="#" class="pinterest"><i class="fab fa-pinterest" id="pinterest"></i><span>pinterest</span></a></li>
-                <li><a href="#" class="instagram"><i class="fab fa-instagram" id="instagram"></i><span>instagram</span></a></li>
-                <li><a href="#" class="linkedin"><i class="fab fa-linkedin-in" id="linkedin"></i><span>linkedin</span></a></li>
-                <li><a href="#" class="youtube"><i class="fab fa-youtube" id="youtube"></i><span>youtube</span></a></li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <v-card elevation="0">
+          <h3>further info</h3>
+          <p class="py-2">about</p>
+          <p class="py-2">customer service</p>
+          <p class="py-2">reward program</p>
+          <p class="py-2">shipping & returns</p>
+          <p class="py-2">privacy policy</p>
+          <p class="py-2">terms & conditions</p>
+          <p class="py-2">blog</p>
+        </v-card>
       </div>
-
-      <div class="bottom-footer col-md-12 d-flex-r-bt-c">
-        <div class="copy-right d-flex-r-st-st">
-          <p>ecommerce</p>
-          <p>&copy; <span id="current-year"></span> all rights reserved powered by ecommerce</p>
-        </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <v-card elevation="0">
+          <h3>customer service</h3>
+          <p class="py-2">search terms</p>
+          <p class="py-2">advanced search</p>
+          <p class="py-2">orders & returns</p>
+          <p class="py-2">contact us</p>
+          <p class="py-2">Theme FAQs</p>
+          <p class="py-2">consultant</p>
+          <p class="py-2">store locations</p>
+        </v-card>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12>
+        <v-card elevation="0">
+          <img src="/images/brand/brand6.png" alt="">
+          <div class="contacts">
+            <p class="py-2"><v-icon>mdi-map-marker</v-icon> united states, los angelos</p>
+            <p class="py-2"><v-icon>mdi-phone</v-icon>call us at (489) 832-98430</p>
+            <p class="py-2"><v-icon>mdi-email</v-icon>example@domain.com</p>
+          </div>
+          <ul class="social d-flex flex-row justify-start align-center">
+            <li><nuxt-link to="#" class="facebook"><v-icon>mdi-facebook</v-icon></nuxt-link></li>
+            <li><nuxt-link to="#" class="pinterest"><v-icon>mdi-pinterest</v-icon></nuxt-link></li>
+            <li><nuxt-link to="#" class="instagram"><v-icon>mdi-instagram</v-icon></nuxt-link></li>
+            <li><nuxt-link to="#" class="linkedin"><v-icon>mdi-linkedin</v-icon></nuxt-link></li>
+            <li><nuxt-link to="#" class="youtube"><v-icon>mdi-twitter</v-icon></nuxt-link></li>
+          </ul>
+        </v-card>
+      </div>
+      <div class="col-md-12">
         <div class="corporations-image d-flex-r-c-c">
           <img src="images/norton.png" alt="">
           <img src="images/TRUSTe.jpg" alt="">
@@ -1739,9 +1720,26 @@
           <img src="images/accredited.png" alt="">
         </div>
       </div>
-
-    </div> <!-- End row -->
-  </div> <!-- End footer-container -->
+    </div>
+  </div>
+  <div fluid class="bottom-footer">
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <p><span id="current-year"></span> arty. all rights reserved powered by arty</p>
+        <p>arty themes by arty.com</p>
+      </div>
+      <div class="col-sm-6 col-xs-12">
+        <div class="visa-cards d-flex-r-end-c">
+          <img src="images/norton.png" alt="">
+          <img src="images/TRUSTe.jpg" alt="">
+          <img src="images/authorizenet.png" alt="">
+          <img src="images/visa.png" alt="">
+          <img src="images/mastercard.png" alt="">
+          <img src="images/accredited.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script src="js/jquery-3.5.1.min.js"></script>

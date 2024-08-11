@@ -1164,108 +1164,83 @@ header {
 /********************
 # Footer
 ********************/
-footer {background:radial-gradient(var(--green13), var(--green15));
-        padding:5rem 0 0;
+// background:linear-gradient(to top, var(--green15), var(--green14) 50%, var(--green15) 100%);
 
-  .footer-container {width:93%;
-                     margin:0 auto !important;
+footer {background-color:var(--olive4);
+        padding:1rem 0 0;
 
-    .footer-widget {text-align:left;
-                    background-color:transparent;
-      h2,
-      h4 {text-transform:uppercase;
-          font-weight:bold;
-          color:var(--white);
-          margin-bottom:2rem;}
-  
-      p {text-transform:capitalize;
-         font-size:1.2rem;
-         color:var(--gray9);
-        a {color:var(--gray9);}
-      }
-  
-      .contacts {
-        .v-icon {margin-right:0.5rem;
-                 color:var(--white);}
-      }
-  
-      .social {gap:1rem;
-               margin-top:0.8rem;
-               padding-left:0;
-        li {display:flex;
-            flex-direction:row;
-            justify-content:center;
-            align-items:center;
-            color:var(--white);
-  
-          a {display:flex;
-             justify-content:center;
-             align-items:center;
-             text-align:center;
-             gap:1rem;
-             margin:0 !important;
-             font-size:1rem;
-             
-            svg {width:1.6rem;
-                 height:1.6rem;
-                 border-radius:50%;
-                 color:var(--white);
-                 margin:0 !important;}
+  .v-card {text-align:left;
+           background-color:transparent;
 
-            span {color:var(--gray9);
-                  font-size:1.2rem;}
-          }
-  
-          a.facebook:hover svg {color:var(--blue7);}
-          a.pinterest:hover svg {color:var(--orange-red1);}
-          a.instagram:hover svg {color:var(--red8);}
-          a.linkedin:hover svg {color:var(--shin-blue5);}
-          a.youtube:hover svg {color:var(--orange-red1);}
-        }
-      }
-  
+    h3 {text-transform:uppercase;
+                   font-weight:bold;
+                   color:var(--gray9);}
+
+    p {text-transform:capitalize;
+                  color:var(--gray8);
+      a {color:var(--gray8);}
     }
 
-    .bottom-footer {border-top:1px solid var(--white);
-                    padding:2rem 0;
-                    margin-top:6rem;
-                    height:fit-content;
+    .contacts {
+      svg {margin-right:0.5rem;
+           color:var(--white);}
+    }
 
-      .copy-right {gap:2rem;
+    .social {gap:0.7rem;
+             margin-top:0.8rem;
+             padding-left:0.9rem;
+      li {display:flex;
+          justify-content:center;
+          align-items:center;
 
-        p {color:var(--gray9);
-           margin-bottom:0.7rem;
-           font-size:15px;}
+        a {display:flex;
+           justify-content:center;
+           align-items:center;
+           text-align:center;
+           width:2.4rem;
+           height:2.4rem;
+           margin:0 !important;
+           border-radius:50%;
+           font-size:1rem;
+           background-color:var(--gray2);
+          svg {color:var(--white);
+               margin:0 !important;}
+        }
 
-      }
-      .corporations-image {flex-wrap:wrap;
-                           gap:1.5rem;
-        img {height:1.9rem;}
+        a:hover {background-color:var(--gray7);}
+        a.facebook:hover svg {color:var(--blue7);}
+        a.pinterest:hover svg {color:var(--orange-red1);}
+        a.instagram:hover svg {color:var(--primary-color1);}
+        a.linkedin:hover svg {color:var(--shin-blue5);}
+        a.youtube:hover svg {color:var(--orange-red1);}
       }
     }
 
   }
 
-}
+  .corporations-image {flex-wrap:wrap;
+                       padding:2rem 0;
+                       gap:1.5rem;
+    img {height:1.9rem;}
+  }
 
-@media (min-width:768px) and (max-width:1000px){
-  footer .footer-container {width:97%;}
+  .bottom-footer {background-color:var(--olive5);
+                  padding:1.3rem 0.9rem;
+
+    .visa-cards {gap:1rem;
+      img {height:2.4rem;}
+    }
+
+    p {color:var(--gray8);
+       margin-bottom:0.7rem;
+       font-size:15px;}
+  }
+
 }
 
 @media(max-width:768px){
-
-  footer .footer-widget {margin-bottom:3rem;}
-
-  footer .footer-widget h2, 
-  footer .footer-widget h4 {margin-bottom:1.3rem !important;}
-
   footer .corporations-image img {margin-bottom:1rem;
                                   height:1.5rem;}
-
-  footer .bottom-footer .copy-right {flex-direction:column;
-                                     gap:0.5rem !important;}
-
-  footer .bottom-footer .copy-right p:nth-child(2) {font-size:1rem;}
 
   footer .bottom-footer .visa-cards {justify-content:center;
                                      flex-wrap:wrap;}
@@ -1275,10 +1250,14 @@ footer {background:radial-gradient(var(--green13), var(--green15));
 
 @media(max-width:500px){
   footer .corporations-image img {height:1.2rem;}
+
+  footer .bottom-footer .visa-cards img {height:1.7rem;}
 }
 
 @media(max-width:400px){
   footer .corporations-image img {height:1rem;}
+
+  footer .bottom-footer .visa-cards img {height:1.5rem;}
 }
 
 /********************
