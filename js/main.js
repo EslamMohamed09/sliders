@@ -124,11 +124,13 @@ $(document).ready(function(){
   sliderWithFilterTabs('.offers-section .col-right .tabs li', '.offers-section .col-right .inner-col > div', '.offersblock');
 
   $('.brand-slider').owlCarousel({
+    autoplay:true,
     loop:true,
     nav:false,
     dots:false,
     items:5,
-    autoplay:true,
+    smartSpeed:1000,
+    autoplayTimeout:7000,
     responsive:{
         0:{
             items:1
