@@ -543,6 +543,7 @@ header {
     .bottom {padding:0 3rem;
       nav {
         ul {gap:0.5rem;
+            list-style:none;
           li {padding:0.5rem 0.7rem;
             a {color:var(--white);
                text-transform:capitalize;}
@@ -624,207 +625,209 @@ header {
 ********************/
 .banner-section {position:relative;
                  padding-right:2%;
-                 background:radial-gradient(var(--gray9), var(--gray6));}
+                 background:radial-gradient(var(--gray9), var(--gray6));
 
-.banner-section .banner-slide-item {width:100%;
-                                    flex-wrap:wrap;}
+    .banner-slide-item {width:100%;
+                        flex-wrap:wrap;
 
-.banner-section .banner-slide-item .col-left {flex:1 1 20rem;}
+      .col-left {flex:1 1 20rem;}
 
-.banner-section .banner-slide-item .col-left .semi-title {font-size:0.9rem;
-                                                          color:var(--pink);
-                                                          font-weight:550;
-                                                          text-transform:capitalize;}
+      .col-left .semi-title {font-size:0.9rem;
+                             color:var(--pink);
+                             font-weight:550;
+                             text-transform:capitalize;}
 
-.banner-section .banner-slide-item .col-left .semi-title svg {margin-right:0.2rem;}
+      .col-left .semi-title svg {margin-right:0.2rem;}
 
-.banner-section .banner-slide-item .col-left p {margin-bottom:0.9rem;
-                                                width:50%;}
+      .col-left p {margin-bottom:0.9rem;
+                   width:50%;}
 
-.banner-section .banner-slide-item .col-left button {padding:0.4rem 0.9rem 0.4rem 1.3rem;}
+      .col-left button {padding:0.4rem 0.9rem 0.4rem 1.3rem;}
 
-.banner-section .banner-slide-item .col-left button svg {margin-left:0.5rem;}
+      .col-left button svg {margin-left:0.5rem;}
+    
+      /* Animation */
+      :first-child .col-left .semi-title {animation:movebottom 0.5s linear;}
+      :first-child .col-left h2 {animation:movebottom 0.5s linear;}
+      :first-child .col-left p {animation:moveleft 0.5s linear;}
+      :first-child .col-left button {animation:movetop 0.5s linear;}
+  
+      :nth-child(2) .col-left .semi-title {animation:movebottom 0.5s linear;}
+      :nth-child(2) .col-left h2 {animation:movebottom 0.5s linear;}
+      :nth-child(2) .col-left p {animation:moveright 0.5s linear;}
+      :nth-child(2) .col-left button {animation:movetop 0.5s linear;}
+ 
+      :nth-child(3) .col-left .semi-title {animation:movebottom 0.5s linear;}
+      :nth-child(3) .col-left h2 {animation:moveleft 0.5s linear;}
+      :nth-child(3) .col-left p {animation:moveright 0.5s linear;}
+      :nth-child(3) .col-left button {animation:movetop 0.5s linear;}
+ 
+      :nth-child(4) .col-left .semi-title {animation:movebottom 0.5s linear;}
+      :nth-child(4) .col-left h2 {animation:moveright 0.5s linear;}
+      :nth-child(4) .col-left p {animation:moveleft 0.5s linear;}
+      :nth-child(4) .col-left button {animation:movetop 0.5s linear;}
+ 
+      :nth-child(5) .col-left .semi-title {animation:movebottom 0.5s linear 1s backwards;}
+      :nth-child(5) .col-left h2 {animation:moveleft 0.5s linear 1s backwards;}
+      :nth-child(5) .col-left p {animation:moveright 0.5s linear 1s backwards;}
+      :nth-child(5) .col-left button {animation:movetop 0.5s linear 1s backwards;}
+ 
+      :nth-child(6) .col-left .semi-title {animation:movebottom 0.5s linear 1s backwards;}
+      :nth-child(6) .col-left h2 {animation:moveright 0.5s linear 1s backwards;}
+      :nth-child(6) .col-left p {animation:moveleft 0.5s linear 1s backwards;}
+      :nth-child(6) .col-left button {animation:movetop 0.5s linear 1s backwards;}
+    }
 
-/* Animation */
-.banner-section .banner-slide-item:first-child .col-left .semi-title {animation:movebottom 0.5s linear;}
-.banner-section .banner-slide-item:first-child .col-left h2 {animation:movebottom 0.5s linear;}
-.banner-section .banner-slide-item:first-child .col-left p {animation:moveleft 0.5s linear;}
-.banner-section .banner-slide-item:first-child .col-left button {animation:movetop 0.5s linear;}
+    @keyframes movebottom {
+          0% {
+              opacity:0;
+              transform:translateY(-100px);
+          }
+    
+          100% {
+                opacity:1;
+                transform:translateY(0px);
+          }
+    }
 
-.banner-section .banner-slide-item:nth-child(2) .col-left .semi-title {animation:movebottom 0.5s linear;}
-.banner-section .banner-slide-item:nth-child(2) .col-left h2 {animation:movebottom 0.5s linear;}
-.banner-section .banner-slide-item:nth-child(2) .col-left p {animation:moveright 0.5s linear;}
-.banner-section .banner-slide-item:nth-child(2) .col-left button {animation:movetop 0.5s linear;}
+    @keyframes movetop {
+          0% {
+              opacity:0;
+              transform:translateY(100px);
+          }
+        
+          100% {
+                opacity:1;
+                transform:translateY(0px);
+          }
+    }
 
-.banner-section .banner-slide-item:nth-child(3) .col-left .semi-title {animation:movebottom 0.5s linear;}
-.banner-section .banner-slide-item:nth-child(3) .col-left h2 {animation:moveleft 0.5s linear;}
-.banner-section .banner-slide-item:nth-child(3) .col-left p {animation:moveright 0.5s linear;}
-.banner-section .banner-slide-item:nth-child(3) .col-left button {animation:movetop 0.5s linear;}
-
-.banner-section .banner-slide-item:nth-child(4) .col-left .semi-title {animation:movebottom 0.5s linear;}
-.banner-section .banner-slide-item:nth-child(4) .col-left h2 {animation:moveright 0.5s linear;}
-.banner-section .banner-slide-item:nth-child(4) .col-left p {animation:moveleft 0.5s linear;}
-.banner-section .banner-slide-item:nth-child(4) .col-left button {animation:movetop 0.5s linear;}
-
-.banner-section .banner-slide-item:nth-child(5) .col-left .semi-title {animation:movebottom 0.5s linear 1s backwards;}
-.banner-section .banner-slide-item:nth-child(5) .col-left h2 {animation:moveleft 0.5s linear 1s backwards;}
-.banner-section .banner-slide-item:nth-child(5) .col-left p {animation:moveright 0.5s linear 1s backwards;}
-.banner-section .banner-slide-item:nth-child(5) .col-left button {animation:movetop 0.5s linear 1s backwards;}
-
-.banner-section .banner-slide-item:nth-child(6) .col-left .semi-title {animation:movebottom 0.5s linear 1s backwards;}
-.banner-section .banner-slide-item:nth-child(6) .col-left h2 {animation:moveright 0.5s linear 1s backwards;}
-.banner-section .banner-slide-item:nth-child(6) .col-left p {animation:moveleft 0.5s linear 1s backwards;}
-.banner-section .banner-slide-item:nth-child(6) .col-left button {animation:movetop 0.5s linear 1s backwards;}
-
-@keyframes movebottom {
+    @keyframes moveleft {
       0% {
           opacity:0;
-          transform:translateY(-100px);
-      }
-
-      100% {
-            opacity:1;
-            transform:translateY(0px);
-      }
-}
-
-@keyframes movetop {
-      0% {
-          opacity:0;
-          transform:translateY(100px);
+          transform:translateX(-100px);
       }
     
       100% {
             opacity:1;
             transform:translateY(0px);
       }
+    }
+
+    @keyframes moveright {
+      0% {
+          opacity:0;
+          transform:translateX(100px);
+      }
+    
+      100% {
+            opacity:1;
+            transform:translateY(0px);
+      }
+    }
+
+    .banner-slide-item {
+      .col-right {flex:1 1 20rem;
+                  position:relative;
+                  z-index:0;}
+
+      .col-right img {width:50%;}
+    
+
+      /* animation */
+      :first-child .col-right img {animation:showimg 0.3s linear;}
+      :nth-child(2) .col-right img {animation:showimg 0.3s linear;}
+      :nth-child(3) .col-right img {animation:scaleimg 0.5s linear;}
+      :nth-child(4) .col-right img {animation:scaleimg 0.5s linear;}
+      :nth-child(5) .col-right img {animation:rotateyimg 0.8s linear;}
+      :nth-child(6) .col-right img {animation:rotateimg 0.8s linear;}
+    }
+
+    @keyframes showimg {
+      0%{
+          opacity:0;
+      }
+      100%{
+          opacity:1;
+      }
+    }
+
+    @keyframes scaleimg {
+      0%{
+          transform:scale(0);
+      }
+      50%{
+          transform:scale(0.5);
+      }
+      100%{
+           transform:scale(1);
+      }
+    }
+
+    @keyframes rotateyimg {
+      0%{
+            transform:rotateY(180deg);
+      }
+      100%{
+            transform:rotate(0deg);
+      }
+    }
+
+    @keyframes rotateimg {
+      0%{
+          transform:rotate(180deg);
+      }
+      50%{
+          transform:rotate(90deg);
+      }
+      100%{
+           transform:rotate(0deg);
+    
+      }
+    }
+
+    #prev,
+    #next {position:absolute;
+           top:50%;
+           transform:translateY(-50%);
+           font-size:1rem;
+           width:2.8rem;
+           height:2.8rem;
+           padding:0.8rem;
+           border-radius:50%;
+           cursor:pointer;
+           text-align:center;
+           color:var(--white);
+           border:1px solid var(--gray5);
+           background-color:var(--gray5);
+           z-index:100;
+           opacity:0;
+           transition:all 0.3s linear;}
+
+    #prev {left:-1rem;}
+
+    #next {right:-1rem;}
+
+    :hover #prev {left:1%;
+                  opacity:1;}
+
+    :hover #next {right:1%;
+                  opacity:1;}
+
+    #prev:hover {background-color:transparent;}
+
+    #next:hover {background-color:transparent;}
+
 }
-
-@keyframes moveleft {
-  0% {
-      opacity:0;
-      transform:translateX(-100px);
-  }
-
-  100% {
-        opacity:1;
-        transform:translateY(0px);
-  }
-}
-
-@keyframes moveright {
-  0% {
-      opacity:0;
-      transform:translateX(100px);
-  }
-
-  100% {
-        opacity:1;
-        transform:translateY(0px);
-  }
-}
-
-.banner-section .banner-slide-item .col-right {flex:1 1 20rem;
-                                               position:relative;
-                                               z-index:0;}
-
-.banner-section .banner-slide-item .col-right img {width:50%;}
-
-/* animation */
-.banner-section .banner-slide-item:first-child .col-right img {animation:showimg 0.3s linear;}
-.banner-section .banner-slide-item:nth-child(2) .col-right img {animation:showimg 0.3s linear;}
-.banner-section .banner-slide-item:nth-child(3) .col-right img {animation:scaleimg 0.5s linear;}
-.banner-section .banner-slide-item:nth-child(4) .col-right img {animation:scaleimg 0.5s linear;}
-.banner-section .banner-slide-item:nth-child(5) .col-right img {animation:rotateyimg 0.8s linear;}
-.banner-section .banner-slide-item:nth-child(6) .col-right img {animation:rotateimg 0.8s linear;}
-
-@keyframes showimg {
-  0%{
-      opacity:0;
-  }
-  100%{
-      opacity:1;
-  }
-}
-
-@keyframes scaleimg {
-  0%{
-      transform:scale(0);
-  }
-  50%{
-      transform:scale(0.5);
-  }
-  100%{
-       transform:scale(1);
-  }
-}
-
-@keyframes rotateyimg {
-  0%{
-        transform:rotateY(180deg);
-  }
-  100%{
-        transform:rotate(0deg);
-  }
-}
-
-@keyframes rotateimg {
-  0%{
-      transform:rotate(180deg);
-  }
-  50%{
-      transform:rotate(90deg);
-  }
-  100%{
-       transform:rotate(0deg);
-
-  }
-}
-
-.banner-section #prev,
-.banner-section #next  {position:absolute;
-                        top:50%;
-                        transform:translateY(-50%);
-                        font-size:1rem;
-                        width:2.8rem;
-                        height:2.8rem;
-                        padding:0.8rem;
-                        border-radius:50%;
-                        cursor:pointer;
-                        text-align:center;
-                        color:var(--white);
-                        border:1px solid var(--gray5);
-                        background-color:var(--gray5);
-                        z-index:100;
-                        opacity:0;
-                        transition:all 0.3s linear;}
-
-.banner-section #prev {left:-1rem;}
-
-.banner-section #next {right:-1rem;}
-
-.banner-section:hover #prev {left:1%;
-                             opacity:1;}
-
-.banner-section:hover #next {right:1%;
-                             opacity:1;}
-
-.banner-section #prev:hover {background-color:transparent;}
-
-.banner-section #next:hover {background-color:transparent;}
-
-
-
 @media (max-width:1000px) {html {font-size:60%;}}
 
 @media (max-width:768px) {
-                        html {font-size:55%;}
+        html {font-size:55%;}
 
-                        .banner-section .banner-slide-item .image {padding-top:2rem;}
+        .banner-section .banner-slide-item .image {padding-top:2rem;}
 
-                        .banner-section #prev,
-                        .banner-section #next {top:80%}
-
+        .banner-section #prev,
+        .banner-section #next {top:80%}
 }
 
 /********************
@@ -887,7 +890,8 @@ header {
 .offers-section {
 
   .tabs {gap:1.5rem;
-              margin:1rem 0;
+         margin:1rem 0;
+         list-style:none;
 
       li {cursor:pointer;
           font-size:1.2rem;
@@ -1100,7 +1104,7 @@ header {
  # New Products
 ********************/
 .new-products-section {
-  .product-card {border-radius:0.7rem;
+  .product-card {border-radius:0.6rem;
                  box-shadow:var(--box-shadow2);
     button {margin-top:1rem;}
   }
@@ -1159,7 +1163,8 @@ header {
   .product-card {display:grid;
                  grid-template-columns:1fr 1fr;
                  gap:2rem;
-                 padding:3rem;
+                 padding:8rem 3rem 3rem;
+                 border-radius:0.6rem;
                  box-shadow:var(--box-shadow2);
 
     .col-left {
@@ -1184,12 +1189,16 @@ header {
       .content-footer {width:100%;
                        gap:1.1rem;
         .btn {border-radius:0.2rem;}
-        a {padding:0.7rem 0.9rem;
-           border-radius:0.2rem;
-           background-color:var(--black);
-           color:var(--white);
-           svg {font-size:1.3rem;}
+        .favourite-icon {width:3.1rem;
+                         height:2.8rem;
+                         border-radius:0.2rem;
+                         background-color:var(--black);
+                         border:1px solid var(--black);
+                         color:var(--white);
+           svg {font-size:1.4rem;}
         }
+        .favourite-icon:hover {background-color:transparent !important;
+                               color:var(--black);}
       }
     }
   }
