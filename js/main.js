@@ -1,218 +1,210 @@
-/*** MOBILE HEADER ***/
-if(document.getElementById("open-mHeader") && document.getElementById("main-header")){
-   const mobileHBtn = document.getElementById("open-mHeader");
-   const mainHeader = document.getElementById("main-header");
-   mobileHBtn.onclick = () => mainHeader.classList.toggle("mobile-header");
+let currentIndex = 0;
+let slidesToShow = 1;
+let slidesToScroll = 1;
+let slides;
+let sliderContainer;
+let dotsWrapper;
+
+function setupSlider(carouselContainer) {
+    sliderContainer = document.querySelector(carouselContainer);
+    slides = sliderContainer.children;
+    sliderContainer.style.display = 'flex';
+    sliderContainer.style.overflow = 'hidden';
+    sliderContainer.style.scrollBehavior = 'smooth';
+    updateSlidesToShow();
 }
 
-let index = 0;
-let slides = document.querySelectorAll('.banner-slide-item');
+function buildDots(dotsSelector) {
+    dotsWrapper = document.querySelector(dotsSelector);
+    dotsWrapper.innerHTML = '';
 
-function hideAllSlides(){
-  slides.forEach(slide => {
-    slide.style.display = "none";
-  });
-}
+    // Calculate the number of dots based on the number of scrollable positions
+    const totalDots = Math.ceil(slides.length / slidesToScroll);
 
-hideAllSlides();
-
-if (index >= 0 && index < slides.length) {slides[index].style.display = "flex";}
-
-function prevB(){
-  index = (index - 1 + slides.length) % slides.length;
-  hideAllSlides();
-  slides[index].style.display = "flex";
-}
-
-function nextB(){
-  index = (index + 1) % slides.length;
-  hideAllSlides();
-  slides[index].style.display = "flex";
-}
-
-document.addEventListener("DOMContentLoaded", function() { // create divs according to class name
-  const productItems = Array.from(document.querySelectorAll('.offers-section .col-right .inner-col .product-item'));
-  const groupedProducts = {};
-
-  // Group products by their class names
-  productItems.forEach(productItem => {
-    const className = productItem.classList[1]; // Assumes 'product-item 20%' format
-    if (!groupedProducts[className]) {
-        groupedProducts[className] = [];
+    for (let i = 0; i < totalDots; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.dataset.index = i;
+        dotsWrapper.appendChild(dot);
     }
-    groupedProducts[className].push(productItem);
-  });
-   
-  for (const [className, products] of Object.entries(groupedProducts)) { // Create the offersblock and items divs
-    if (products.length > 8) {
-        const offersBlock = document.createElement('div');
-        offersBlock.className = `offersblock offersblock${className.replace('%', '')}`;
-
-        let itemsBlock = document.createElement('div');
-            itemsBlock.className = 'items';
-        let itemCount = 0;
-
-        products.forEach((product, index) => {
-          itemsBlock.appendChild(product);
-          itemCount++;
-  
-          if (itemCount === 8 || index === products.length - 1) {
-            offersBlock.appendChild(itemsBlock);
-            itemsBlock = document.createElement('div');
-            itemsBlock.className = 'items';
-            itemCount = 0;
-          }
-        });
-
-        document.querySelector(".offers-section .col-right .inner-col").appendChild(offersBlock);
-    } else {
-      // If the products are less than or equal to 8, you can handle them separately if needed
-      // Here, we assume they don't need to be wrapped in items div
-      const offersBlock = document.createElement('div');
-      offersBlock.className = `offersblock offersblock${className.replace('%', '')}`;
-
-      products.forEach(product => {
-        offersBlock.appendChild(product);
-      });
-
-      document.body.appendChild(offersBlock);
-    }
-  }
-});
-
-function truncateWords(title, wordsCount){
-   return title.split(' ').slice(0,wordsCount).join(' ');
+    updateDots();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.offers-section .product-item h4').forEach(h4 => {
-    h4.textContent = truncateWords(h4.textContent, 3);
-  });
-});
-
-$(document).ready(function(){
-
-  function sliderWithFilterTabs(tabs, blocks, secondClassBlock){
-
-    $(tabs).first().addClass('active');
-    $(blocks).hide();
-    $(blocks).first().show();
-
-    $(tabs).click(function() {
-      var offerClass = secondClassBlock + $(this).attr('class').replace('%', '');
-      $(tabs).removeClass('active');
-      $(this).addClass('active');
-      $(blocks).hide().removeClass('active');
-      $(offerClass).show().addClass('active');
-    });
-
-    $(blocks).each(function() {
-      $(this).addClass('owl-carousel');
-      $(this).owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-        dots:false,
-        items: 1
-      });
-    });
-    
-  }
-
-  sliderWithFilterTabs('.offers-section .col-left .tabs li', '.offers-section .col-left .inner-col > div', '.offersblock');
-
-  sliderWithFilterTabs('.offers-section .col-right .tabs li', '.offers-section .col-right .inner-col > div', '.offersblock');
-
-  $('.brand-slider').owlCarousel({
-    autoplay:true,
-    loop:true,
-    nav:false,
-    dots:false,
-    items:5,
-    smartSpeed:1000,
-    autoplayTimeout:7000,
-    responsive:{
-        0:{
-            items:1
-        },
-        400:{
-            items:2
-        },
-        550:{
-            items:3
-        },
-        700:{
-            items:4
-        },
-        1000:{
-            items:5
+function updateDots() {
+    if (dotsWrapper) {
+        const dots = dotsWrapper.children;
+        const activeDotIndex = Math.floor(currentIndex / slidesToScroll);
+        Array.from(dots).forEach(dot => dot.classList.remove('active'));
+        if (dots[activeDotIndex]) {
+            dots[activeDotIndex].classList.add('active');
         }
     }
-  });
-
-});
-
-document.getElementById("current-year").textContent = new Date().getFullYear();
-
-/**************
-  SINGLE PAGE
-**************/
-const smallImage = document.querySelectorAll('#single-page .col-left .small-images .small-image img');
-const bigImage = document.querySelector('#single-page .col-left .big-image img');
-const lens = document.querySelector('#single-page .col-left .big-image .lens');
-const magnifierImage = document.querySelector('#single-page .col-right .content .magnifier-img');
-
-if(smallImage && bigImage){
-
-for(let i=0; i<smallImage.length; i++){
-   smallImage[i].onclick = function(){
-     bigImage.src = smallImage[i].src;
-   }
 }
 
-function magnify(bigImage){
-  lens.addEventListener('mousemove', moveLens);
-  bigImage.addEventListener('mousemove', moveLens);
-  bigImage.addEventListener('mouseout', leaveLens);
+function setResponsive(responsiveSettings) {
+    responsiveSettings.forEach((resp) => {
+        if (window.innerWidth >= resp.breakpoint) {
+            slidesToShow = resp.settings.slidesToShow;
+            slidesToScroll = resp.settings.slidesToScroll;
+        }
+    });
+    updateSlidesToShow();
+    buildDots('#featureddots'); // Rebuild dots based on new settings
 }
 
-function moveLens(e){
-  let x, y, cx, cy;
+function updateSlidesToShow() {
+    const wrapperWidth = sliderContainer.clientWidth;
+    
+    const tinyScreen = window.innerWidth < 400;
+    const smallScreen = window.innerWidth > 400 && window.innerWidth < 500;
+    const bigSmallScreen = window.innerWidth >= 500 && window.innerWidth < 650;
+    const tabScreen = window.innerWidth > 650 && window.innerWidth < 1000;
+    const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
 
-  const bigImageRect = bigImage.getBoundingClientRect();
-
-  x = e.pageX - bigImageRect.left - lens.offsetWidth / 2;
-  y = e.pageY - bigImageRect.top - lens.offsetHeight / 2;
-
-  let max_xpos = bigImageRect.width - lens.offsetWidth;
-  let max_ypos = bigImageRect.height - lens.offsetHeight;
-
-  if(x > max_xpos) x = max_xpos;
-  if(x < 0) x = 0;
-
-  if(y > max_ypos) y = max_ypos;
-  if(y < 0) y = 0;
-
-  lens.style.cssText = `top:${y}px;left:${x}px`;
-
-  cx = magnifierImage.offsetWidth / lens.offsetWidth;
-  cy = magnifierImage.offsetHeight / lens.offsetHeight;
-
-  magnifierImage.style.backgroundImage = `url('${bigImage.src}')`;
-  magnifierImage.style.backgroundPosition = `-${x * cx}px -${y * cy}px`;
-  magnifierImage.style.backgroundSize = `${bigImageRect.width * cx}px ${bigImageRect.height * cy}px`;
-  magnifierImage.style.backgroundRepeat = `no-repeat`;
-
-  lens.classList.add('active');
-  magnifierImage.classList.add('active');
-
+    const gapSize =  tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.7
+                  : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3
+                  : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.9
+                  : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
+                  : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
+                  : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+    const slideWidth = Math.floor((wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow); // Adjust for the gap between slides
+    
+    for (let i = 0; i < slides.length; i++) {
+         slides[i].style.flex = `0 0 ${slideWidth}px`;
+         slides[i].style.maxWidth = `${slideWidth}px`;
+    }
 }
 
-function leaveLens(){
-  lens.classList.remove('active');
-  magnifierImage.classList.remove('active');
+function updateDots() {
+    if (dotsWrapper) {
+        const dots = dotsWrapper.children;
+        const activeDotIndex = Math.floor(currentIndex / slidesToScroll);
+        Array.from(dots).forEach(dot => dot.classList.remove('active'));
+        if (dots[activeDotIndex]) {
+            dots[activeDotIndex].classList.add('active');
+        }
+    }
 }
 
-magnify(bigImage, magnifierImage);
+function updateSliderPosition() {
+    const wrapperWidth = sliderContainer.clientWidth;
 
+    const tinyScreen = window.innerWidth < 400;
+    const smallScreen = window.innerWidth >= 400 && window.innerWidth < 440;
+    const bigSmallScreen = window.innerWidth > 500 && window.innerWidth < 650;
+    const tabScreen = window.innerWidth > 650 && window.innerWidth < 740;
+    const tabScreen2 = window.innerWidth > 740 && window.innerWidth < 1000;
+    const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
+    const lMediumScreen = window.innerWidth > 1100 && window.innerWidth < 1150;
+
+    const gapSize = tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5 
+                  : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.1 
+                  : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.3 
+                  : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.4
+                  : tabScreen2 ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.3
+                  : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.05
+                  : lMediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0
+                  : parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.9;
+
+    const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
+    const scrollPosition = currentIndex * (slideWidth + gapSize); // Account for gap
+
+    sliderContainer.scrollTo({ // Scroll to the calculated position
+        left: scrollPosition,
+        behavior: 'smooth'
+    });
+
+    updateDots();
+
+    if (currentIndex >= slides.length) { // Reset the position if it reaches the end
+        currentIndex = 0;
+        sliderContainer.scrollTo({ left: 0 });
+    }
 }
+
+function nextSlide() {
+    currentIndex += slidesToScroll;
+    if (currentIndex >= slides.length) {
+        currentIndex = 0; // Loop back to the first slide
+    }
+    updateSliderPosition();
+}
+
+function prevSlide() {
+    currentIndex -= slidesToScroll;
+    if (currentIndex < 0) {
+        currentIndex = slides.length - slidesToShow; // Loop to the last full set of slides
+    }
+    updateSliderPosition();
+}
+
+function attachEvents(prevArrowSelector, nextArrowSelector) {
+    const prevButton = document.querySelector(prevArrowSelector);
+    const nextButton = document.querySelector(nextArrowSelector);
+
+    prevButton.addEventListener('click', prevSlide);
+
+    nextButton.addEventListener('click', nextSlide);
+
+    window.addEventListener('resize', () => setResponsive(responsiveSettings));
+
+    if (dotsWrapper) {
+        Array.from(dotsWrapper.children).forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                currentIndex = parseInt(e.target.dataset.index) * slidesToScroll;
+                updateSliderPosition();
+            });
+        });
+    }
+}
+
+function autoSlide(autoplaySpeed) {
+    setInterval(nextSlide, autoplaySpeed || 3000);
+}
+
+const responsiveSettings = [
+    {
+        breakpoint: 10,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+        }
+    },
+    {
+        breakpoint: 350,
+        settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+        }
+    },
+    {
+        breakpoint: 650,
+        settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+        }
+    },
+    {
+        breakpoint: 1100,
+        settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+        }
+    },
+    {
+        breakpoint: 1300,
+        settings: {
+            slidesToShow: 5,
+            slidesToScroll: 5,
+        }
+    }
+];
+
+// Usage:
+setupSlider('.slides-container');
+buildDots('#featureddots');
+
+setResponsive(responsiveSettings);
+attachEvents('.arrow-left', '.arrow-right');
+// autoSlide(5000); // Optional: Enable auto sliding with speed in ms
+
