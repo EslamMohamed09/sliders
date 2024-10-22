@@ -758,11 +758,11 @@ h5 {font-size:1.1rem;}
                        }
 
                        .sale {height:fit-content;
-                              padding:0.2rem 0.6rem 0.1rem;
+                              padding:0.2rem 0.4rem;
                               border-radius:0.2rem;
                               text-align:center;
                               line-height:1.2;
-                              font-size:0.9rem;
+                              font-size:0.8rem;
                               box-shadow:var(--box-shadow4);
                               color:var(--white2);
                               background-color:var(--gray9);
@@ -1285,6 +1285,134 @@ h5 {font-size:1.1rem;}
                                             background-color:transparent;
 
                                    .oldprice {color:var(--gray7);
+                                              text-decoration:line-through !important;}
+
+                                   .price {color:var(--orange-red2);}
+                            }
+
+                     }
+                     &:hover .icons {opacity:1;}
+              }
+       }
+
+}
+
+/***************
+ # products 8
+****************/
+.products8-section {
+
+       .products-container {display:grid;
+                            grid-template-columns:repeat(auto-fill,minmax(224px, 1fr));
+                            gap:0.8rem;
+                            padding:0.3rem;
+                            border-radius:0.5rem;
+              
+              .product-item {display:block;
+                             padding:1rem 0.2rem;
+                             margin-bottom:1rem;
+                             background-color:transparent;
+                             overflow:hidden;
+                             position:relative;
+
+                     .image {width:100%;
+                             height:18rem;
+                             margin-bottom:1.2rem;
+                             position:relative;
+                             background-color:var(--gray);
+                             border-bottom:1px solid var(--gray3);
+
+                            img {width:70%;
+                                 height:55%;
+                                 object-fit:contain;
+                                 transition:all 0.7s linear;}
+
+                            img:last-child:not(:only-child) {visibility:hidden;
+                                                             opacity:0;
+                                                             position:absolute;
+                                                             left:50%;
+                                                             transform:translateX(-50%);}
+
+                            &:hover img:first-child {visibility:hidden;
+                                                     opacity:0;}
+
+                            &:hover img:last-child {visibility:visible;
+                                                    opacity:1;}
+                     }
+
+                     .stat {position:absolute;
+                            top:1.9rem;
+                            left:0.9rem;
+                            width:2.7rem;
+                            height:1.5rem;
+                            border-radius:0.2rem;
+                            text-align:center;
+                            line-height:1.8;
+                            font-size:0.9rem;
+                            color:var(--white2);
+                            box-shadow:var(--box-shadow4);
+                       &.new {background-color:var(--shin-blue5);}
+                       &.top {background-color:var(--shin-orange);}
+                       &.hot {background-color:var(--yellow10);}
+                     }
+
+                     .icons {position:absolute;
+                             top:1.9rem;
+                             right:0.5rem;
+                             width:3rem;
+                             height:5.5rem;
+                             background-color:transparent;
+                             transition:all 0.3s linear;
+                             opacity:0;
+
+                            button {background-color:var(--white);
+                                    border:none;
+                                    border-radius:50%;
+                                    width:2.2rem;
+                                    height:2.2rem;
+                                    display:flex;
+                                    flex-direction:row;
+                                    justify-content:center;
+                                    align-items:center;
+                                    box-shadow:var(--box-shadow11);
+
+                                   #icon {font-size:0.9rem;
+                                          color:var(--black2);
+                                          background:transparent;}
+
+                                   .fa-heart:hover {color:var(--orange-red2) !important;}
+
+                                   &:hover {background-color:var(--black2);}
+
+                                   &:hover #icon {color:var(--white2);}
+                            }
+
+                     }
+
+                     .content {gap:0.7rem;
+                               width:100%;
+                               padding:0 0.2rem;
+                               text-align:center;
+                               position:relative;
+
+                            .product-name {font-size:14px;
+                                           font-weight:bold;
+                                           line-height:1rem;
+                                           color:var(--gray11);}
+
+                            .ratings {gap:0.1rem;
+                               svg {color:var(--yellow10);
+                                    font-size:1.1rem;}
+                            }
+
+                            .product-price {flex-wrap:nowrap;
+                                            width:fit-content;
+                                            gap:0.7rem;
+                                            margin:0;
+                                            background-color:transparent;
+
+                                   .oldprice {color:var(--gray5);
+                                              font-weight:normal;
                                               text-decoration:line-through !important;}
 
                                    .price {color:var(--orange-red2);}
