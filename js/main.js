@@ -208,3 +208,62 @@ setResponsive(responsiveSettings);
 attachEvents('.arrow-left', '.arrow-right');
 // autoSlide(5000); // Optional: Enable auto sliding with speed in ms
 
+
+/*** REMOVE BACKGROUND ***/
+function removeBackground(imgElement, targetColor) {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+
+  const originalImage = new Image();
+  originalImage.src = imgElement.src;
+
+  originalImage.onload = function () {
+    canvas.width = originalImage.width;
+    canvas.height = originalImage.height;
+    ctx.drawImage(originalImage, 0, 0, canvas.width, canvas.height);
+
+    // Get image data
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+
+    // Convert target color to RGBA format
+    const targetRGBA = hexToRGBA(targetColor);
+
+    for (let i = 0; i < data.length; i += 4) {
+      const red = data[i];
+      const green = data[i + 1];
+      const blue = data[i + 2];
+
+      // Check if the pixel color matches the target color
+      if (red === targetRGBA.r &&
+          green === targetRGBA.g &&
+          blue === targetRGBA.b
+      ) {
+        data[i + 3] = 0; // Set alpha channel to 0 (transparent)
+      }
+    }
+
+    // Update the canvas with modified image data
+    ctx.putImageData(imageData, 0, 0);
+
+    // Replace the original image with the processed image
+    imgElement.src = canvas.toDataURL();
+  };
+}
+
+function hexToRGBA(hex) {
+  const bigint = parseInt(hex.slice(1), 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+
+  return { r, g, b };
+}
+
+const productImages = document.querySelectorAll('.image img');
+productImages.forEach(function (img) {
+  const clonedImage = img.cloneNode();
+  removeBackground(clonedImage, '#ffffff');
+  img.parentNode.replaceChild(clonedImage, img);
+});
+
