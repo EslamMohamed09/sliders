@@ -185,14 +185,15 @@
   --box-shadow1:0 0.1rem 1rem rgba(2, 2, 2, 0.4);
   --box-shadow2:0 0.5rem 1.5rem #0d2e2e23;
   --box-shadow3:0 0.3rem 4rem #252c2c2f;
-  --box-shadow4:0 0 6px rgba(0, 0, 0, 0.3);
-  --box-shadow5:0 0 3px #eee;
-  --box-shadow6:0 0.1rem 1rem #e9290779;
-  --box-shadow7:0 0 6px #00c7c7;
-  --box-shadow8:0 0 6px #3356ca;
-  --box-shadow9:0 0.1rem 0.5rem #fce07b46;
-  --box-shadow10:0 1px 0.9rem #fd9103c5;
-  --box-shadow11: -5px 0 5px -5px rgba(0, 0, 0, 0.5), 5px 0 5px -5px rgba(0, 0, 0, 0.5);
+  --box-shadow4:0 0 6px rgba(0, 0, 0, 0.13);
+  --box-shadow5:0 1px 0.9rem #fd9103c5;
+  --box-shadow6:0 0 3px #eee;
+  --box-shadow7:0 0.1rem 1rem #e9290779;
+  --box-shadow8:0 0 6px #00c7c7;
+  --box-shadow9:0 0 6px #3356ca;
+  --box-shadow10:0 0.1rem 0.5rem #fce07b46;
+  --box-shadow11:0 0 6px rgba(2, 2, 2, 0.199);
+  --box-shadow12: -5px 0 5px -5px rgba(0, 0, 0, 0.5), 5px 0 5px -5px rgba(0, 0, 0, 0.5);
   --text-shadow:0 0 5px rgb(5, 5, 5);
   --text-shadow2:0 0 4px #fff;
   --text-shadow3:0 0 4px #00ffff9f;
@@ -1178,22 +1179,53 @@ h5 {
   visibility: visible;
   opacity: 1;
 }
-.products6-section .products-container .product-item .icons {
-  width: 3rem;
-  height: 5rem;
+.products6-section .products-container .product-item .stat {
   position: absolute;
-  top: 1.3rem;
+  top: 1.9rem;
+  left: 0.9rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2.8;
+  font-size: 0.9rem;
+  box-shadow: var(--box-shadow4);
+}
+.products6-section .products-container .product-item .stat.new {
+  background-color: var(--shin-blue5);
+  color: var(--white2);
+}
+.products6-section .products-container .product-item .stat.top {
+  background-color: var(--shin-orange);
+  color: var(--white2);
+}
+.products6-section .products-container .product-item .stat.hot {
+  background-color: var(--yellow10);
+  color: var(--gray11);
+}
+.products6-section .products-container .product-item .icons {
+  position: absolute;
+  top: 1.9rem;
   right: 0.5rem;
+  width: 3rem;
+  height: 5.5rem;
   background-color: transparent;
   transition: all 0.3s linear;
 }
 .products6-section .products-container .product-item .icons button {
-  background-color: transparent;
-  border: none;
+  background-color: var(--white);
+  border: 1px solid var(--gray4);
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .products6-section .products-container .product-item .icons button #icon {
-  font-size: 1.2rem;
-  color: var(--gray12);
+  font-size: 1rem;
+  color: var(--gray7);
   background: transparent;
 }
 .products6-section .products-container .product-item .icons button .fa-heart:hover {
