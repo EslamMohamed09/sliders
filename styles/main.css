@@ -856,6 +856,30 @@ h5 {
   visibility: visible;
   opacity: 1;
 }
+.products3-section .products-container .product-item .stat {
+  position: absolute;
+  top: 1.9rem;
+  left: 0.9rem;
+  height: fit-content;
+  padding: 0.2rem 0.6rem 0.1rem;
+  border-radius: 0.2rem;
+  text-align: center;
+  line-height: 1.2;
+  font-size: 0.9rem;
+  box-shadow: var(--box-shadow4);
+}
+.products3-section .products-container .product-item .stat.new {
+  background-color: var(--shin-blue5);
+  color: var(--white2);
+}
+.products3-section .products-container .product-item .stat.top {
+  background-color: var(--shin-orange);
+  color: var(--white2);
+}
+.products3-section .products-container .product-item .stat.hot {
+  background-color: var(--yellow10);
+  color: var(--white2);
+}
 .products3-section .products-container .product-item .icons {
   width: 3rem;
   height: 5rem;
