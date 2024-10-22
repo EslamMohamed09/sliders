@@ -836,8 +836,8 @@ h5 {
   border-bottom: 1px solid var(--gray3);
 }
 .products3-section .products-container .product-item .image img {
-  width: 80%;
-  height: 55%;
+  width: 75%;
+  height: 50%;
   object-fit: contain;
   transition: all 0.7s linear;
 }
@@ -881,25 +881,39 @@ h5 {
   color: var(--white2);
 }
 .products3-section .products-container .product-item .icons {
-  width: 3rem;
-  height: 5rem;
+  width: 2.5rem;
+  height: 4.5rem;
   position: absolute;
-  top: 1.3rem;
-  right: 0.5rem;
+  top: 1.9rem;
+  right: 1rem;
+  border: 1px solid var(--gray4);
+  padding: 0.4rem 0;
   background-color: transparent;
   transition: all 0.3s linear;
+  opacity: 0;
 }
 .products3-section .products-container .product-item .icons button {
+  width: 100%;
   background-color: transparent;
   border: none;
+  padding: 0;
+}
+.products3-section .products-container .product-item .icons button:first-child {
+  border-bottom: 1px solid var(--gray4);
 }
 .products3-section .products-container .product-item .icons button #icon {
-  font-size: 1.2rem;
-  color: var(--gray12);
+  font-size: 1rem;
+  color: var(--gray10);
   background: transparent;
 }
-.products3-section .products-container .product-item .icons button .fa-heart:hover {
+.products3-section .products-container .product-item .icons button:first-child:hover .fa-heart {
   color: var(--orange-red2) !important;
+}
+.products3-section .products-container .product-item .icons:hover {
+  border-color: var(--gray5);
+}
+.products3-section .products-container .product-item .icons:hover button:first-child {
+  border-bottom-color: var(--gray5);
 }
 .products3-section .products-container .product-item .content {
   gap: 0.7rem;
@@ -938,6 +952,9 @@ h5 {
 }
 .products3-section .products-container .product-item .content .product-price .price {
   color: var(--orange-red2);
+}
+.products3-section .products-container .product-item:hover .icons {
+  opacity: 1;
 }
 
 /****************
