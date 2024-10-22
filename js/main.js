@@ -200,6 +200,13 @@ const responsiveSettings = [
     }
 ];
 
+const productName = document.querySelectorAll(".product-name");
+
+productName.forEach((proName) => { 
+    proName.textContent = proName.textContent.split(" ").slice(0,3).join(" ");
+});
+
+
 // Usage:
 setupSlider('.slides-container');
 buildDots('#featureddots');
