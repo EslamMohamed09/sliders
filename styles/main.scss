@@ -1429,6 +1429,23 @@ h5 {font-size:1.1rem;}
                                text-align:center;
                                position:relative;
 
+                            .colors-circles {gap:1rem;
+
+                                   .color-circle {width:1.8rem;
+                                                  height:1.8rem;
+                                                  border-radius:50%;
+                                                  cursor:pointer;
+                                                  border:1px solid var(--gray6);
+                                                  box-shadow:inset 0 0 0 3px var(--gray3);}
+                                   
+
+                                   .color-circle:first-child {background-color:red;}
+                                   .color-circle:nth-child(2) {background-color:black;}
+                                   .color-circle:nth-child(3) {background-color:blue;}
+                                   .color-circle:nth-child(4) {background-color:yellow;}
+                            
+                            }
+
                             .product-name {font-size:14px;
                                            font-weight:bold;
                                            line-height:1rem;

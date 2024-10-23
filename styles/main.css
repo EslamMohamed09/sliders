@@ -1639,6 +1639,29 @@ h5 {
   text-align: center;
   position: relative;
 }
+.products8-section .products-container .product-item .content .colors-circles {
+  gap: 1rem;
+}
+.products8-section .products-container .product-item .content .colors-circles .color-circle {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid var(--gray6);
+  box-shadow: inset 0 0 0 3px var(--gray3);
+}
+.products8-section .products-container .product-item .content .colors-circles .color-circle:first-child {
+  background-color: red;
+}
+.products8-section .products-container .product-item .content .colors-circles .color-circle:nth-child(2) {
+  background-color: black;
+}
+.products8-section .products-container .product-item .content .colors-circles .color-circle:nth-child(3) {
+  background-color: blue;
+}
+.products8-section .products-container .product-item .content .colors-circles .color-circle:nth-child(4) {
+  background-color: yellow;
+}
 .products8-section .products-container .product-item .content .product-name {
   font-size: 14px;
   font-weight: bold;
