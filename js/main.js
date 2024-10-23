@@ -274,3 +274,14 @@ productImages.forEach(function (img) {
   img.parentNode.replaceChild(clonedImage, img);
 });
 
+document.querySelectorAll('.product-item').forEach(product => {
+  const circles = product.querySelectorAll('.color-circle');
+
+  circles.forEach(circle => {
+    circle.addEventListener('click', function() {
+      circles.forEach(c => c.classList.remove('checked'));
+      
+      this.classList.add('checked');
+    });
+  });
+});

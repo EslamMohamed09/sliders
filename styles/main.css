@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap");
 * {
   margin: 0;
@@ -1632,35 +1633,48 @@ h5 {
 .products8-section .products-container .product-item .icons button:hover #icon {
   color: var(--white2);
 }
+.products8-section .products-container .product-item .colors-circles {
+  position: absolute;
+  top: 12rem;
+  right: 0.8rem;
+  height: fit-content;
+  gap: 0.6rem;
+}
+.products8-section .products-container .product-item .colors-circles .color-circle {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--box-shadow11);
+  position: relative;
+}
+.products8-section .products-container .product-item .colors-circles .color-circle:first-child {
+  background-color: sienna;
+}
+.products8-section .products-container .product-item .colors-circles .color-circle:nth-child(2) {
+  background-color: black;
+}
+.products8-section .products-container .product-item .colors-circles .color-circle:nth-child(3) {
+  background-color: green;
+}
+.products8-section .products-container .product-item .colors-circles .color-circle:nth-child(4) {
+  background-color: blue;
+}
+.products8-section .products-container .product-item .colors-circles .color-circle.checked::before {
+  content: "✔";
+  color: white;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .products8-section .products-container .product-item .content {
   gap: 0.7rem;
   width: 100%;
   padding: 0 0.2rem;
   text-align: center;
   position: relative;
-}
-.products8-section .products-container .product-item .content .colors-circles {
-  gap: 1rem;
-}
-.products8-section .products-container .product-item .content .colors-circles .color-circle {
-  width: 1.8rem;
-  height: 1.8rem;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 1px solid var(--gray6);
-  box-shadow: inset 0 0 0 3px var(--gray3);
-}
-.products8-section .products-container .product-item .content .colors-circles .color-circle:first-child {
-  background-color: red;
-}
-.products8-section .products-container .product-item .content .colors-circles .color-circle:nth-child(2) {
-  background-color: black;
-}
-.products8-section .products-container .product-item .content .colors-circles .color-circle:nth-child(3) {
-  background-color: blue;
-}
-.products8-section .products-container .product-item .content .colors-circles .color-circle:nth-child(4) {
-  background-color: yellow;
 }
 .products8-section .products-container .product-item .content .product-name {
   font-size: 14px;
@@ -1673,7 +1687,7 @@ h5 {
 }
 .products8-section .products-container .product-item .content .ratings svg {
   color: var(--yellow10);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .products8-section .products-container .product-item .content .product-price {
   flex-wrap: nowrap;
