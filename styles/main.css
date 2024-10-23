@@ -1505,21 +1505,21 @@ h5 {
   height: 55%;
   object-fit: contain;
   transition: all 0.7s linear;
-}
-.products8-section .products-container .product-item .image img:last-child:not(:only-child) {
-  visibility: hidden;
-  opacity: 0;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+}
+.products8-section .products-container .product-item .image img:first-child {
+  right: 50%;
+  transform: translateX(50%);
+}
+.products8-section .products-container .product-item .image img:last-child {
+  right: -110%;
+  transform: translateX(50%);
 }
 .products8-section .products-container .product-item .image:hover img:first-child {
-  visibility: hidden;
-  opacity: 0;
+  right: 150%;
 }
 .products8-section .products-container .product-item .image:hover img:last-child {
-  visibility: visible;
-  opacity: 1;
+  right: 50%;
 }
 .products8-section .products-container .product-item .stat {
   position: absolute;
