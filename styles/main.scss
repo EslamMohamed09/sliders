@@ -855,13 +855,13 @@ h5 {font-size:1.1rem;}
                              position:relative;
 
                      .image {width:100%;
-                             height:15rem;
+                             height:18rem;
                              margin-bottom:1.2rem;
                              position:relative;
                              background-color:var(--gray);
                              border-bottom:1px solid var(--gray3);
 
-                            img {width:60%;
+                            img {width:56%;
                                  height:45%;
                                  object-fit:contain;
                                  transition:all 0.7s linear;}
@@ -920,6 +920,11 @@ h5 {font-size:1.1rem;}
                                           background:transparent;}
                                    
                             }
+
+                            button:hover {background-color:var(--black);}
+
+                            button:hover #icon {color:var(--white2);}
+
                             &:hover {border-color:var(--gray5);}
                             &:hover button:first-child {border-bottom-color:var(--gray5);}
                             &:hover button:nth-child(2) {border-bottom-color:var(--gray5);}
@@ -1074,15 +1079,15 @@ h5 {font-size:1.1rem;}
                              position:relative;
 
                      .image {width:100%;
-                             height:17rem;
+                             height:18rem;
                              margin-bottom:1.2rem;
                              background-color:var(--gray);
                              border-bottom:1px solid var(--gray3);
                              overflow:hidden;
                              position:relative;
 
-                            img {width:80%;
-                                 height:55%;
+                            img {width:56%;
+                                 height:45%;
                                  object-fit:contain;
                                  transition:all 0.7s linear;}
 
@@ -1114,26 +1119,38 @@ h5 {font-size:1.1rem;}
                             }
                      }
 
-                     
-
-                     .icons {width:3rem;
-                             height:5rem;
+                     .icons {width:2.5rem;
+                             height:fit-content;
                              position:absolute;
-                             top:1.3rem;
-                             right:0.5rem;
+                             top:1.9rem;
+                             right:-3rem;
+                             border:1px solid var(--gray4);
+                             padding:0;
                              background-color:transparent;
                              transition:all 0.3s linear;
+                             opacity:0;
 
-                            button {background-color:transparent;
+                            button {width:100%;
+                                    background-color:transparent;
                                     border:none;
+                                    padding:0.6rem 0.4rem;
 
-                                   #icon {font-size:1.2rem;
-                                          color:var(--gray12);
+                                   &:first-child {border-bottom:1px solid var(--gray4);}
+
+                                   &:nth-child(2) {border-bottom:1px solid var(--gray4);}
+                                   
+                                   #icon {font-size:1rem;
+                                          color:var(--gray10);
                                           background:transparent;}
-
-                                   .fa-heart:hover {color:var(--orange-red2) !important;}
                             }
 
+                            button:hover {background-color:var(--black);}
+
+                            button:hover #icon {color:var(--white2);}
+
+                            &:hover {border-color:var(--gray5);}
+                            &:hover button:first-child {border-bottom-color:var(--gray5);}
+                            &:hover button:nth-child(2) {border-bottom-color:var(--gray5);}
                      }
 
                      .content {gap:0.7rem;
@@ -1169,6 +1186,9 @@ h5 {font-size:1.1rem;}
                             }
 
                      }
+
+                     &:hover .icons {right:0.7rem;
+                                     opacity:1;}
               }
 
        }
