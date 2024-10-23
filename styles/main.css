@@ -1352,15 +1352,15 @@ h5 {
 }
 .products7-section .products-container .product-item .image {
   width: 100%;
-  height: 15rem;
+  height: 17rem;
   margin-bottom: 1.2rem;
   position: relative;
   background-color: var(--gray);
   border-bottom: 1px solid var(--gray3);
 }
 .products7-section .products-container .product-item .image img {
-  width: 80%;
-  height: 55%;
+  width: 70%;
+  height: 50%;
   object-fit: contain;
   transition: all 0.7s linear;
 }
@@ -1401,14 +1401,14 @@ h5 {
 }
 .products7-section .products-container .product-item .stat.hot {
   background-color: var(--yellow10);
-  color: var(--gray11);
+  color: var(--white2);
 }
 .products7-section .products-container .product-item .icons {
   position: absolute;
   top: 1.9rem;
   right: 0.5rem;
   width: 3rem;
-  height: 5.5rem;
+  height: 7.5rem;
   background-color: transparent;
   transition: all 0.3s linear;
   opacity: 0;
@@ -1521,27 +1521,44 @@ h5 {
 .products8-section .products-container .product-item .image:hover img:last-child {
   right: 50%;
 }
-.products8-section .products-container .product-item .stat {
+.products8-section .products-container .product-item .stats {
   position: absolute;
   top: 1.9rem;
   left: 0.9rem;
-  width: 2.7rem;
-  height: 1.5rem;
+  height: fit-content;
+  gap: 0.7rem;
+}
+.products8-section .products-container .product-item .stats .stat {
+  height: fit-content;
+  padding: 0.2rem 0.6rem;
   border-radius: 0.2rem;
   text-align: center;
-  line-height: 1.8;
   font-size: 0.9rem;
-  color: var(--white2);
+  line-height: 1.2;
   box-shadow: var(--box-shadow4);
 }
-.products8-section .products-container .product-item .stat.new {
+.products8-section .products-container .product-item .stats .stat.new {
   background-color: var(--shin-blue5);
+  color: var(--white2);
 }
-.products8-section .products-container .product-item .stat.top {
+.products8-section .products-container .product-item .stats .stat.top {
   background-color: var(--shin-orange);
+  color: var(--white2);
 }
-.products8-section .products-container .product-item .stat.hot {
+.products8-section .products-container .product-item .stats .stat.hot {
   background-color: var(--yellow10);
+  color: var(--white2);
+}
+.products8-section .products-container .product-item .stats .sale {
+  height: fit-content;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  box-shadow: var(--box-shadow4);
+  color: var(--white2);
+  background-color: var(--gray9);
 }
 .products8-section .products-container .product-item .icons {
   position: absolute;
@@ -1569,9 +1586,6 @@ h5 {
   font-size: 0.9rem;
   color: var(--black2);
   background: transparent;
-}
-.products8-section .products-container .product-item .icons button .fa-heart:hover {
-  color: var(--orange-red2) !important;
 }
 .products8-section .products-container .product-item .icons button:hover {
   background-color: var(--black2);
