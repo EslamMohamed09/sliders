@@ -1325,7 +1325,7 @@ h5 {font-size:1.1rem;}
                             img {width:70%;
                                  height:55%;
                                  object-fit:contain;
-                                 transition:all 0.7s linear;
+                                 transition:all 0.4s linear;
                                  position:absolute;}
 
                             img:first-child {right:50%;
@@ -1357,7 +1357,7 @@ h5 {font-size:1.1rem;}
 
                      .icons {position:absolute;
                              top:1.9rem;
-                             right:0.5rem;
+                             right:-3rem;
                              width:3rem;
                              height:7.6rem;
                              background-color:transparent;
@@ -1418,7 +1418,8 @@ h5 {font-size:1.1rem;}
                             }
 
                      }
-                     &:hover .icons {opacity:1;}
+                     &:hover .icons {right:0.6rem;
+                                     opacity:1;}
               }
        }
 
