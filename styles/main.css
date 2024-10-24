@@ -1555,14 +1555,14 @@ h5 {
   right: 50%;
   transform: translateX(50%);
 }
-.products8-section .products-container .product-item .image img:last-child {
+.products8-section .products-container .product-item .image img:nth-child(2) {
   right: -110%;
   transform: translateX(50%);
 }
 .products8-section .products-container .product-item .image:hover img:first-child {
   right: 150%;
 }
-.products8-section .products-container .product-item .image:hover img:last-child {
+.products8-section .products-container .product-item .image:hover img:nth-child(2) {
   right: 50%;
 }
 .products8-section .products-container .product-item .image .stats {

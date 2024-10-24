@@ -1355,12 +1355,12 @@ h5 {font-size:1.1rem;}
                             img:first-child {right:50%;
                                              transform:translateX(50%);}
 
-                            img:last-child {right:-110%;
-                                            transform:translateX(50%);}
+                            img:nth-child(2) {right:-110%;
+                                              transform:translateX(50%);}
 
                             &:hover img:first-child {right:150%;}
 
-                            &:hover img:last-child {right:50%;}
+                            &:hover img:nth-child(2) {right:50%;}
 
                             .stats {position:absolute;
                                     top:1.9rem;
