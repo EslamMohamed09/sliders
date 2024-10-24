@@ -1535,15 +1535,14 @@ h5 {
   margin-bottom: 1rem;
   background-color: transparent;
   overflow: hidden;
-  position: relative;
 }
 .products8-section .products-container .product-item .image {
   width: 100%;
   height: 18rem;
   margin-bottom: 1.2rem;
-  position: relative;
   background-color: var(--gray);
   border-bottom: 1px solid var(--gray3);
+  position: relative;
 }
 .products8-section .products-container .product-item .image img {
   width: 70%;
@@ -1566,14 +1565,14 @@ h5 {
 .products8-section .products-container .product-item .image:hover img:last-child {
   right: 50%;
 }
-.products8-section .products-container .product-item .stats {
+.products8-section .products-container .product-item .image .stats {
   position: absolute;
   top: 1.9rem;
   left: 0.9rem;
   height: fit-content;
   gap: 0.7rem;
 }
-.products8-section .products-container .product-item .stats .stat {
+.products8-section .products-container .product-item .image .stats .stat {
   height: fit-content;
   padding: 0.2rem 0.6rem;
   border-radius: 0.2rem;
@@ -1582,19 +1581,19 @@ h5 {
   line-height: 1.2;
   box-shadow: var(--box-shadow4);
 }
-.products8-section .products-container .product-item .stats .stat.new {
+.products8-section .products-container .product-item .image .stats .stat.new {
   background-color: var(--shin-blue5);
   color: var(--white2);
 }
-.products8-section .products-container .product-item .stats .stat.top {
+.products8-section .products-container .product-item .image .stats .stat.top {
   background-color: var(--shin-orange);
   color: var(--white2);
 }
-.products8-section .products-container .product-item .stats .stat.hot {
+.products8-section .products-container .product-item .image .stats .stat.hot {
   background-color: var(--yellow10);
   color: var(--white2);
 }
-.products8-section .products-container .product-item .stats .sale {
+.products8-section .products-container .product-item .image .stats .sale {
   height: fit-content;
   padding: 0.2rem 0.4rem;
   border-radius: 0.2rem;
@@ -1605,7 +1604,7 @@ h5 {
   color: var(--white2);
   background-color: var(--gray9);
 }
-.products8-section .products-container .product-item .icons {
+.products8-section .products-container .product-item .image .icons {
   position: absolute;
   top: 1.9rem;
   right: -3rem;
@@ -1615,7 +1614,7 @@ h5 {
   transition: all 0.3s linear;
   opacity: 0;
 }
-.products8-section .products-container .product-item .icons button {
+.products8-section .products-container .product-item .image .icons button {
   background-color: var(--white);
   border: none;
   border-radius: 50%;
@@ -1627,15 +1626,15 @@ h5 {
   align-items: center;
   box-shadow: var(--box-shadow11);
 }
-.products8-section .products-container .product-item .icons button #icon {
+.products8-section .products-container .product-item .image .icons button #icon {
   font-size: 0.9rem;
   color: var(--black2);
   background: transparent;
 }
-.products8-section .products-container .product-item .icons button:hover {
+.products8-section .products-container .product-item .image .icons button:hover {
   background-color: var(--black2);
 }
-.products8-section .products-container .product-item .icons button:hover #icon {
+.products8-section .products-container .product-item .image .icons button:hover #icon {
   color: var(--white2);
 }
 .products8-section .products-container .product-item .content {
