@@ -1523,7 +1523,7 @@ h5 {font-size:1.1rem;}
                                              transform:translateX(50%);}
 
                             img:nth-child(2) {right:-110%;
-                                            transform:translateX(50%);}
+                                              transform:translateX(50%);}
 
                             &:hover img:first-child {right:150%;}
 
@@ -1534,20 +1534,21 @@ h5 {font-size:1.1rem;}
                                     left:1px;
                                     width:100%;
                                     height:fit-content;
+                                    padding:0 3px 0 2px;
                                     background-color:transparent;
-                                    box-shadow:var(--box-shadow11);
                                     transition:all 0.3s linear;
                                     opacity:0;
 
-                                   button {background-color:var(--white);
-                                           border:none;
-                                           border-radius:0;
-                                           width:33%;
-                                           height:2.6rem;
+                                   button {width:23%;
+                                           height:2.9rem;
                                            display:flex;
                                            flex-direction:row;
                                            justify-content:center;
                                            align-items:center;
+                                           border:none;
+                                           box-shadow:var(--box-shadow4);
+                                           border-radius:0;
+                                           background-color:var(--gray);
        
                                           #icon {font-size:0.9rem;
                                                  color:var(--black2);
@@ -1591,38 +1592,37 @@ h5 {font-size:1.1rem;}
 
                      }
 
-                     .colors-circles {position:absolute;
-                                      top:12rem;
-                                      right:0.8rem;
-                                      height:fit-content;
-                                      gap:0.6rem;
-
-                            .color-circle {width:0.9rem;
-                                           height:0.9rem;
-                                           border-radius:50%;
-                                           cursor:pointer;
-                                           position:relative;}
-
-                            .color-circle:first-child {background-color:sienna;}
-                            .color-circle:nth-child(2) {background-color:black;}
-                            .color-circle:nth-child(3) {background-color:green;}
-                            .color-circle:nth-child(4) {background-color:blue;}
-
-                            .color-circle.checked::before {content:"✔";
-                                                           color:white;
-                                                           font-size:0.8rem;
-                                                           position:absolute;
-                                                           top:50%;
-                                                           left:50%;
-                                                           transform:translate(-50%, -50%);}
-                            
-                     }
-
                      .content {gap:0.7rem;
                                width:100%;
                                padding:0 0.2rem;
                                text-align:center;
                                position:relative;
+
+                            .colors-circles {width:fit-content;
+                                             height:fit-content;
+                                             gap:1rem;
+                                             margin-bottom:0.4rem;
+
+                                   .color-circle {width:1.3rem;
+                                                  height:1.3rem;
+                                                  border-radius:50%;
+                                                  cursor:pointer;
+                                                  position:relative;}
+
+                                   .color-circle:first-child {background-color:sienna;}
+                                   .color-circle:nth-child(2) {background-color:black;}
+                                   .color-circle:nth-child(3) {background-color:green;}
+                                   .color-circle:nth-child(4) {background-color:blue;}
+
+                                   .color-circle.checked::before {content:"✔";
+                                                                  color:white;
+                                                                  font-size:0.8rem;
+                                                                  position:absolute;
+                                                                  top:50%;
+                                                                  left:50%;
+                                                                  transform:translate(-50%, -50%);}
+                            
+                            }
 
                             .product-name {font-size:14px;
                                            font-weight:bold;
