@@ -212,7 +212,8 @@
        --box-shadow8:0 0 6px #00c7c7;
        --box-shadow9:0 0 6px #3356ca;
        --box-shadow10:0 0.1rem 0.5rem #fce07b46;
-       --box-shadow11:0 0 6px rgba(2, 2, 2, 0.199);
+       --box-shadow11:0 0 3px rgba(2, 2, 2, 0.199);
+       --box-shadow12:0 0 6px rgba(2, 2, 2, 0.199);
 
        --box-shadow12: -5px 0 5px -5px rgba(0, 0, 0, 0.5), 5px 0 5px -5px rgba(0, 0, 0, 0.5);
 
@@ -359,6 +360,8 @@ body {overflow-x:hidden;}
 
 p {font-size:1rem;
    margin:0;}
+
+ul {padding:0;}
 
 section {padding:2rem 7%;}
 
@@ -1519,15 +1522,17 @@ h5 {font-size:1.1rem;}
                                  transition:all 0.4s linear;
                                  position:absolute;}
 
-                            img:first-child {right:50%;
-                                             transform:translateX(50%);}
+                            img:first-child {top:50%;
+                                             transform:translateY(-50%);}
 
-                            img:nth-child(2) {right:-110%;
-                                              transform:translateX(50%);}
+                            img:nth-child(2) {top:70%;
+                                              transform:translateY(-50%);
+                                              opacity:0;}
 
-                            &:hover img:first-child {right:150%;}
+                            &:hover img:first-child {opacity:0;}
 
-                            &:hover img:nth-child(2) {right:50%;}
+                            &:hover img:nth-child(2) {top:50%;
+                                                      opacity:1;}
 
                             .icons {position:absolute;
                                     bottom:-3rem;
@@ -1537,7 +1542,6 @@ h5 {font-size:1.1rem;}
                                     padding:0 3px 0 2px;
                                     background-color:transparent;
                                     transition:all 0.3s linear;
-                                    opacity:0;
 
                                    button {width:23%;
                                            height:2.9rem;
@@ -1546,9 +1550,12 @@ h5 {font-size:1.1rem;}
                                            justify-content:center;
                                            align-items:center;
                                            border:none;
-                                           box-shadow:var(--box-shadow4);
+                                           box-shadow:var(--box-shadow11);
                                            border-radius:0;
-                                           background-color:var(--gray);
+                                           background-color:var(--gray2);
+                                           opacity:0;
+                                           transform:translateY(20px);
+                                           transition:transform 0.5s ease, opacity 0.5s ease;
        
                                           #icon {font-size:0.9rem;
                                                  color:var(--black2);
@@ -1602,25 +1609,35 @@ h5 {font-size:1.1rem;}
                                              height:fit-content;
                                              gap:1rem;
                                              margin-bottom:0.4rem;
+                                             list-style:none;
 
-                                   .color-circle {width:1.3rem;
-                                                  height:1.3rem;
+                                   .circle-outer {width:2.1rem;
+                                                  height:2.1rem;
+                                                  padding:0.45rem;
+                                                  margin:0;
                                                   border-radius:50%;
+                                                  box-shadow:var(--box-shadow11);
                                                   cursor:pointer;
-                                                  position:relative;}
 
-                                   .color-circle:first-child {background-color:sienna;}
-                                   .color-circle:nth-child(2) {background-color:black;}
-                                   .color-circle:nth-child(3) {background-color:green;}
-                                   .color-circle:nth-child(4) {background-color:blue;}
+                                          .color-circle {width:100%;
+                                                         height:100%;
+                                                         border-radius:50%;
+                                                         border:none;
+                                                         position:relative;}
 
-                                   .color-circle.checked::before {content:"✔";
-                                                                  color:white;
-                                                                  font-size:0.8rem;
-                                                                  position:absolute;
-                                                                  top:50%;
-                                                                  left:50%;
-                                                                  transform:translate(-50%, -50%);}
+                                          .color-circle.checked::before {content:"✔";
+                                                                         color:white;
+                                                                         font-size:0.8rem;
+                                                                         position:absolute;
+                                                                         top:50%;
+                                                                         left:50%;
+                                                                         transform:translate(-50%, -50%);}
+                                   }
+
+                                   .circle-outer:first-child .color-circle {background-color:sienna;}
+                                   .circle-outer:nth-child(2) .color-circle {background-color:gray;}
+                                   .circle-outer:nth-child(3) .color-circle {background-color:green;}
+                                   .circle-outer:nth-child(4) .color-circle {background-color:blue;}
                             
                             }
 
@@ -1648,8 +1665,29 @@ h5 {font-size:1.1rem;}
                             }
 
                      }
-                     &:hover .icons {bottom:0;
-                                     opacity:1;}
+                     &:hover .icons {bottom:0;}
+
+                     &:hover .icons button {transform:translateY(0);
+                                            opacity:1;}
+                     
+
+                     &:hover .icons button:nth-child(1) {transition-delay:0.1s;}
+
+                     &:hover .icons button:nth-child(2) {transition-delay:0.15s;}
+
+                     &:hover .icons button:nth-child(3) {transition-delay:0.2s;}
+
+                     &:hover .icons button:nth-child(4) {transition-delay:0.25s;}
+
+
+                     &:not(:hover) .icons button:nth-child(1) {transition-delay:0.1s;}
+
+                     &:not(:hover) .icons button:nth-child(2) {transition-delay:0.15s;}
+
+                     &:not(:hover) .icons button:nth-child(3) {transition-delay:0.2s;}
+
+                     &:not(:hover) .icons button:nth-child(4) {transition-delay:0.25s;}
+
               }
        }
 
