@@ -1363,7 +1363,7 @@ h5 {font-size:1.1rem;}
                             &:hover img:nth-child(2) {right:50%;}
 
                             .stats {position:absolute;
-                                    top:1.9rem;
+                                    top:1.5rem;
                                     left:0.9rem;
                                     height:fit-content;
                                     gap:0.7rem;
@@ -1394,10 +1394,11 @@ h5 {font-size:1.1rem;}
                             }
 
                             .icons {position:absolute;
-                                    top:1.9rem;
+                                    top:1.5rem;
                                     right:-3rem;
                                     width:3rem;
-                                    height:7.6rem;
+                                    height:fit-content;
+                                    gap:0.5rem;
                                     background-color:transparent;
                                     transition:all 0.3s linear;
                                     opacity:0;
@@ -1571,37 +1572,36 @@ h5 {font-size:1.1rem;}
                                           &:hover #icon {color:var(--white2);}
                                    }
                             }
-                     }
 
-                     .stats {position:absolute;
-                             top:1.9rem;
-                             left:0.9rem;
-                             height:fit-content;
-                             gap:0.7rem;
+                            .stats {position:absolute;
+                                    top:1.9rem;
+                                    left:0.9rem;
+                                    height:fit-content;
+                                    gap:0.7rem;
 
-                       .stat {height:fit-content;
-                              padding:0.2rem 0.6rem;
-                              border-radius:0.2rem;
-                              text-align:center;
-                              font-size:0.9rem;
-                              line-height:1.2;
-                              box-shadow:var(--box-shadow4);
-                         &.new {background-color:var(--shin-blue5);color:var(--white2);}
-                         &.top {background-color:var(--shin-orange);color:var(--white2);}
-                         &.hot {background-color:var(--yellow10);color:var(--white2);}
-                       }
+                                   .stat {height:fit-content;
+                                          padding:0.2rem 0.6rem;
+                                          border-radius:0.2rem;
+                                          text-align:center;
+                                          font-size:0.9rem;
+                                          line-height:1.2;
+                                          box-shadow:var(--box-shadow4);
+                                          &.new {background-color:var(--shin-blue5);color:var(--white2);}
+                                          &.top {background-color:var(--shin-orange);color:var(--white2);}
+                                          &.hot {background-color:var(--yellow10);color:var(--white2);}
+                                   }
 
-                       .sale {height:fit-content;
-                              padding:0.2rem 0.4rem;
-                              border-radius:0.2rem;
-                              text-align:center;
-                              font-size:0.8rem;
-                              line-height:1.2;
-                              box-shadow:var(--box-shadow4);
-                              color:var(--white2);
-                              background-color:var(--gray9);
-                       }
-
+                                   .sale {height:fit-content;
+                                          padding:0.2rem 0.4rem;
+                                          border-radius:0.2rem;
+                                          text-align:center;
+                                          font-size:0.8rem;
+                                          line-height:1.2;
+                                          box-shadow:var(--box-shadow4);
+                                          color:var(--white2);
+                                          background-color:var(--gray9);
+                                   }
+                            }
                      }
 
                      .content {gap:0.7rem;

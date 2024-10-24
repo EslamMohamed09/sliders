@@ -1567,7 +1567,7 @@ h5 {
 }
 .products8-section .products-container .product-item .image .stats {
   position: absolute;
-  top: 1.9rem;
+  top: 1.5rem;
   left: 0.9rem;
   height: fit-content;
   gap: 0.7rem;
@@ -1606,10 +1606,11 @@ h5 {
 }
 .products8-section .products-container .product-item .image .icons {
   position: absolute;
-  top: 1.9rem;
+  top: 1.5rem;
   right: -3rem;
   width: 3rem;
-  height: 7.6rem;
+  height: fit-content;
+  gap: 0.5rem;
   background-color: transparent;
   transition: all 0.3s linear;
   opacity: 0;
@@ -1805,14 +1806,14 @@ h5 {
 .products9-section .products-container .product-item .image .icons button:hover #icon {
   color: var(--white2);
 }
-.products9-section .products-container .product-item .stats {
+.products9-section .products-container .product-item .image .stats {
   position: absolute;
   top: 1.9rem;
   left: 0.9rem;
   height: fit-content;
   gap: 0.7rem;
 }
-.products9-section .products-container .product-item .stats .stat {
+.products9-section .products-container .product-item .image .stats .stat {
   height: fit-content;
   padding: 0.2rem 0.6rem;
   border-radius: 0.2rem;
@@ -1821,19 +1822,19 @@ h5 {
   line-height: 1.2;
   box-shadow: var(--box-shadow4);
 }
-.products9-section .products-container .product-item .stats .stat.new {
+.products9-section .products-container .product-item .image .stats .stat.new {
   background-color: var(--shin-blue5);
   color: var(--white2);
 }
-.products9-section .products-container .product-item .stats .stat.top {
+.products9-section .products-container .product-item .image .stats .stat.top {
   background-color: var(--shin-orange);
   color: var(--white2);
 }
-.products9-section .products-container .product-item .stats .stat.hot {
+.products9-section .products-container .product-item .image .stats .stat.hot {
   background-color: var(--yellow10);
   color: var(--white2);
 }
-.products9-section .products-container .product-item .stats .sale {
+.products9-section .products-container .product-item .image .stats .sale {
   height: fit-content;
   padding: 0.2rem 0.4rem;
   border-radius: 0.2rem;
