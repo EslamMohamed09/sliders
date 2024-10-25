@@ -1511,7 +1511,7 @@ h5 {font-size:1.1rem;}
                             border-radius:0.5rem;
               
               .product-item {display:block;
-                             padding:1rem 0.2rem;
+                             padding:1rem 0;
                              margin-bottom:1rem;
                              background-color:transparent;
                              overflow:hidden;
@@ -1545,7 +1545,7 @@ h5 {font-size:1.1rem;}
 
                      .icons {position:absolute;
                              top:20rem;
-                             left:1px;
+                             left:0;
                              width:100%;
                              height:fit-content;
                              padding:0 3px 0 2px;
