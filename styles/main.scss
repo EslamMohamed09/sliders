@@ -1339,6 +1339,7 @@ h5 {font-size:1.1rem;}
                              margin-bottom:1rem;
                              background-color:transparent;
                              overflow:hidden;
+                             position:relative;
 
                      .image {width:100%;
                              height:18rem;
@@ -1356,14 +1357,15 @@ h5 {font-size:1.1rem;}
                             img:first-child {right:50%;
                                              transform:translateX(50%);}
 
-                            img:nth-child(2) {right:-110%;
-                                              transform:translateX(50%);}
+                            img:last-child:not(:only-child) {right:-110%;
+                                                             transform:translateX(50%);}
 
                             &:hover img:first-child {right:150%;}
 
-                            &:hover img:nth-child(2) {right:50%;}
+                            &:hover img:last-child {right:50%;}
+                     }
 
-                            .stats {position:absolute;
+                     .stats {position:absolute;
                                     top:1.5rem;
                                     left:0.9rem;
                                     height:fit-content;
@@ -1391,38 +1393,36 @@ h5 {font-size:1.1rem;}
                                           color:var(--white2);
                                           background-color:var(--gray9);
                                    }
+                     }
 
-                            }
+                     .icons {position:absolute;
+                                   top:1.5rem;
+                                   right:-3rem;
+                                   width:3rem;
+                                   height:fit-content;
+                                   gap:0.5rem;
+                                   background-color:transparent;
+                                   transition:all 0.3s linear;
+                                   opacity:0;
 
-                            .icons {position:absolute;
-                                    top:1.5rem;
-                                    right:-3rem;
-                                    width:3rem;
-                                    height:fit-content;
-                                    gap:0.5rem;
-                                    background-color:transparent;
-                                    transition:all 0.3s linear;
-                                    opacity:0;
+                            button {background-color:var(--white);
+                                          border:none;
+                                          border-radius:50%;
+                                          width:2.2rem;
+                                          height:2.2rem;
+                                          display:flex;
+                                          flex-direction:row;
+                                          justify-content:center;
+                                          align-items:center;
+                                          box-shadow:var(--box-shadow11);
 
-                                   button {background-color:var(--white);
-                                           border:none;
-                                           border-radius:50%;
-                                           width:2.2rem;
-                                           height:2.2rem;
-                                           display:flex;
-                                           flex-direction:row;
-                                           justify-content:center;
-                                           align-items:center;
-                                           box-shadow:var(--box-shadow11);
+                                   #icon {font-size:0.9rem;
+                                          color:var(--black2);
+                                          background:transparent;}
 
-                                          #icon {font-size:0.9rem;
-                                                 color:var(--black2);
-                                                 background:transparent;}
+                                   &:hover {background-color:var(--black2);}
 
-                                          &:hover {background-color:var(--black2);}
-
-                                          &:hover #icon {color:var(--white2);}
-                                   }
+                                   &:hover #icon {color:var(--white2);}
                             }
                      }
 
@@ -1515,6 +1515,7 @@ h5 {font-size:1.1rem;}
                              margin-bottom:1rem;
                              background-color:transparent;
                              overflow:hidden;
+                             position:relative;
 
                      .image {width:100%;
                              height:20rem;
@@ -1540,68 +1541,68 @@ h5 {font-size:1.1rem;}
 
                             &:hover img:nth-child(2) {top:50%;
                                                       opacity:1;}
+                     }
 
-                            .icons {position:absolute;
-                                    bottom:-2rem;
-                                    left:1px;
-                                    width:100%;
-                                    height:fit-content;
-                                    padding:0 3px 0 2px;
-                                    background-color:transparent;
-                                    transition:all 0.3s linear;
+                     .icons {position:absolute;
+                             top:20rem;
+                             left:1px;
+                             width:100%;
+                             height:fit-content;
+                             padding:0 3px 0 2px;
+                             background-color:transparent;
+                             transition:all 0.3s linear;
 
-                                   button {width:23%;
-                                           height:2.9rem;
-                                           display:flex;
-                                           flex-direction:row;
-                                           justify-content:center;
-                                           align-items:center;
-                                           border:none;
-                                           box-shadow:var(--box-shadow11);
-                                           border-radius:0;
-                                           background-color:var(--gray2);
-                                           opacity:0;
-                                           transform:translateY(20px);
-                                           transition:transform 0.5s ease, opacity 0.5s ease;
+                            button {width:23%;
+                                    height:2.9rem;
+                                    display:flex;
+                                    flex-direction:row;
+                                    justify-content:center;
+                                    align-items:center;
+                                    border:none;
+                                    box-shadow:var(--box-shadow11);
+                                    border-radius:0;
+                                    background-color:var(--gray2);
+                                    opacity:0;
+                                    transform:translateY(20px);
+                                    transition:transform 0.5s ease, opacity 0.5s ease;
        
-                                          #icon {font-size:0.9rem;
-                                                 color:var(--black2);
-                                                 background:transparent;}
+                                   #icon {font-size:0.9rem;
+                                          color:var(--black2);
+                                          background:transparent;}
        
                                           &:hover {background-color:var(--black2);}
        
                                           &:hover #icon {color:var(--white2);}
                                    }
+                     }
+
+                     .stats {position:absolute;
+                             top:1.9rem;
+                             left:0.9rem;
+                             height:fit-content;
+                             gap:0.7rem;
+
+                            .stat {height:fit-content;
+                                   padding:0.2rem 0.6rem;
+                                   border-radius:0.2rem;
+                                   text-align:center;
+                                   font-size:0.9rem;
+                                   line-height:1.2;
+                                   box-shadow:var(--box-shadow4);
+                                   &.new {background-color:var(--shin-blue5);color:var(--white2);}
+                                   &.top {background-color:var(--shin-orange);color:var(--white2);}
+                                   &.hot {background-color:var(--yellow10);color:var(--white2);}
                             }
 
-                            .stats {position:absolute;
-                                    top:1.9rem;
-                                    left:0.9rem;
-                                    height:fit-content;
-                                    gap:0.7rem;
-
-                                   .stat {height:fit-content;
-                                          padding:0.2rem 0.6rem;
-                                          border-radius:0.2rem;
-                                          text-align:center;
-                                          font-size:0.9rem;
-                                          line-height:1.2;
-                                          box-shadow:var(--box-shadow4);
-                                          &.new {background-color:var(--shin-blue5);color:var(--white2);}
-                                          &.top {background-color:var(--shin-orange);color:var(--white2);}
-                                          &.hot {background-color:var(--yellow10);color:var(--white2);}
-                                   }
-
-                                   .sale {height:fit-content;
-                                          padding:0.2rem 0.4rem;
-                                          border-radius:0.2rem;
-                                          text-align:center;
-                                          font-size:0.8rem;
-                                          line-height:1.2;
-                                          box-shadow:var(--box-shadow4);
-                                          color:var(--white2);
-                                          background-color:var(--gray9);
-                                   }
+                            .sale {height:fit-content;
+                                   padding:0.2rem 0.4rem;
+                                   border-radius:0.2rem;
+                                   text-align:center;
+                                   font-size:0.8rem;
+                                   line-height:1.2;
+                                   box-shadow:var(--box-shadow4);
+                                   color:var(--white2);
+                                   background-color:var(--gray9);
                             }
                      }
 
@@ -1672,7 +1673,7 @@ h5 {font-size:1.1rem;}
 
                      }
 
-                     &:hover .icons {bottom:0;}
+                     &:hover .icons {top:18rem;}
 
                      &:hover .icons button {transform:translateY(0);
                                             opacity:1;}
