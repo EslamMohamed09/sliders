@@ -1761,7 +1761,7 @@ h5 {
   top: 50%;
   transform: translateY(-50%);
 }
-.products9-section .products-container .product-item .image img:nth-child(2) {
+.products9-section .products-container .product-item .image img:last-child:not(:only-child) {
   top: 60%;
   transform: translateY(-50%);
   opacity: 0;
@@ -1769,7 +1769,7 @@ h5 {
 .products9-section .products-container .product-item .image:hover img:first-child {
   opacity: 0;
 }
-.products9-section .products-container .product-item .image:hover img:nth-child(2) {
+.products9-section .products-container .product-item .image:hover img:last-child {
   top: 50%;
   opacity: 1;
 }

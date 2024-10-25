@@ -1533,14 +1533,14 @@ h5 {font-size:1.1rem;}
                             img:first-child {top:50%;
                                              transform:translateY(-50%);}
 
-                            img:nth-child(2) {top:60%;
-                                              transform:translateY(-50%);
-                                              opacity:0;}
+                            img:last-child:not(:only-child) {top:60%;
+                                                             transform:translateY(-50%);
+                                                             opacity:0;}
 
                             &:hover img:first-child {opacity:0;}
 
-                            &:hover img:nth-child(2) {top:50%;
-                                                      opacity:1;}
+                            &:hover img:last-child {top:50%;
+                                                    opacity:1;}
                      }
 
                      .icons {position:absolute;
