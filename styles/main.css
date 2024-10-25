@@ -2011,15 +2011,15 @@ h5 {
 .products10-section .products-container .product-item .icons {
   position: absolute;
   top: 20rem;
-  left: 1px;
-  width: 100%;
+  left: 3px;
+  width: 97%;
   height: fit-content;
-  padding: 0 0.1rem 0 0;
+  padding: 0;
   background-color: transparent;
   transition: all 0.3s linear;
 }
 .products10-section .products-container .product-item .icons button {
-  width: 25.5%;
+  width: 25%;
   height: 2.9rem;
   display: flex;
   flex-direction: row;
@@ -2211,6 +2211,7 @@ h5 {
   margin-bottom: 1rem;
   background-color: transparent;
   overflow: hidden;
+  position: relative;
 }
 .products11-section .products-container .product-item .image {
   width: 100%;
@@ -2230,7 +2231,7 @@ h5 {
   top: 50%;
   transform: translateY(-50%);
 }
-.products11-section .products-container .product-item .image img:nth-child(2) {
+.products11-section .products-container .product-item .image img:last-child:not(:only-child) {
   top: 60%;
   transform: translateY(-50%);
   opacity: 0;
@@ -2238,22 +2239,22 @@ h5 {
 .products11-section .products-container .product-item .image:hover img:first-child {
   opacity: 0;
 }
-.products11-section .products-container .product-item .image:hover img:nth-child(2) {
+.products11-section .products-container .product-item .image:hover img:last-child {
   top: 50%;
   opacity: 1;
 }
-.products11-section .products-container .product-item .image .icons {
+.products11-section .products-container .product-item .icons {
   position: absolute;
-  bottom: -2rem;
-  left: 1px;
-  width: 100%;
+  top: 18rem;
+  left: 3px;
+  width: 97%;
   height: fit-content;
-  padding: 0 0.1rem 0 0;
+  padding: 0;
   background-color: transparent;
   transition: all 0.3s linear;
 }
-.products11-section .products-container .product-item .image .icons button {
-  width: 25.5%;
+.products11-section .products-container .product-item .icons button {
+  width: 25%;
   height: 2.9rem;
   display: flex;
   flex-direction: row;
@@ -2268,25 +2269,25 @@ h5 {
   transform: translateY(20px);
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
-.products11-section .products-container .product-item .image .icons button #icon {
+.products11-section .products-container .product-item .icons button #icon {
   font-size: 0.9rem;
   color: var(--black2);
   background: transparent;
 }
-.products11-section .products-container .product-item .image .icons button:hover {
+.products11-section .products-container .product-item .icons button:hover {
   background-color: var(--black2);
 }
-.products11-section .products-container .product-item .image .icons button:hover #icon {
+.products11-section .products-container .product-item .icons button:hover #icon {
   color: var(--white2);
 }
-.products11-section .products-container .product-item .image .stats {
+.products11-section .products-container .product-item .stats {
   position: absolute;
   top: 1.5rem;
   left: 0.9rem;
   height: fit-content;
   gap: 0.7rem;
 }
-.products11-section .products-container .product-item .image .stats .stat {
+.products11-section .products-container .product-item .stats .stat {
   height: fit-content;
   padding: 0.2rem 0.6rem;
   border-radius: 0.2rem;
@@ -2295,19 +2296,19 @@ h5 {
   line-height: 1.2;
   box-shadow: var(--box-shadow4);
 }
-.products11-section .products-container .product-item .image .stats .stat.new {
+.products11-section .products-container .product-item .stats .stat.new {
   background-color: var(--shin-blue5);
   color: var(--white2);
 }
-.products11-section .products-container .product-item .image .stats .stat.top {
+.products11-section .products-container .product-item .stats .stat.top {
   background-color: var(--shin-orange);
   color: var(--white2);
 }
-.products11-section .products-container .product-item .image .stats .stat.hot {
+.products11-section .products-container .product-item .stats .stat.hot {
   background-color: var(--yellow10);
   color: var(--white2);
 }
-.products11-section .products-container .product-item .image .stats .sale {
+.products11-section .products-container .product-item .stats .sale {
   height: fit-content;
   padding: 0.2rem 0.4rem;
   border-radius: 0.2rem;
@@ -2398,7 +2399,7 @@ h5 {
   color: var(--orange-red2);
 }
 .products11-section .products-container .product-item:hover .icons {
-  bottom: 0;
+  top: 20;
 }
 .products11-section .products-container .product-item:hover .icons button {
   transform: translateY(0);
