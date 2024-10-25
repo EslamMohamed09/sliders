@@ -1971,7 +1971,7 @@ h5 {
 }
 .products10-section .products-container .product-item {
   display: block;
-  padding: 1rem 0.2rem;
+  padding: 1rem 0;
   margin-bottom: 1rem;
   background-color: transparent;
   overflow: hidden;
@@ -2011,8 +2011,8 @@ h5 {
 .products10-section .products-container .product-item .icons {
   position: absolute;
   top: 20rem;
-  left: 3px;
-  width: 97%;
+  left: 0;
+  width: 100%;
   height: fit-content;
   padding: 0;
   background-color: transparent;
@@ -2207,7 +2207,7 @@ h5 {
 }
 .products11-section .products-container .product-item {
   display: block;
-  padding: 1rem 0.2rem;
+  padding: 1rem 0;
   margin-bottom: 1rem;
   background-color: transparent;
   overflow: hidden;
@@ -2246,15 +2246,15 @@ h5 {
 .products11-section .products-container .product-item .icons {
   position: absolute;
   top: 18rem;
-  left: 3px;
-  width: 97%;
+  left: 0;
+  width: 100%;
   height: fit-content;
   padding: 0;
   background-color: transparent;
   transition: all 0.3s linear;
 }
 .products11-section .products-container .product-item .icons button {
-  width: 25%;
+  width: 25.5%;
   height: 2.9rem;
   display: flex;
   flex-direction: row;
