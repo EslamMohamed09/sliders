@@ -1975,6 +1975,7 @@ h5 {
   margin-bottom: 1rem;
   background-color: transparent;
   overflow: hidden;
+  position: relative;
 }
 .products10-section .products-container .product-item .image {
   width: 100%;
@@ -1995,7 +1996,7 @@ h5 {
   top: 50%;
   transform: translateY(-50%);
 }
-.products10-section .products-container .product-item .image img:nth-child(2) {
+.products10-section .products-container .product-item .image img:last-child:not(:only-child) {
   top: 60%;
   transform: translateY(-50%);
   opacity: 0;
@@ -2003,13 +2004,13 @@ h5 {
 .products10-section .products-container .product-item .image:hover img:first-child {
   opacity: 0;
 }
-.products10-section .products-container .product-item .image:hover img:nth-child(2) {
+.products10-section .products-container .product-item .image:hover img:last-child {
   top: 50%;
   opacity: 1;
 }
-.products10-section .products-container .product-item .image .icons {
+.products10-section .products-container .product-item .icons {
   position: absolute;
-  bottom: -2rem;
+  top: 20rem;
   left: 1px;
   width: 100%;
   height: fit-content;
@@ -2017,7 +2018,7 @@ h5 {
   background-color: transparent;
   transition: all 0.3s linear;
 }
-.products10-section .products-container .product-item .image .icons button {
+.products10-section .products-container .product-item .icons button {
   width: 25.5%;
   height: 2.9rem;
   display: flex;
@@ -2033,25 +2034,25 @@ h5 {
   transform: translateY(20px);
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
-.products10-section .products-container .product-item .image .icons button #icon {
+.products10-section .products-container .product-item .icons button #icon {
   font-size: 0.9rem;
   color: var(--black2);
   background: transparent;
 }
-.products10-section .products-container .product-item .image .icons button:hover {
+.products10-section .products-container .product-item .icons button:hover {
   background-color: var(--black2);
 }
-.products10-section .products-container .product-item .image .icons button:hover #icon {
+.products10-section .products-container .product-item .icons button:hover #icon {
   color: var(--white2);
 }
-.products10-section .products-container .product-item .image .stats {
+.products10-section .products-container .product-item .stats {
   position: absolute;
   top: 1.5rem;
   left: 0.9rem;
   height: fit-content;
   gap: 0.7rem;
 }
-.products10-section .products-container .product-item .image .stats .stat {
+.products10-section .products-container .product-item .stats .stat {
   height: fit-content;
   padding: 0.2rem 0.6rem;
   border-radius: 0.2rem;
@@ -2060,19 +2061,19 @@ h5 {
   line-height: 1.2;
   box-shadow: var(--box-shadow4);
 }
-.products10-section .products-container .product-item .image .stats .stat.new {
+.products10-section .products-container .product-item .stats .stat.new {
   background-color: var(--shin-blue5);
   color: var(--white2);
 }
-.products10-section .products-container .product-item .image .stats .stat.top {
+.products10-section .products-container .product-item .stats .stat.top {
   background-color: var(--shin-orange);
   color: var(--white2);
 }
-.products10-section .products-container .product-item .image .stats .stat.hot {
+.products10-section .products-container .product-item .stats .stat.hot {
   background-color: var(--yellow10);
   color: var(--white2);
 }
-.products10-section .products-container .product-item .image .stats .sale {
+.products10-section .products-container .product-item .stats .sale {
   height: fit-content;
   padding: 0.2rem 0.4rem;
   border-radius: 0.2rem;
@@ -2163,7 +2164,7 @@ h5 {
   color: var(--orange-red2);
 }
 .products10-section .products-container .product-item:hover .icons {
-  bottom: 0;
+  top: 18rem;
 }
 .products10-section .products-container .product-item:hover .icons button {
   transform: translateY(0);
