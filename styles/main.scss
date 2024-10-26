@@ -497,12 +497,13 @@ h5 {font-size:1.1rem;}
  # products 1
 ********************/
 .products1-section {margin-top:5rem;
-                     position:relative;
+                    position:relative;
 
        .slides-container {display:flex;
                           padding:0.5rem 1.2rem;
                           margin:0 auto;
                           gap:1.8rem;
+                          background-color:var(--red3);
 
               .product-item {padding:1rem 0.5rem 0.1rem;
                              flex: 0 0 auto;

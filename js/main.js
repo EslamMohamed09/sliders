@@ -14,7 +14,7 @@ function setupSlider(carouselContainer) {
     updateSlidesToShow();
 }
 
-function calculateGapSize() {
+function gapSizeSlidesToShow() {
     const tinyScreen = window.innerWidth < 400;
     const smallScreen = window.innerWidth > 400 && window.innerWidth < 500;
     const bigSmallScreen = window.innerWidth >= 500 && window.innerWidth < 650;
@@ -27,6 +27,21 @@ function calculateGapSize() {
          : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
          : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
          : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+}
+
+function gapSizeSliderPosition() {
+    const tinyScreen = window.innerWidth < 400;
+    const smallScreen = window.innerWidth > 400 && window.innerWidth < 550;
+    const miniTabScreen = window.innerWidth >= 550 && window.innerWidth < 650;
+    const tabScreen = window.innerWidth > 650 && window.innerWidth < 1000;
+    const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1200;
+
+    return tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.7
+         : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.3
+         : miniTabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.4
+         : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.2
+         : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0
+         : parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.6;
 }
 
 function buildDots(dotsSelector) {
@@ -70,7 +85,7 @@ function setResponsive(responsiveSettings) {
 function updateSlidesToShow() {
     const wrapperWidth = sliderContainer.clientWidth;
 
-    const gapSize =  calculateGapSize();
+    const gapSize =  gapSizeSlidesToShow();
     const slideWidth = Math.floor((wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow); // Adjust for the gap between slides
     
     for (let i = 0; i < slides.length; i++) {
@@ -93,25 +108,22 @@ function updateDots() {
 function updateSliderPosition() {
     const wrapperWidth = sliderContainer.clientWidth;
 
-    // Calculate the gap size using the existing logic
-    const gapSize = calculateGapSize();
+    const gapSize = gapSizeSliderPosition();
     const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
-    const scrollPosition = currentIndex * (slideWidth + gapSize); // Account for gap
+    const scrollPosition = currentIndex * (slideWidth + gapSize);
 
-    sliderContainer.scrollTo({ // Scroll to the calculated position
+    sliderContainer.scrollTo({
         left: scrollPosition,
         behavior: 'smooth'
     });
 
     updateDots();
 
-    // Check if currentIndex exceeds the number of slides
     if (currentIndex >= slides.length) { 
-        currentIndex = 0; // Reset to the first slide
+        currentIndex = 0;
         sliderContainer.scrollTo({ left: 0 });
     }
 }
-
 
 function nextSlide() {
     currentIndex += slidesToScroll;
@@ -125,32 +137,12 @@ function nextSlide() {
 function prevSlide() {
     currentIndex -= slidesToScroll;
     
-    // Wrap around to the last set if currentIndex goes below 0
     if (currentIndex < 0) {
         currentIndex = slides.length - (slides.length % slidesToScroll || slidesToScroll);
     }
 
     updateSliderPosition();
-    updateDots(); // Ensure the correct dot is active
-}
-
-function updateSliderPosition() {
-    const wrapperWidth = sliderContainer.clientWidth;
-    const gapSize = calculateGapSize();
-    const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
-    const scrollPosition = currentIndex * (slideWidth + gapSize); // Account for gap
-
-    sliderContainer.scrollTo({ // Scroll to the calculated position
-        left: scrollPosition,
-        behavior: 'smooth'
-    });
-
-    updateDots(); // Update the active dot
-
-    if (currentIndex >= slides.length) {
-        currentIndex = 0; // Loop back to the first slide
-        sliderContainer.scrollTo({ left: 0 });
-    }
+    updateDots();
 }
 
 function attachEvents(prevArrowSelector, nextArrowSelector) {
