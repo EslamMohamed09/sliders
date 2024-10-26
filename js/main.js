@@ -14,6 +14,21 @@ function setupSlider(carouselContainer) {
     updateSlidesToShow();
 }
 
+function calculateGapSize() {
+    const tinyScreen = window.innerWidth < 400;
+    const smallScreen = window.innerWidth > 400 && window.innerWidth < 500;
+    const bigSmallScreen = window.innerWidth >= 500 && window.innerWidth < 650;
+    const tabScreen = window.innerWidth > 650 && window.innerWidth < 1000;
+    const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
+
+    return tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.7
+         : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3
+         : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.9
+         : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
+         : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
+         : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+}
+
 function buildDots(dotsSelector) {
     dotsWrapper = document.querySelector(dotsSelector);
     dotsWrapper.innerHTML = '';
@@ -54,19 +69,8 @@ function setResponsive(responsiveSettings) {
 
 function updateSlidesToShow() {
     const wrapperWidth = sliderContainer.clientWidth;
-    
-    const tinyScreen = window.innerWidth < 400;
-    const smallScreen = window.innerWidth > 400 && window.innerWidth < 500;
-    const bigSmallScreen = window.innerWidth >= 500 && window.innerWidth < 650;
-    const tabScreen = window.innerWidth > 650 && window.innerWidth < 1000;
-    const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
 
-    const gapSize =  tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.7
-                  : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3
-                  : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.9
-                  : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
-                  : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
-                  : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+    const gapSize =  calculateGapSize();
     const slideWidth = Math.floor((wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow); // Adjust for the gap between slides
     
     for (let i = 0; i < slides.length; i++) {
@@ -89,23 +93,8 @@ function updateDots() {
 function updateSliderPosition() {
     const wrapperWidth = sliderContainer.clientWidth;
 
-    const tinyScreen = window.innerWidth < 400;
-    const smallScreen = window.innerWidth >= 400 && window.innerWidth < 440;
-    const bigSmallScreen = window.innerWidth > 500 && window.innerWidth < 650;
-    const tabScreen = window.innerWidth > 650 && window.innerWidth < 740;
-    const tabScreen2 = window.innerWidth > 740 && window.innerWidth < 1000;
-    const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
-    const lMediumScreen = window.innerWidth > 1100 && window.innerWidth < 1150;
-
-    const gapSize = tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5 
-                  : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.1 
-                  : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.3 
-                  : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.4
-                  : tabScreen2 ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.3
-                  : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.05
-                  : lMediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0
-                  : parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.9;
-
+    // Calculate the gap size using the existing logic
+    const gapSize = calculateGapSize();
     const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
     const scrollPosition = currentIndex * (slideWidth + gapSize); // Account for gap
 
@@ -116,11 +105,13 @@ function updateSliderPosition() {
 
     updateDots();
 
-    if (currentIndex >= slides.length) { // Reset the position if it reaches the end
-        currentIndex = 0;
+    // Check if currentIndex exceeds the number of slides
+    if (currentIndex >= slides.length) { 
+        currentIndex = 0; // Reset to the first slide
         sliderContainer.scrollTo({ left: 0 });
     }
 }
+
 
 function nextSlide() {
     currentIndex += slidesToScroll;
@@ -128,14 +119,35 @@ function nextSlide() {
         currentIndex = 0; // Loop back to the first slide
     }
     updateSliderPosition();
+    updateDots();
 }
 
 function prevSlide() {
     currentIndex -= slidesToScroll;
     if (currentIndex < 0) {
-        currentIndex = slides.length - slidesToShow; // Loop to the last full set of slides
+        currentIndex = 0; // Reset to the first slide if going back from the first set
     }
     updateSliderPosition();
+    updateDots(); // Ensure the correct dot is active
+}
+
+function updateSliderPosition() {
+    const wrapperWidth = sliderContainer.clientWidth;
+    const gapSize = calculateGapSize();
+    const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
+    const scrollPosition = currentIndex * (slideWidth + gapSize); // Account for gap
+
+    sliderContainer.scrollTo({ // Scroll to the calculated position
+        left: scrollPosition,
+        behavior: 'smooth'
+    });
+
+    updateDots(); // Update the active dot
+
+    if (currentIndex >= slides.length) {
+        currentIndex = 0; // Loop back to the first slide
+        sliderContainer.scrollTo({ left: 0 });
+    }
 }
 
 function attachEvents(prevArrowSelector, nextArrowSelector) {
@@ -213,75 +225,3 @@ buildDots('#featureddots');
 
 setResponsive(responsiveSettings);
 attachEvents('.arrow-left', '.arrow-right');
-// autoSlide(5000); // Optional: Enable auto sliding with speed in ms
-
-
-/*** REMOVE BACKGROUND ***/
-function removeBackground(imgElement, targetColor) {
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-
-  const originalImage = new Image();
-  originalImage.src = imgElement.src;
-
-  originalImage.onload = function () {
-    canvas.width = originalImage.width;
-    canvas.height = originalImage.height;
-    ctx.drawImage(originalImage, 0, 0, canvas.width, canvas.height);
-
-    // Get image data
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
-
-    // Convert target color to RGBA format
-    const targetRGBA = hexToRGBA(targetColor);
-
-    for (let i = 0; i < data.length; i += 4) {
-      const red = data[i];
-      const green = data[i + 1];
-      const blue = data[i + 2];
-
-      // Check if the pixel color matches the target color
-      if (red === targetRGBA.r &&
-          green === targetRGBA.g &&
-          blue === targetRGBA.b
-      ) {
-        data[i + 3] = 0; // Set alpha channel to 0 (transparent)
-      }
-    }
-
-    // Update the canvas with modified image data
-    ctx.putImageData(imageData, 0, 0);
-
-    // Replace the original image with the processed image
-    imgElement.src = canvas.toDataURL();
-  };
-}
-
-function hexToRGBA(hex) {
-  const bigint = parseInt(hex.slice(1), 16);
-  const r = (bigint >> 16) & 255;
-  const g = (bigint >> 8) & 255;
-  const b = bigint & 255;
-
-  return { r, g, b };
-}
-
-const productImages = document.querySelectorAll('.image img');
-productImages.forEach(function (img) {
-  const clonedImage = img.cloneNode();
-  removeBackground(clonedImage, '#ffffff');
-  img.parentNode.replaceChild(clonedImage, img);
-});
-
-document.querySelectorAll('.product-item').forEach(product => {
-  const circles = product.querySelectorAll('.color-circle');
-
-  circles.forEach(circle => {
-    circle.addEventListener('click', function() {
-      circles.forEach(c => c.classList.remove('checked'));
-      
-      this.classList.add('checked');
-    });
-  });
-});
