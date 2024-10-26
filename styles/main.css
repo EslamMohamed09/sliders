@@ -1740,42 +1740,47 @@ h5 {
   margin-bottom: 1rem;
   background-color: transparent;
   overflow: hidden;
-  position: relative;
 }
-.products9-section .products-container .product-item .image {
+.products9-section .products-container .product-item .header-item {
   width: 100%;
   height: 20rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+.products9-section .products-container .product-item .header-item .image {
+  width: 100%;
+  height: 100%;
   margin-bottom: 1.2rem;
   background-color: var(--gray);
   border-bottom: 1px solid var(--gray3);
   position: relative;
 }
-.products9-section .products-container .product-item .image img {
+.products9-section .products-container .product-item .header-item .image img {
   width: 70%;
   height: 55%;
   object-fit: contain;
   transition: all 0.4s linear;
   position: absolute;
 }
-.products9-section .products-container .product-item .image img:first-child {
+.products9-section .products-container .product-item .header-item .image img:first-child {
   top: 50%;
   transform: translateY(-50%);
 }
-.products9-section .products-container .product-item .image img:last-child:not(:only-child) {
+.products9-section .products-container .product-item .header-item .image img:last-child:not(:only-child) {
   top: 60%;
   transform: translateY(-50%);
   opacity: 0;
 }
-.products9-section .products-container .product-item .image:hover img:first-child {
+.products9-section .products-container .product-item .header-item .image:hover img:first-child {
   opacity: 0;
 }
-.products9-section .products-container .product-item .image:hover img:last-child {
+.products9-section .products-container .product-item .header-item .image:hover img:last-child {
   top: 50%;
   opacity: 1;
 }
-.products9-section .products-container .product-item .icons {
+.products9-section .products-container .product-item .header-item .icons {
   position: absolute;
-  top: 20rem;
+  bottom: -3rem;
   left: 0;
   width: 100%;
   height: fit-content;
@@ -1783,7 +1788,7 @@ h5 {
   background-color: transparent;
   transition: all 0.3s linear;
 }
-.products9-section .products-container .product-item .icons button {
+.products9-section .products-container .product-item .header-item .icons button {
   width: 23%;
   height: 2.9rem;
   display: flex;
@@ -1798,25 +1803,25 @@ h5 {
   transform: translateY(20px);
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
-.products9-section .products-container .product-item .icons button #icon {
+.products9-section .products-container .product-item .header-item .icons button #icon {
   font-size: 0.9rem;
   color: var(--black2);
   background: transparent;
 }
-.products9-section .products-container .product-item .icons button:hover {
+.products9-section .products-container .product-item .header-item .icons button:hover {
   background-color: var(--black2);
 }
-.products9-section .products-container .product-item .icons button:hover #icon {
+.products9-section .products-container .product-item .header-item .icons button:hover #icon {
   color: var(--white2);
 }
-.products9-section .products-container .product-item .stats {
+.products9-section .products-container .product-item .header-item .stats {
   position: absolute;
   top: 1.9rem;
   left: 0.9rem;
   height: fit-content;
   gap: 0.7rem;
 }
-.products9-section .products-container .product-item .stats .stat {
+.products9-section .products-container .product-item .header-item .stats .stat {
   height: fit-content;
   padding: 0.2rem 0.6rem;
   border-radius: 0.2rem;
@@ -1825,19 +1830,19 @@ h5 {
   line-height: 1.2;
   box-shadow: var(--box-shadow4);
 }
-.products9-section .products-container .product-item .stats .stat.new {
+.products9-section .products-container .product-item .header-item .stats .stat.new {
   background-color: var(--shin-blue5);
   color: var(--white2);
 }
-.products9-section .products-container .product-item .stats .stat.top {
+.products9-section .products-container .product-item .header-item .stats .stat.top {
   background-color: var(--shin-orange);
   color: var(--white2);
 }
-.products9-section .products-container .product-item .stats .stat.hot {
+.products9-section .products-container .product-item .header-item .stats .stat.hot {
   background-color: var(--yellow10);
   color: var(--white2);
 }
-.products9-section .products-container .product-item .stats .sale {
+.products9-section .products-container .product-item .header-item .stats .sale {
   height: fit-content;
   padding: 0.2rem 0.4rem;
   border-radius: 0.2rem;
@@ -1928,7 +1933,7 @@ h5 {
   color: var(--orange-red2);
 }
 .products9-section .products-container .product-item:hover .icons {
-  top: 18rem;
+  bottom: 0;
 }
 .products9-section .products-container .product-item:hover .icons button {
   transform: translateY(0);
@@ -1975,42 +1980,47 @@ h5 {
   margin-bottom: 1rem;
   background-color: transparent;
   overflow: hidden;
-  position: relative;
 }
-.products10-section .products-container .product-item .image {
+.products10-section .products-container .product-item .header-item {
   width: 100%;
   height: 20rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+.products10-section .products-container .product-item .header-item .image {
+  width: 100%;
+  height: 100%;
   margin-bottom: 1.2rem;
   background-color: var(--gray);
   border-bottom: 1px solid var(--gray3);
   position: relative;
 }
-.products10-section .products-container .product-item .image img {
+.products10-section .products-container .product-item .header-item .image img {
   width: 70%;
   height: 55%;
   object-fit: contain;
   transition: all 0.4s linear;
   position: absolute;
 }
-.products10-section .products-container .product-item .image img:first-child {
+.products10-section .products-container .product-item .header-item .image img:first-child {
   top: 50%;
   transform: translateY(-50%);
 }
-.products10-section .products-container .product-item .image img:last-child:not(:only-child) {
+.products10-section .products-container .product-item .header-item .image img:last-child:not(:only-child) {
   top: 60%;
   transform: translateY(-50%);
   opacity: 0;
 }
-.products10-section .products-container .product-item .image:hover img:first-child {
+.products10-section .products-container .product-item .header-item .image:hover img:first-child {
   opacity: 0;
 }
-.products10-section .products-container .product-item .image:hover img:last-child {
+.products10-section .products-container .product-item .header-item .image:hover img:last-child {
   top: 50%;
   opacity: 1;
 }
-.products10-section .products-container .product-item .icons {
+.products10-section .products-container .product-item .header-item .icons {
   position: absolute;
-  top: 20rem;
+  bottom: -3rem;
   left: 0;
   width: 100%;
   height: fit-content;
@@ -2018,7 +2028,7 @@ h5 {
   background-color: transparent;
   transition: all 0.3s linear;
 }
-.products10-section .products-container .product-item .icons button {
+.products10-section .products-container .product-item .header-item .icons button {
   width: 25%;
   height: 2.9rem;
   display: flex;
@@ -2034,25 +2044,25 @@ h5 {
   transform: translateY(20px);
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
-.products10-section .products-container .product-item .icons button #icon {
+.products10-section .products-container .product-item .header-item .icons button #icon {
   font-size: 0.9rem;
   color: var(--black2);
   background: transparent;
 }
-.products10-section .products-container .product-item .icons button:hover {
+.products10-section .products-container .product-item .header-item .icons button:hover {
   background-color: var(--black2);
 }
-.products10-section .products-container .product-item .icons button:hover #icon {
+.products10-section .products-container .product-item .header-item .icons button:hover #icon {
   color: var(--white2);
 }
-.products10-section .products-container .product-item .stats {
+.products10-section .products-container .product-item .header-item .stats {
   position: absolute;
   top: 1.5rem;
   left: 0.9rem;
   height: fit-content;
   gap: 0.7rem;
 }
-.products10-section .products-container .product-item .stats .stat {
+.products10-section .products-container .product-item .header-item .stats .stat {
   height: fit-content;
   padding: 0.2rem 0.6rem;
   border-radius: 0.2rem;
@@ -2061,19 +2071,19 @@ h5 {
   line-height: 1.2;
   box-shadow: var(--box-shadow4);
 }
-.products10-section .products-container .product-item .stats .stat.new {
+.products10-section .products-container .product-item .header-item .stats .stat.new {
   background-color: var(--shin-blue5);
   color: var(--white2);
 }
-.products10-section .products-container .product-item .stats .stat.top {
+.products10-section .products-container .product-item .header-item .stats .stat.top {
   background-color: var(--shin-orange);
   color: var(--white2);
 }
-.products10-section .products-container .product-item .stats .stat.hot {
+.products10-section .products-container .product-item .header-item .stats .stat.hot {
   background-color: var(--yellow10);
   color: var(--white2);
 }
-.products10-section .products-container .product-item .stats .sale {
+.products10-section .products-container .product-item .header-item .stats .sale {
   height: fit-content;
   padding: 0.2rem 0.4rem;
   border-radius: 0.2rem;
@@ -2164,7 +2174,7 @@ h5 {
   color: var(--orange-red2);
 }
 .products10-section .products-container .product-item:hover .icons {
-  top: 18rem;
+  bottom: 0;
 }
 .products10-section .products-container .product-item:hover .icons button {
   transform: translateY(0);
@@ -2211,41 +2221,45 @@ h5 {
   margin-bottom: 1rem;
   background-color: transparent;
   overflow: hidden;
-  position: relative;
 }
-.products11-section .products-container .product-item .image {
+.products11-section .products-container .product-item .header-item {
   width: 100%;
   height: 20rem;
   margin-bottom: 1.2rem;
+  position: relative;
+}
+.products11-section .products-container .product-item .header-item .image {
+  width: 100%;
+  height: 100%;
   background: radial-gradient(var(--gray), var(--gray5));
   position: relative;
 }
-.products11-section .products-container .product-item .image img {
+.products11-section .products-container .product-item .header-item .image img {
   width: 70%;
   height: 55%;
   object-fit: contain;
   transition: all 0.4s linear;
   position: absolute;
 }
-.products11-section .products-container .product-item .image img:first-child {
+.products11-section .products-container .product-item .header-item .image img:first-child {
   top: 50%;
   transform: translateY(-50%);
 }
-.products11-section .products-container .product-item .image img:last-child:not(:only-child) {
+.products11-section .products-container .product-item .header-item .image img:last-child:not(:only-child) {
   top: 60%;
   transform: translateY(-50%);
   opacity: 0;
 }
-.products11-section .products-container .product-item .image:hover img:first-child {
+.products11-section .products-container .product-item .header-item .image:hover img:first-child {
   opacity: 0;
 }
-.products11-section .products-container .product-item .image:hover img:last-child {
+.products11-section .products-container .product-item .header-item .image:hover img:last-child {
   top: 50%;
   opacity: 1;
 }
-.products11-section .products-container .product-item .icons {
+.products11-section .products-container .product-item .header-item .icons {
   position: absolute;
-  top: 18rem;
+  bottom: -3rem;
   left: 0;
   width: 100%;
   height: fit-content;
@@ -2253,7 +2267,7 @@ h5 {
   background-color: transparent;
   transition: all 0.3s linear;
 }
-.products11-section .products-container .product-item .icons button {
+.products11-section .products-container .product-item .header-item .icons button {
   width: 25.5%;
   height: 2.9rem;
   display: flex;
@@ -2269,25 +2283,25 @@ h5 {
   transform: translateY(20px);
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
-.products11-section .products-container .product-item .icons button #icon {
+.products11-section .products-container .product-item .header-item .icons button #icon {
   font-size: 0.9rem;
   color: var(--black2);
   background: transparent;
 }
-.products11-section .products-container .product-item .icons button:hover {
+.products11-section .products-container .product-item .header-item .icons button:hover {
   background-color: var(--black2);
 }
-.products11-section .products-container .product-item .icons button:hover #icon {
+.products11-section .products-container .product-item .header-item .icons button:hover #icon {
   color: var(--white2);
 }
-.products11-section .products-container .product-item .stats {
+.products11-section .products-container .product-item .header-item .stats {
   position: absolute;
   top: 1.5rem;
   left: 0.9rem;
   height: fit-content;
   gap: 0.7rem;
 }
-.products11-section .products-container .product-item .stats .stat {
+.products11-section .products-container .product-item .header-item .stats .stat {
   height: fit-content;
   padding: 0.2rem 0.6rem;
   border-radius: 0.2rem;
@@ -2296,19 +2310,19 @@ h5 {
   line-height: 1.2;
   box-shadow: var(--box-shadow4);
 }
-.products11-section .products-container .product-item .stats .stat.new {
+.products11-section .products-container .product-item .header-item .stats .stat.new {
   background-color: var(--shin-blue5);
   color: var(--white2);
 }
-.products11-section .products-container .product-item .stats .stat.top {
+.products11-section .products-container .product-item .header-item .stats .stat.top {
   background-color: var(--shin-orange);
   color: var(--white2);
 }
-.products11-section .products-container .product-item .stats .stat.hot {
+.products11-section .products-container .product-item .header-item .stats .stat.hot {
   background-color: var(--yellow10);
   color: var(--white2);
 }
-.products11-section .products-container .product-item .stats .sale {
+.products11-section .products-container .product-item .header-item .stats .sale {
   height: fit-content;
   padding: 0.2rem 0.4rem;
   border-radius: 0.2rem;
@@ -2399,7 +2413,7 @@ h5 {
   color: var(--orange-red2);
 }
 .products11-section .products-container .product-item:hover .icons {
-  top: 20;
+  bottom: 0;
 }
 .products11-section .products-container .product-item:hover .icons button {
   transform: translateY(0);
