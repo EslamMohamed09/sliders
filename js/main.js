@@ -124,9 +124,12 @@ function nextSlide() {
 
 function prevSlide() {
     currentIndex -= slidesToScroll;
+    
+    // Wrap around to the last set if currentIndex goes below 0
     if (currentIndex < 0) {
-        currentIndex = 0; // Reset to the first slide if going back from the first set
+        currentIndex = slides.length - (slides.length % slidesToScroll || slidesToScroll);
     }
+
     updateSliderPosition();
     updateDots(); // Ensure the correct dot is active
 }
