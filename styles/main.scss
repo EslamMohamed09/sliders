@@ -693,17 +693,17 @@ h5 {font-size:1.1rem;}
                             cursor:pointer;}
        }
 
-       #featureddots {margin-top:3rem;
+       #sliderdots {margin-top:3rem;
 
-          .dot {display:inline-block;
-                width:10px;
-                height:10px;
-                margin:5px;
-                background-color:#ccc;
-                border-radius:50%;
-                cursor:pointer;}
+              .dot {display:inline-block;
+                    width:10px;
+                    height:10px;
+                    margin:5px;
+                    background-color:#ccc;
+                    border-radius:50%;
+                    cursor:pointer;}
    
-          .dot.active {background-color:#333;}
+              .dot.active {background-color:#333;}
 
        }
 }
@@ -721,11 +721,11 @@ h5 {font-size:1.1rem;}
 ****************/
 .products10-section {
 
-       .products-container {display:grid;
-                            grid-template-columns:repeat(auto-fill,minmax(224px, 1fr));
-                            gap:0.8rem;
-                            padding:0.3rem;
-                            border-radius:0.5rem;
+       .products-container {display:flex;
+                            padding:0.5rem 1.2rem;
+                            margin:0 auto;
+                            gap:1.8rem;
+                            background-color:transparent;
               
               .product-item {display:block;
                              padding:1rem 0;
