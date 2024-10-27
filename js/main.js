@@ -14,36 +14,6 @@ function setupSlider(carouselContainer) {
     updateSlidesToShow();
 }
 
-function gapSizeSlidesToShow() {
-    const tinyScreen = window.innerWidth < 400;
-    const smallScreen = window.innerWidth > 400 && window.innerWidth < 500;
-    const bigSmallScreen = window.innerWidth >= 500 && window.innerWidth < 650;
-    const tabScreen = window.innerWidth > 650 && window.innerWidth < 1000;
-    const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
-
-    return tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.7
-         : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3
-         : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.9
-         : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
-         : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
-         : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
-}
-
-function gapSizeSliderPosition() {
-    const tinyScreen = window.innerWidth < 400;
-    const smallScreen = window.innerWidth > 400 && window.innerWidth < 550;
-    const miniTabScreen = window.innerWidth >= 550 && window.innerWidth < 650;
-    const tabScreen = window.innerWidth > 650 && window.innerWidth < 1000;
-    const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1200;
-
-    return tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.7
-         : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.3
-         : miniTabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.4
-         : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.2
-         : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0
-         : parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.6;
-}
-
 function buildDots(dotsSelector) {
     dotsWrapper = document.querySelector(dotsSelector);
     dotsWrapper.innerHTML = '';
@@ -71,7 +41,46 @@ function updateDots() {
     }
 }
 
-function setResponsive(responsiveSettings) {
+function setResponsive() {
+
+    const responsiveSettings = [
+        {
+            breakpoint: 10,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 350,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+            }
+        },
+        {
+            breakpoint: 650,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+            }
+        },
+        {
+            breakpoint: 1100,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 4,
+            }
+        },
+        {
+            breakpoint: 1300,
+            settings: {
+                slidesToShow: 5,
+                slidesToScroll: 5,
+            }
+        }
+    ];
+
     responsiveSettings.forEach((resp) => {
         if (window.innerWidth >= resp.breakpoint) {
             slidesToShow = resp.settings.slidesToShow;
@@ -84,8 +93,19 @@ function setResponsive(responsiveSettings) {
 
 function updateSlidesToShow() {
     const wrapperWidth = sliderContainer.clientWidth;
+    
+    const tinyScreen = window.innerWidth < 400;
+    const smallScreen = window.innerWidth > 400 && window.innerWidth < 500;
+    const bigSmallScreen = window.innerWidth >= 500 && window.innerWidth < 650;
+    const tabScreen = window.innerWidth > 650 && window.innerWidth < 1000;
+    const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
 
-    const gapSize =  gapSizeSlidesToShow();
+    const gapSize =  tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.7
+                  : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3
+                  : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.9
+                  : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
+                  : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
+                  : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
     const slideWidth = Math.floor((wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow); // Adjust for the gap between slides
     
     for (let i = 0; i < slides.length; i++) {
@@ -108,18 +128,34 @@ function updateDots() {
 function updateSliderPosition() {
     const wrapperWidth = sliderContainer.clientWidth;
 
-    const gapSize = gapSizeSliderPosition();
-    const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
-    const scrollPosition = currentIndex * (slideWidth + gapSize);
+    const tinyScreen = window.innerWidth < 400;
+    const smallScreen = window.innerWidth >= 400 && window.innerWidth < 440;
+    const bigSmallScreen = window.innerWidth > 500 && window.innerWidth < 650;
+    const tabScreen = window.innerWidth > 650 && window.innerWidth < 740;
+    const tabScreen2 = window.innerWidth > 740 && window.innerWidth < 1000;
+    const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
+    const lMediumScreen = window.innerWidth > 1100 && window.innerWidth < 1150;
 
-    sliderContainer.scrollTo({
+    const gapSize = tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5 
+                  : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.1 
+                  : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.3 
+                  : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.4
+                  : tabScreen2 ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.3
+                  : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.05
+                  : lMediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0
+                  : parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.9;
+
+    const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
+    const scrollPosition = currentIndex * (slideWidth + gapSize); // Account for gap
+
+    sliderContainer.scrollTo({ // Scroll to the calculated position
         left: scrollPosition,
         behavior: 'smooth'
     });
 
     updateDots();
 
-    if (currentIndex >= slides.length) { 
+    if (currentIndex >= slides.length) { // Reset the position if it reaches the end
         currentIndex = 0;
         sliderContainer.scrollTo({ left: 0 });
     }
@@ -131,18 +167,14 @@ function nextSlide() {
         currentIndex = 0; // Loop back to the first slide
     }
     updateSliderPosition();
-    updateDots();
 }
 
 function prevSlide() {
     currentIndex -= slidesToScroll;
-    
     if (currentIndex < 0) {
         currentIndex = slides.length - (slides.length % slidesToScroll || slidesToScroll);
     }
-
     updateSliderPosition();
-    updateDots();
 }
 
 function attachEvents(prevArrowSelector, nextArrowSelector) {
@@ -153,7 +185,7 @@ function attachEvents(prevArrowSelector, nextArrowSelector) {
 
     nextButton.addEventListener('click', nextSlide);
 
-    window.addEventListener('resize', () => setResponsive(responsiveSettings));
+    window.addEventListener('resize', () => setResponsive());
 
     if (dotsWrapper) {
         Array.from(dotsWrapper.children).forEach(dot => {
@@ -169,54 +201,13 @@ function autoSlide(autoplaySpeed) {
     setInterval(nextSlide, autoplaySpeed || 3000);
 }
 
-const responsiveSettings = [
-    {
-        breakpoint: 10,
-        settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-        }
-    },
-    {
-        breakpoint: 350,
-        settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-        }
-    },
-    {
-        breakpoint: 650,
-        settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-        }
-    },
-    {
-        breakpoint: 1100,
-        settings: {
-            slidesToShow: 4,
-            slidesToScroll: 4,
-        }
-    },
-    {
-        breakpoint: 1300,
-        settings: {
-            slidesToShow: 5,
-            slidesToScroll: 5,
-        }
-    }
-];
-
-const productName = document.querySelectorAll(".product-name");
-
-productName.forEach((proName) => { 
-    proName.textContent = proName.textContent.split(" ").slice(0,3).join(" ");
-});
 
 
-// Usage:
 setupSlider('.slides-container');
 buildDots('#featureddots');
 
-setResponsive(responsiveSettings);
+setResponsive();
 attachEvents('.arrow-left', '.arrow-right');
+// autoSlide(5000); // Optional: Enable auto sliding with speed in ms
+
+// setupSlider('.products10-section .products-container');
