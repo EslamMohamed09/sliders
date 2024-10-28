@@ -79,15 +79,39 @@ function initializeSlider(options) {
         const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.1;
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         const scrollPosition = currentIndex * (slideWidth + gapSize);
-
-        sliderContainer.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+    
+        function animateScroll(start, end, duration) {
+            let startTime = null;
+    
+            function animation(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = easeInOutQuad(timeElapsed, start, end - start, duration);
+    
+                sliderContainer.scrollLeft = run;
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+    
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+    
+            requestAnimationFrame(animation);
+        }
+    
+        animateScroll(sliderContainer.scrollLeft, scrollPosition, 600);
+    
         updateDots();
-
+    
         if (currentIndex >= slides.length) {
             currentIndex = 0;
             sliderContainer.scrollTo({ left: 0 });
         }
     }
+    
 
     function nextSlide() {
         currentIndex += slidesToScroll;
@@ -143,20 +167,11 @@ initializeSlider({
 });
 
 initializeSlider({
-    containerSelector:'.products10-section .products-container',
-    dotsSelector:'.products10-section #sliderdots',
-    prevArrowSelector:'.products10-section .arrow-left',
-    nextArrowSelector:'.products10-section .arrow-right',
+    containerSelector:'.slider2-section .products-container',
+    dotsSelector:'.slider2-section #sliderdots',
+    prevArrowSelector:'.slider2-section .arrow-left',
+    nextArrowSelector:'.slider2-section .arrow-right',
     slidesToShowDefault: 1,
     slidesToScrollDefault: 1,
     autoplaySpeed: 3000
 });
-
-
-
-
-// setupSlider('.products10-section .products-container');
-// buildDots('.products10-section #sliderdots');
-// setResponsive();
-// attachEvents('.products10-section .arrow-left', '.products10-section .arrow-right');
-// autoSlide(5000); // Optional: Enable auto sliding with speed in ms
