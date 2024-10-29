@@ -603,12 +603,15 @@ h5 {
   display: flex;
   padding: 0.5rem 1.2rem;
   margin: 0 auto;
-  gap: 1.8rem;
-  background-color: transparent;
+  gap: 1.5rem;
+  background-color: var(--red2);
   transition: transform 0.8s linear;
 }
 .slider1-section .slider-container .product-item {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   padding: 1rem 0.2rem;
   margin-bottom: 1rem;
   background-color: transparent;
@@ -842,15 +845,15 @@ h5 {
   background-color: #333;
 }
 
-@media (max-width: 400px) {
-  .products1-section {
+@media (max-width: 350px) {
+  .slider1-section {
     padding: 2rem 4%;
   }
-  .products1-section .slides-container {
+  .slider1-section .slider-container {
     padding: 0.5rem 5rem 0.5rem 0.3rem;
   }
-  .products1-section .slides-container .product-item {
-    flex: 1 1 10rem;
+  .slider1-section .slider-container .product-item {
+    max-width: 300px !important;
   }
 }
 /***************
@@ -1039,6 +1042,17 @@ h5 {
   background-color: #333;
 }
 
+@media (max-width: 350px) {
+  .slider2-section {
+    padding: 2rem 4%;
+  }
+  .slider2-section .slider-container {
+    padding: 0.5rem 5rem 0.5rem 0.3rem;
+  }
+  .slider2-section .slider-container .product-item {
+    max-width: 300px !important;
+  }
+}
 /***************
  # slider 3
 ****************/
@@ -1255,6 +1269,17 @@ h5 {
   background-color: #333;
 }
 
+@media (max-width: 350px) {
+  .slider3-section {
+    padding: 2rem 4%;
+  }
+  .slider3-section .slider-container {
+    padding: 0.5rem 5rem 0.5rem 0.3rem;
+  }
+  .slider3-section .slider-container .product-item {
+    max-width: 300px !important;
+  }
+}
 /****************
  # slider 4
 ****************/
@@ -1395,6 +1420,18 @@ h5 {
 }
 .slider4-section #sliderdots .dot.active {
   background-color: #333;
+}
+
+@media (max-width: 350px) {
+  .slider4-section {
+    padding: 2rem 4%;
+  }
+  .slider4-section .slider-container {
+    padding: 0.5rem 5rem 0.5rem 0.3rem;
+  }
+  .slider4-section .slider-container .product-item {
+    max-width: 300px !important;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

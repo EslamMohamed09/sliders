@@ -47,8 +47,9 @@ function initializeSlider(options) {
 
     function setResponsive() {
         const responsiveSettings = [
-            { breakpoint: 350, settings: { slidesToShow: 1, slidesToScroll: 1 }},
-            { breakpoint: 650, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
+            { breakpoint: 350, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
             { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
             { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }}
         ];
@@ -65,7 +66,23 @@ function initializeSlider(options) {
 
     function updateSlidesToShow() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.5;
+
+        const mobileScreen = window.innerWidth < 350;
+        const tinyScreen = window.innerWidth > 350 && window.innerWidth < 400;
+        const smallScreen = window.innerWidth > 400 && window.innerWidth < 500;
+        const bigSmallScreen = window.innerWidth >= 500 && window.innerWidth < 650;
+        const tabScreen = window.innerWidth > 650 && window.innerWidth < 1000;
+        const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
+    
+        const gapSize = mobileScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1
+                      : tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.2
+                      : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.7
+                      : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.8
+                      : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
+                      : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+    
+        
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         
         Array.from(slides).forEach(slide => {
@@ -74,9 +91,26 @@ function initializeSlider(options) {
         });
     }
 
-    function updateSliderPosition() {
+    function scrollToSlide() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.1;
+
+        const mobileScreen = window.innerWidth < 350;
+        const tinyScreen = window.innerWidth > 350 && window.innerWidth < 400;
+        const smallScreen = window.innerWidth >= 400 && window.innerWidth < 500;
+        const tabScreen = window.innerWidth > 500 && window.innerWidth < 1000;
+        const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
+        const lMediumScreen = window.innerWidth > 1100 && window.innerWidth < 1150;
+
+        const gapSize = mobileScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.3
+                      : tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.15
+                      : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.05
+                      : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.15
+                      : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.05
+                      : lMediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.9;
+
+
+
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         const scrollPosition = currentIndex * (slideWidth + gapSize);
     
@@ -117,7 +151,7 @@ function initializeSlider(options) {
         if (currentIndex >= slides.length) {
             currentIndex = 0;
         }
-        updateSliderPosition();
+        scrollToSlide();
     }
 
     function prevSlide() {
@@ -125,7 +159,7 @@ function initializeSlider(options) {
         if (currentIndex < 0) {
             currentIndex = slides.length - (slides.length % slidesToScroll || slidesToScroll);
         }
-        updateSliderPosition();
+        scrollToSlide();
     }
 
     function attachEvents() {
@@ -139,7 +173,7 @@ function initializeSlider(options) {
         Array.from(dotsWrapper.children).forEach(dot => {
             dot.addEventListener('click', e => {
                 currentIndex = parseInt(e.target.dataset.index) * slidesToScroll;
-                updateSliderPosition();
+                scrollToSlide();
             });
         });
     }
@@ -217,8 +251,9 @@ function initializeSlider2(options) {
 
     function setResponsive() {
         const responsiveSettings = [
-            { breakpoint: 350, settings: { slidesToShow: 1, slidesToScroll: 1 }},
-            { breakpoint: 650, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
+            { breakpoint: 350, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
             { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
             { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }}
         ];
@@ -235,7 +270,22 @@ function initializeSlider2(options) {
 
     function updateSlidesToShow() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.5;
+
+        const mobileScreen = window.innerWidth < 350;
+        const tinyScreen = window.innerWidth > 350 && window.innerWidth < 400;
+        const smallScreen = window.innerWidth > 400 && window.innerWidth < 500;
+        const bigSmallScreen = window.innerWidth >= 500 && window.innerWidth < 650;
+        const tabScreen = window.innerWidth > 650 && window.innerWidth < 1000;
+        const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
+    
+        const gapSize = mobileScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1
+                      : tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.2
+                      : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.7
+                      : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.8
+                      : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
+                      : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         
         Array.from(slides).forEach(slide => {
@@ -244,9 +294,24 @@ function initializeSlider2(options) {
         });
     }
 
-    function updateSliderPosition() {
+    function scrollToSlide() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.1;
+
+        const mobileScreen = window.innerWidth < 350;
+        const tinyScreen = window.innerWidth > 350 && window.innerWidth < 400;
+        const smallScreen = window.innerWidth >= 400 && window.innerWidth < 500;
+        const tabScreen = window.innerWidth > 500 && window.innerWidth < 1000;
+        const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
+        const lMediumScreen = window.innerWidth > 1100 && window.innerWidth < 1150;
+
+        const gapSize = mobileScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.3
+                      : tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.15
+                      : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.05
+                      : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.15
+                      : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.05
+                      : lMediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.9;
+
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         const scrollPosition = currentIndex * (slideWidth + gapSize);
     
@@ -287,7 +352,7 @@ function initializeSlider2(options) {
         if (currentIndex >= slides.length) {
             currentIndex = 0;
         }
-        updateSliderPosition(true);
+        scrollToSlide(true);
     }
 
     function prevSlide() {
@@ -295,7 +360,7 @@ function initializeSlider2(options) {
         if (currentIndex < 0) {
             currentIndex = slides.length - (slides.length % slidesToScroll || slidesToScroll);
         }
-        updateSliderPosition(true);
+        scrollToSlide(true);
     }
 
     function attachEvents() {
@@ -309,7 +374,7 @@ function initializeSlider2(options) {
         Array.from(dotsWrapper.children).forEach(dot => {
             dot.addEventListener('click', e => {
                 currentIndex = parseInt(e.target.dataset.index) * slidesToScroll;
-                updateSliderPosition();
+                scrollToSlide();
             });
         });
 
@@ -348,7 +413,7 @@ function initializeSlider2(options) {
                 prevSlide();
             }
         } else {
-            updateSliderPosition(true);
+            scrollToSlide(true);
         }
     }
 
@@ -399,8 +464,9 @@ function initializeSlider3(options) {
 
     function setResponsive() {
         const responsiveSettings = [
-            { breakpoint: 350, settings: { slidesToShow: 1, slidesToScroll: 1 }},
-            { breakpoint: 650, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
+            { breakpoint: 350, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
             { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
             { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }}
         ];
@@ -416,7 +482,23 @@ function initializeSlider3(options) {
 
     function updateSlidesToShow() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.5;
+
+        const mobileScreen = window.innerWidth < 350;
+        const tinyScreen = window.innerWidth > 350 && window.innerWidth < 400;
+        const smallScreen = window.innerWidth > 400 && window.innerWidth < 500;
+        const bigSmallScreen = window.innerWidth >= 500 && window.innerWidth < 650;
+        const tabScreen = window.innerWidth > 650 && window.innerWidth < 1000;
+        const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
+    
+        const gapSize = mobileScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1
+                      : tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.2
+                      : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.7
+                      : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.8
+                      : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
+                      : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+
+
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         
         slides.forEach(slide => {
@@ -426,7 +508,23 @@ function initializeSlider3(options) {
 
     function scrollToSlide() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.1;
+
+        const mobileScreen = window.innerWidth < 350;
+        const tinyScreen = window.innerWidth > 350 && window.innerWidth < 400;
+        const smallScreen = window.innerWidth >= 400 && window.innerWidth < 500;
+        const tabScreen = window.innerWidth > 500 && window.innerWidth < 1000;
+        const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
+        const lMediumScreen = window.innerWidth > 1100 && window.innerWidth < 1150;
+
+        const gapSize = mobileScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.3
+                      : tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.15
+                      : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.05
+                      : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.15
+                      : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.05
+                      : lMediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.9;
+
+
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         const scrollPosition = currentIndex * (slideWidth + gapSize);
     
@@ -573,8 +671,9 @@ function rotationalSlider(options) {
 
     function setResponsive() {
         const responsiveSettings = [
-            { breakpoint: 350, settings: { slidesToShow: 1, slidesToScroll: 1 }},
-            { breakpoint: 650, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
+            { breakpoint: 350, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
             { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
             { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }}
         ];
@@ -591,7 +690,23 @@ function rotationalSlider(options) {
 
     function updateSlidesToShow() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.5;
+
+        const mobileScreen = window.innerWidth < 350;
+        const tinyScreen = window.innerWidth > 350 && window.innerWidth < 400;
+        const smallScreen = window.innerWidth > 400 && window.innerWidth < 500;
+        const bigSmallScreen = window.innerWidth >= 500 && window.innerWidth < 650;
+        const tabScreen = window.innerWidth > 650 && window.innerWidth < 1000;
+        const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
+    
+        const gapSize = mobileScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 1
+                      : tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.2
+                      : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.7
+                      : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.8
+                      : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
+                      : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+
+
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         
         slides.forEach(slide => {
@@ -611,9 +726,25 @@ function rotationalSlider(options) {
         });
     }
 
-    function updateSliderPosition() {
+    function scrollToSlide() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.1;
+
+        const mobileScreen = window.innerWidth < 350;
+        const tinyScreen = window.innerWidth > 350 && window.innerWidth < 400;
+        const smallScreen = window.innerWidth >= 400 && window.innerWidth < 500;
+        const tabScreen = window.innerWidth > 500 && window.innerWidth < 1000;
+        const mediumScreen = window.innerWidth > 1000 && window.innerWidth < 1100;
+        const lMediumScreen = window.innerWidth > 1100 && window.innerWidth < 1150;
+
+        const gapSize = mobileScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.3
+                      : tinyScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.15
+                      : smallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.05
+                      : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.15
+                      : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.05
+                      : lMediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 0
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * -0.9;
+
+
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         const scrollPosition = currentIndex * (slideWidth + gapSize);
     
@@ -624,12 +755,12 @@ function rotationalSlider(options) {
 
     function nextSlide() {
         currentIndex = (currentIndex + slidesToScroll) % slides.length;
-        updateSliderPosition();
+        scrollToSlide();
     }
 
     function prevSlide() {
         currentIndex = (currentIndex - slidesToScroll + slides.length) % slides.length;
-        updateSliderPosition();
+        scrollToSlide();
     }
 
     function attachEvents() {
@@ -643,7 +774,7 @@ function rotationalSlider(options) {
         Array.from(dotsWrapper.children).forEach(dot => {
             dot.addEventListener('click', e => {
                 currentIndex = parseInt(e.target.dataset.index) * slidesToScroll;
-                updateSliderPosition();
+                scrollToSlide();
             });
         });
     }

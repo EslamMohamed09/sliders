@@ -502,11 +502,14 @@ h5 {font-size:1.1rem;}
        .slider-container {display:flex;
                           padding:0.5rem 1.2rem;
                           margin:0 auto;
-                          gap:1.8rem;
-                          background-color:transparent;
+                          gap:1.5rem;
+                          background-color:var(--red2);
                           transition:transform 0.8s linear;
 
-              .product-item {display:block;
+              .product-item {display:flex;
+                             flex-direction:column;
+                             justify-content:flex-start;
+                             align-items:flex-start;
                              padding:1rem 0.2rem;
                              margin-bottom:1rem;
                              background-color:transparent;
@@ -710,10 +713,10 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:400px){
-       .products1-section {padding:2rem 4%;
-           .slides-container {padding:0.5rem 5rem 0.5rem 0.3rem;
-              .product-item {flex:1 1 10rem;}
+@media (max-width:350px){
+       .slider1-section {padding:2rem 4%;
+           .slider-container {padding:0.5rem 5rem 0.5rem 0.3rem;
+              .product-item {max-width:300px !important;}
            }
        }
 }
@@ -879,6 +882,14 @@ h5 {font-size:1.1rem;}
 
        }
 
+}
+
+@media (max-width:350px){
+       .slider2-section {padding:2rem 4%;
+           .slider-container {padding:0.5rem 5rem 0.5rem 0.3rem;
+              .product-item {max-width:300px !important;}
+           }
+       }
 }
 
 /***************
@@ -1065,6 +1076,14 @@ h5 {font-size:1.1rem;}
 
 }
 
+@media (max-width:350px){
+       .slider3-section {padding:2rem 4%;
+           .slider-container {padding:0.5rem 5rem 0.5rem 0.3rem;
+              .product-item {max-width:300px !important;}
+           }
+       }
+}
+
 /****************
  # slider 4
 ****************/
@@ -1195,4 +1214,12 @@ h5 {font-size:1.1rem;}
 
        }
 
+}
+
+@media (max-width:350px){
+       .slider4-section {padding:2rem 4%;
+           .slider-container {padding:0.5rem 5rem 0.5rem 0.3rem;
+              .product-item {max-width:300px !important;}
+           }
+       }
 }
