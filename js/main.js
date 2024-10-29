@@ -80,7 +80,7 @@ function initializeSlider(options) {
                       : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.8
                       : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
                       : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
-                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.1;
     
         
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
@@ -284,7 +284,7 @@ function initializeSlider2(options) {
                       : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.8
                       : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
                       : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
-                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.1;
 
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         
@@ -496,7 +496,7 @@ function initializeSlider3(options) {
                       : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.8
                       : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
                       : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
-                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.1;
 
 
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
@@ -704,7 +704,7 @@ function rotationalSlider(options) {
                       : bigSmallScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 3.8
                       : tabScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.8
                       : mediumScreen ? parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.7
-                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.4;
+                      : parseFloat(getComputedStyle(document.documentElement).fontSize) * 2.1;
 
 
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
