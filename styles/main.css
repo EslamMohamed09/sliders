@@ -866,8 +866,8 @@ h5 {
 .slider2-section .slider-container {
   padding: 0.5rem 1.2rem;
   margin: 0 auto;
-  gap: 1.8rem;
-  background-color: transparent;
+  gap: 1.5rem;
+  background-color: var(--red2);
 }
 .slider2-section .slider-container .product-item {
   display: block;
@@ -1063,8 +1063,8 @@ h5 {
 .slider3-section .slider-container {
   padding: 0.5rem 1.2rem;
   margin: 0 auto;
-  gap: 1.8rem;
-  background-color: transparent;
+  gap: 1.5rem;
+  background-color: var(--red2);
   display: flex;
   overflow: auto;
   scroll-behavior: smooth;
@@ -1291,8 +1291,8 @@ h5 {
   display: flex;
   padding: 0.5rem 1.2rem;
   margin: 0 auto;
-  gap: 1.8rem;
-  background-color: transparent;
+  gap: 1.5rem;
+  background-color: var(--red2);
   transition: transform 0.8s linear;
 }
 .slider4-section .slider-container .product-item {

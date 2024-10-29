@@ -728,8 +728,8 @@ h5 {font-size:1.1rem;}
 
        .slider-container {padding:0.5rem 1.2rem;
                           margin:0 auto;
-                          gap:1.8rem;
-                          background-color:transparent;
+                          gap:1.5rem;
+                          background-color:var(--red2);
               
               .product-item {display:block;
                              padding:1rem 0.2rem;
@@ -899,8 +899,8 @@ h5 {font-size:1.1rem;}
 
        .slider-container {padding:0.5rem 1.2rem;
                           margin:0 auto;
-                          gap:1.8rem;
-                          background-color:transparent;
+                          gap:1.5rem;
+                          background-color:var(--red2);
                           display:flex;
                           overflow:auto;
                           scroll-behavior:smooth;
@@ -1090,11 +1090,11 @@ h5 {font-size:1.1rem;}
 .slider4-section {position:relative;
 
        .slider-container {display:flex;
-              padding:0.5rem 1.2rem;
-              margin:0 auto;
-              gap:1.8rem;
-              background-color:transparent;
-              transition:transform 0.8s linear;
+                          padding:0.5rem 1.2rem;
+                          margin:0 auto;
+                          gap:1.5rem;
+                          background-color:var(--red2);
+                          transition:transform 0.8s linear;
               
               .product-item {display:block;
                              padding:0;
