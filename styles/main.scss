@@ -1020,7 +1020,8 @@ h5 {font-size:1.1rem;}
                                           cursor:grab;}
                                           
               &::-webkit-scrollbar-track {background:#33333357;
-                                          border-radius:5px;}
+                                          border-radius:5px;
+                                          cursor:pointer;}
        }
 
        /* <--> */
@@ -1064,35 +1065,34 @@ h5 {font-size:1.1rem;}
 
 }
 
-/***************
+/****************
  # slider 4
 ****************/
 .slider4-section {position:relative;
 
-       .slider-container {padding:0.5rem 1.2rem;
-                          margin:0 auto;
-                          gap:1.8rem;
-                          background-color:transparent;
-                          display:flex;
-                          overflow:auto;
-                          scroll-behavior:smooth;
+       .slider-container {display:flex;
+              padding:0.5rem 1.2rem;
+              margin:0 auto;
+              gap:1.8rem;
+              background-color:transparent;
+              transition:transform 0.8s linear;
               
               .product-item {display:block;
-                             padding:1rem 0.2rem;
+                             padding:0;
                              margin-bottom:1rem;
                              background-color:transparent;
+                             border:1px solid var(--gray3);
                              overflow:hidden;
                              position:relative;
 
                      .image {width:100%;
-                             height:18rem;
+                             height:15rem;
                              margin-bottom:1.2rem;
                              position:relative;
                              background-color:var(--gray);
-                             border-bottom:1px solid var(--gray3);
 
-                            img {width:56%;
-                                 height:45%;
+                            img {width:80%;
+                                 height:55%;
                                  object-fit:contain;
                                  transition:all 0.7s linear;}
 
@@ -1101,68 +1101,17 @@ h5 {font-size:1.1rem;}
                                                              position:absolute;
                                                              left:50%;
                                                              transform:translateX(-50%);}
-
-                            &:hover img:first-child {visibility:hidden;
-                                                     opacity:0;}
-
-                            &:hover img:last-child {visibility:visible;
-                                                    opacity:1;}
-
                      }
 
-                     .stat {position:absolute;
-                            top:1.9rem;
-                            left:0.9rem;
-                            height:fit-content;
-                            padding:0.2rem 0.6rem 0.1rem;
-                            border-radius:0.2rem;
-                            text-align:center;
-                            line-height:1.2;
-                            font-size:0.9rem;
-                            box-shadow:var(--box-shadow4);
-                       &.new {background-color:var(--shin-blue5);color:var(--white2);}
-                       &.top {background-color:var(--shin-orange);color:var(--white2);}
-                       &.hot {background-color:var(--yellow10);color:var(--white2);}
-                     }
+                     .image:hover img:first-child {visibility:hidden;
+                                                   opacity:0;}
 
-                     .icons {width:2.5rem;
-                             height:fit-content;
-                             position:absolute;
-                             top:1.9rem;
-                             right:1rem;
-                             border:1px solid var(--gray4);
-                             padding:0;
-                             background-color:transparent;
-                             transition:all 0.3s linear;
-                             opacity:0;
-
-                            button {width:100%;
-                                    background-color:transparent;
-                                    border:none;
-                                    padding:0.6rem 0.4rem;
-
-                                   &:first-child {border-bottom:1px solid var(--gray4);}
-
-                                   &:nth-child(2) {border-bottom:1px solid var(--gray4);}
-                                   
-                                   #icon {font-size:1rem;
-                                          color:var(--gray10);
-                                          background:transparent;}
-                                   
-                            }
-
-                            button:hover {background-color:var(--black);}
-
-                            button:hover #icon {color:var(--white2);}
-
-                            &:hover {border-color:var(--gray5);}
-                            &:hover button:first-child {border-bottom-color:var(--gray5);}
-                            &:hover button:nth-child(2) {border-bottom-color:var(--gray5);}
-                     }
+                     .image:hover img:last-child {visibility:visible;
+                                                  opacity:1;}
 
                      .content {gap:0.7rem;
                                width:100%;
-                               padding:0 0.2rem;
+                               padding:0.4rem 0.8rem;
                                text-align:center;
                                position:relative;
 
@@ -1180,30 +1129,31 @@ h5 {font-size:1.1rem;}
                                     font-size:1.1rem;}
                             }
 
-                            .product-price {flex-wrap:nowrap;
-                                            width:100%;
-                                            margin:0;
-                                            background-color:transparent;
+                            .content-footer {width:100%;
 
-                                   .oldprice {color:var(--gray7);
-                                              text-decoration:line-through !important;}
+                                   .price {color:var(--gray11);}
 
-                                   .price {color:var(--orange-red2);}
+                                   .icons {width:5.5rem;
+
+                                          button {background-color:transparent;
+                                                  border:1px solid var(--gray4);
+                                                  border-radius:50%;
+                                                  width:2.3rem;
+                                                  height:2.3rem;
+
+                                                 #icon {font-size:1rem;
+                                                        color:var(--gray10);
+                                                        background:transparent;}
+
+                                          }
+
+                                          button:hover {border:1px solid var(--shin-orange);}
+
+                                   }
                             }
 
                      }
-                     
-                     &:hover .icons {opacity:1;}
               }
-
-              &::-webkit-scrollbar {height:6px;}
-                   
-              &::-webkit-scrollbar-thumb {background:#333;
-                                          border-radius:5px;
-                                          cursor:grab;}
-                                          
-              &::-webkit-scrollbar-track {background:#33333357;
-                                          border-radius:5px;}
        }
 
        /* <--> */
