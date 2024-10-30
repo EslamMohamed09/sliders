@@ -1470,7 +1470,7 @@ h5 {
   margin: 0 auto;
   gap: 1.5rem;
   background-color: transparent;
-  transition: transform 0.8s linear;
+  transition: transform 0.4s linear;
 }
 .slider4-section .slider-container .product-item {
   display: block;

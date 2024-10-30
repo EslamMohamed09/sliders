@@ -836,7 +836,7 @@ function rotationalSlider(options) {
         visibleSlides.forEach((slide, index) => {
             setTimeout(() => {
                 slide.style.transform = 'rotateX(360deg)';
-            }, index * 100); // Staggered rotation
+            }, index * 70); // Staggered rotation
         });
     }
 
