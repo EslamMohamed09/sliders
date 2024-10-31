@@ -674,7 +674,23 @@ rotationalSlider({
 });
 
 
+const categoriesColors = [
+    "var(--transparent-green3)",  // 1st color
+    "var(--transparent-yellow2)", // 2nd color
+    "var(--transparent-yellow)",  // 3rd color
+    "var(--transparent-orange1)", // 4th color
+    "var(--transparent-green4)",  // 5th color
+    "var(--transparent-blue)",    // 6th color
+    "var(--transparent-violet)",  // 7th color
+    "var(--transparent-olive)",   // 8th color
+    "var(--transparent-orange)"   // 9th color
+];
 
+const categoryItems = document.querySelectorAll('.slider4-section .slider-container .category-item .image');
+
+categoryItems.forEach((item, index) => {
+  item.style.backgroundColor = colors[index % colors.length];
+});
 
 
 const productName = document.querySelectorAll(".product-name");
