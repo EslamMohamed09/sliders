@@ -517,17 +517,17 @@ function scrollSlider(options) {
 }
 
 scrollSlider({
-    containerSelector: '.slider3-section .slider-container',
-    prevArrowSelector: '.slider3-section .arrow-left',
-    nextArrowSelector: '.slider3-section .arrow-right',
+    containerSelector: '.slider5-section .slider-container',
+    prevArrowSelector: '.slider5-section .arrow-left',
+    nextArrowSelector: '.slider5-section .arrow-right',
     slidesToShowDefault: 1,
     slidesToScrollDefault: 1,
 });
 
 scrollSlider({
-    containerSelector: '.slider4-section .slider-container',
-    prevArrowSelector: '.slider4-section .arrow-left',
-    nextArrowSelector: '.slider4-section .arrow-right',
+    containerSelector: '.slider6-section .slider-container',
+    prevArrowSelector: '.slider6-section .arrow-left',
+    nextArrowSelector: '.slider6-section .arrow-right',
     slidesToShowDefault: 1,
     slidesToScrollDefault: 1,
 });
@@ -664,10 +664,10 @@ function rotationalSlider(options) {
 }
 
 rotationalSlider({
-    containerSelector:'.slider8-section .slider-container',
-    dotsSelector:'.slider8-section #sliderdots',
-    prevArrowSelector:'.slider8-section .arrow-left',
-    nextArrowSelector:'.slider8-section .arrow-right',
+    containerSelector:'.slider9-section .slider-container',
+    dotsSelector:'.slider9-section #sliderdots',
+    prevArrowSelector:'.slider9-section .arrow-left',
+    nextArrowSelector:'.slider9-section .arrow-right',
     slidesToShowDefault: 1,
     slidesToScrollDefault: 1,
     autoplaySpeed: 3000
@@ -686,7 +686,7 @@ const categoriesColors = [
     "var(--transparent-orange)"   // 9th color
 ];
 
-const categoryItems = document.querySelectorAll('.slider4-section .slider-container .category-item .image');
+const categoryItems = document.querySelectorAll('.slider6-section .slider-container .category-item .image');
 
 categoryItems.forEach((item, index) => {
   item.style.backgroundColor = categoriesColors[index % categoriesColors.length];
