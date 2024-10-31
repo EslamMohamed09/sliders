@@ -375,6 +375,17 @@ dotsSlider2({
     autoplaySpeed: 3000
 });
 
+dotsSlider2({
+    containerSelector:'.slider3-section .slider-container',
+    dotsSelector:'.slider3-section #sliderdots',
+    prevArrowSelector:'.slider3-section .arrow-left',
+    nextArrowSelector:'.slider3-section .arrow-right',
+    slidesToShowDefault: 1,
+    slidesToScrollDefault: 1,
+    autoplaySpeed: 3000
+});
+
+
 
 function scrollSlider(options) {
     const {
