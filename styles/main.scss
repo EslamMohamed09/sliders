@@ -22,6 +22,8 @@
        --violet10:#4d106b;
        --violet11:#42106b;
 
+       --transparent-violet:rgba(99, 49, 192, 0.137);
+
        --yellow:#fafaf6;
        --yellow1:#f8f8e4;
        --yellow2:#e2e0db;
@@ -35,7 +37,7 @@
        --yellow10:#fdd852;
        --yellow11:#ffcc14;
 
-       --transparent-yellow:#f7db6b81;
+       --transparent-yellow:#f7db6b4f;
        --transparent-yellow2:#b6b61d27;
         
        --shin-orange:rgb(255, 153, 0);
@@ -51,6 +53,9 @@
        --orange9:rgb(247, 197, 104);
        --orange10:rgb(248, 191, 85);
        
+       --transparent-orange:#af5e392a;
+       --transparent-orange1:#fdad0125;
+       
        --brown11:rgb(185, 121, 0);
        --brown12:rgb(151, 99, 1);
 
@@ -64,6 +69,7 @@
        --red8:#f53030;
        --red9:#f51e1e;
        --red10:#ff0000;
+       --red11:#d10202;
 
        --pink:rgb(255, 25, 82);
 
@@ -99,6 +105,8 @@
        --olive3:#015050;
        --olive4:#004242;
        --olive5:#013535;
+
+       --transparent-olive:#0aa0a01e;
 
        --milky1:rgb(208, 241, 253);
        --milky2:rgb(183, 233, 253);
@@ -141,6 +149,8 @@
        --dark-blue2:#2a2e35;
        --dark-blue3:#202733;
 
+       --transparent-blue:#176ec021;
+
        --transparent-gray:rgba(201, 183, 183, 0.075);
        --transparent-gray2:rgba(214, 214, 214, 0.192);
 
@@ -175,8 +185,10 @@
        --orange-red3:#d33505;
        --darkbrown:rgb(88, 48, 33);
        --darkbrown1:rgb(83, 59, 50);
-       --darkred:rgb(75, 0, 0);
-       --darkred1:rgb(99, 49, 49);
+       --darkred:#801b1b;
+       --darkred1:#790303;
+       --darkred2:#530303;
+       --darkred3:#460202;
 
        --white:#fff;
        --white2:#fff;
@@ -911,7 +923,8 @@ h5 {font-size:1.1rem;}
 /***************
  # slider 3
 ****************/
-.slider3-section {position:relative;
+.slider3-section {padding:1rem 7%;
+                  position:relative;
 
        .slider-container {padding:0.5rem 0;
                           margin:0 auto;
@@ -1040,14 +1053,14 @@ h5 {font-size:1.1rem;}
                      &:hover .icons {opacity:1;}
               }
 
-              &::-webkit-scrollbar {height:6px;}
+              &::-webkit-scrollbar {height:3px;}
                    
               &::-webkit-scrollbar-thumb {background:#333;
-                                          border-radius:5px;
+                                          border-radius:0;
                                           cursor:grab;}
                                           
               &::-webkit-scrollbar-track {background:#33333357;
-                                          border-radius:5px;
+                                          border-radius:0;
                                           cursor:pointer;}
        }
 
@@ -1061,6 +1074,9 @@ h5 {font-size:1.1rem;}
                 flex-direction:row;
                 justify-content:space-between;
                 align-items:center;
+                visibility:hidden;
+                opacity:0;
+                transition:all 0.4s linear;
 
               .arrow-left,
               .arrow-right {width:2rem;
@@ -1090,6 +1106,9 @@ h5 {font-size:1.1rem;}
 
        }
 
+       &:hover .arrows {width:90%;
+                        visibility:visible;
+                        opacity:1;}
 }
 
 @media (max-width:355px){
@@ -1105,7 +1124,8 @@ h5 {font-size:1.1rem;}
 /***************
  # slider 4
 ****************/
-.slider4-section {position:relative;
+.slider4-section {padding:1rem 7%;
+                  position:relative;
 
        .slider-container {padding:0.5rem 0;
                           margin:0 auto;
@@ -1149,21 +1169,23 @@ h5 {font-size:1.1rem;}
 
                      &:first-child .image {background-color:var(--transparent-green3);}
                      &:nth-child(2) .image {background-color:var(--transparent-yellow2);}
-                     &:nth-child(3) .image {background-color:var(--yellow6);}
-                     &:nth-child(4) .image {background-color:var(--orange5);}
+                     &:nth-child(3) .image {background-color:var(--transparent-yellow);}
+                     &:nth-child(4) .image {background-color:var(--transparent-orange1);}
                      &:nth-child(5) .image {background-color:var(--transparent-green4);}
-                     &:nth-child(6) .image {background-color:var(--transparent-green3);}
-                     &:nth-child(7) .image {background-color:var(--transparent-green4);}
+                     &:nth-child(6) .image {background-color:var(--transparent-blue);}
+                     &:nth-child(7) .image {background-color:var(--transparent-violet);}
+                     &:nth-child(8) .image {background-color:var(--transparent-olive);}
+                     &:nth-child(9) .image {background-color:var(--transparent-orange);}
 
-              }
+              }       
 
               &::-webkit-scrollbar {height:3px;}
                    
-              &::-webkit-scrollbar-thumb {background:#333;
+              &::-webkit-scrollbar-thumb {background:var(--red11);
                                           border-radius:0;
                                           cursor:grab;}
                                           
-              &::-webkit-scrollbar-track {background:#33333357;
+              &::-webkit-scrollbar-track {background:var(--red);
                                           border-radius:0;
                                           cursor:pointer;}
        }
@@ -1171,23 +1193,27 @@ h5 {font-size:1.1rem;}
        /* <--> */
        .arrows {width:95%;
                 position:absolute;
-                top:46%;
+                top:40%;
                 left:50%;
                 transform:translate(-50%, -50%);
                 display:flex !important;
                 flex-direction:row;
                 justify-content:space-between;
                 align-items:center;
+                visibility:hidden;
+                opacity:0;
+                transition:all 0.4s linear;
 
               .arrow-left,
               .arrow-right {width:2rem;
-                            height:2rem;
+                            height:5rem;
                             padding:0;
                             font-size:1.2rem;
-                            line-height:2rem;
+                            display:flex;
+                            justify-content:center;
+                            align-items:center;
                             text-align:center;
                             padding:0;
-                            border-radius:50%;
                             color:var(--white);
                             background:var(--black);
                             cursor:pointer;}
@@ -1207,6 +1233,9 @@ h5 {font-size:1.1rem;}
 
        }
 
+       &:hover .arrows {width:90%;
+                        visibility:visible;
+                        opacity:1;}
 }
 
 @media (max-width:355px){
