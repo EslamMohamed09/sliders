@@ -784,26 +784,26 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:360px){
+@media(max-width:360px){
        .slider1-section {
            .arrows {right:15.5%;}
            #sliderdots {display:none;}
        }
 }
 
-@media (max-width:320px){
+@media(max-width:320px){
        .slider1-section {
            .arrows {right:16%;}
        }
 }
 
-@media (max-width:300px){
+@media(max-width:300px){
        .slider1-section {
            .arrows {right:16.5%;}
        }
 }
 
-@media (max-width:285px){
+@media(max-width:285px){
        .slider1-section {
            .arrows {right:18%;}
        }
@@ -1023,26 +1023,26 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:360px){
+@media(max-width:360px){
        .slider2-section {
            .arrows {right:15.5%;}
            #sliderdots {display:none;}
        }
 }
 
-@media (max-width:320px){
+@media(max-width:320px){
        .slider2-section {
            .arrows {right:16%;}
        }
 }
 
-@media (max-width:300px){
+@media(max-width:300px){
        .slider2-section {
            .arrows {right:16.5%;}
        }
 }
 
-@media (max-width:285px){
+@media(max-width:285px){
        .slider2-section {
            .arrows {right:18%;}
        }
@@ -1151,7 +1151,7 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:1090px){
+@media(max-width:1090px){
        .slider3-section .slider-container .category-item {width:10rem;
               .image {width:10rem;
                       height:10rem;}
@@ -1170,7 +1170,7 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:700px){
+@media(max-width:700px){
        .slider3-section .slider-container .category-item {width:11rem;
               .image {width:11rem;
                       height:11rem;}
@@ -1201,7 +1201,7 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:360px){
+@media(max-width:360px){
        .slider3-section {padding:1rem 7%;
               .slider-container .category-item {width:14rem;
                                    .image {width:14rem;
@@ -1212,19 +1212,19 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:320px){
+@media(max-width:320px){
        .slider3-section {
            .arrows {right:16%;}
        }
 }
 
-@media (max-width:300px){
+@media(max-width:300px){
        .slider3-section {
            .arrows {right:16.5%;}
        }
 }
 
-@media (max-width:285px){
+@media(max-width:285px){
        .slider3-section {
            .arrows {right:18%;}
        }
@@ -1443,26 +1443,26 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:360px){
+@media(max-width:360px){
        .slider4-section {
            .arrows {right:15.5%;}
            #sliderdots {display:none;}
        }
 }
 
-@media (max-width:320px){
+@media(max-width:320px){
        .slider4-section {
            .arrows {right:16%;}
        }
 }
 
-@media (max-width:300px){
+@media(max-width:300px){
        .slider2-section {
            .arrows {right:16.5%;}
        }
 }
 
-@media (max-width:285px){
+@media(max-width:285px){
        .slider2-section {
            .arrows {right:18%;}
        }
@@ -1640,6 +1640,12 @@ h5 {font-size:1.1rem;}
        }
 }
 
+@media(min-width:1100px){
+       .slider5-section:hover .arrows {width:90%;
+                                       visibility:visible;
+                                       opacity:1;}
+}
+
 @media(max-width:1100px){
        .slider5-section {
               .arrows {width:5rem;
@@ -1693,25 +1699,25 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:360px){
+@media(max-width:360px){
        .slider5-section {
            .arrows {right:15.5%;}
        }
 }
 
-@media (max-width:320px){
+@media(max-width:320px){
        .slider5-section {
            .arrows {right:16%;}
        }
 }
 
-@media (max-width:300px){
+@media(max-width:300px){
        .slider5-section {
            .arrows {right:16.5%;}
        }
 }
 
-@media (max-width:285px){
+@media(max-width:285px){
        .slider5-section {
            .arrows {right:18%;}
        }
@@ -1875,25 +1881,25 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:360px){
+@media(max-width:360px){
        .slider6-section {
            .arrows {right:15.5%;}
        }
 }
 
-@media (max-width:320px){
+@media(max-width:320px){
        .slider6-section {
            .arrows {right:16%;}
        }
 }
 
-@media (max-width:300px){
+@media(max-width:300px){
        .slider6-section {
            .arrows {right:16.5%;}
        }
 }
 
-@media (max-width:285px){
+@media(max-width:285px){
        .slider6-section {
            .arrows {right:18%;}
        }
@@ -2046,7 +2052,7 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:360px){
+@media(max-width:360px){
        .slider9-section {
            #sliderdots {display:none;}
        }

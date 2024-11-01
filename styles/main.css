@@ -1821,6 +1821,13 @@ h5 {
   cursor: pointer;
 }
 
+@media (min-width: 1100px) {
+  .slider5-section:hover .arrows {
+    width: 90%;
+    visibility: visible;
+    opacity: 1;
+  }
+}
 @media (max-width: 1100px) {
   .slider5-section .arrows {
     width: 5rem;
