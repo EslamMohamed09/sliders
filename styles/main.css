@@ -611,16 +611,19 @@ h5 {
   font-size: 1.1rem;
 }
 
-/***************
- # products 8
-****************/
+/**************
+ # Slider 1
+***************/
 .slider1-section {
+  position: relative;
+  margin-top: 5rem;
   /* <--> */
 }
 .slider1-section .slider-container {
   gap: 1.5rem;
   padding: 0.3rem;
   border-radius: 0.5rem;
+  position: relative;
 }
 .slider1-section .slider-container .product-item {
   display: block;
@@ -819,8 +822,8 @@ h5 {
   width: 95%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: 50%;
+  transform: translate(50%, -50%);
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
@@ -860,7 +863,7 @@ h5 {
   .slider1-section .arrows {
     width: 5rem;
     top: 1.5rem;
-    left: calc(100% - 5rem) !important;
+    right: 10.5%;
   }
   .slider1-section .arrows .arrow-left,
   .slider1-section .arrows .arrow-right {
@@ -870,9 +873,57 @@ h5 {
     border-radius: 0;
   }
 }
+@media (max-width: 1010px) {
+  .slider1-section .arrows {
+    right: 11%;
+  }
+}
+@media (max-width: 740px) {
+  .slider1-section .arrows {
+    right: 11.5%;
+  }
+}
+@media (max-width: 650px) {
+  .slider1-section .arrows {
+    right: 12%;
+  }
+}
+@media (max-width: 570px) {
+  .slider1-section .arrows {
+    right: 13%;
+  }
+}
+@media (max-width: 445px) {
+  .slider1-section .arrows {
+    right: 13.5%;
+  }
+}
+@media (max-width: 400px) {
+  .slider1-section .arrows {
+    right: 14%;
+  }
+}
 @media (max-width: 360px) {
+  .slider1-section .arrows {
+    right: 15.5%;
+  }
   .slider1-section #sliderdots {
     display: none;
+  }
+}
+@media (max-width: 320px) {
+  .slider1-section .arrows {
+    right: 16%;
+  }
+}
+@media (max-width: 300px) {
+  .slider1-section .arrows {
+    right: 16.5%;
+  }
+}
+@media (max-width: 285px) {
+  .slider1-section .arrows {
+    right: 18%;
   }
 }
 /***************
@@ -886,7 +937,6 @@ h5 {
   padding: 0.5rem 0;
   margin: 0 auto;
   gap: 1.5rem;
-  background-color: transparent;
 }
 .slider2-section .slider-container .product-item {
   display: block;
@@ -1024,8 +1074,8 @@ h5 {
   width: 95%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: 50%;
+  transform: translate(50%, -50%);
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
@@ -1065,7 +1115,7 @@ h5 {
   .slider2-section .arrows {
     width: 5rem;
     top: 1.5rem;
-    left: calc(100% - 5rem) !important;
+    right: 10.5%;
   }
   .slider2-section .arrows .arrow-left,
   .slider2-section .arrows .arrow-right {
@@ -1075,9 +1125,57 @@ h5 {
     border-radius: 0;
   }
 }
+@media (max-width: 1010px) {
+  .slider2-section .arrows {
+    right: 11%;
+  }
+}
+@media (max-width: 740px) {
+  .slider2-section .arrows {
+    right: 11.5%;
+  }
+}
+@media (max-width: 650px) {
+  .slider2-section .arrows {
+    right: 12%;
+  }
+}
+@media (max-width: 570px) {
+  .slider2-section .arrows {
+    right: 13%;
+  }
+}
+@media (max-width: 445px) {
+  .slider2-section .arrows {
+    right: 13.5%;
+  }
+}
+@media (max-width: 400px) {
+  .slider2-section .arrows {
+    right: 14%;
+  }
+}
 @media (max-width: 360px) {
+  .slider2-section .arrows {
+    right: 15.5%;
+  }
   .slider2-section #sliderdots {
     display: none;
+  }
+}
+@media (max-width: 320px) {
+  .slider2-section .arrows {
+    right: 16%;
+  }
+}
+@media (max-width: 300px) {
+  .slider2-section .arrows {
+    right: 16.5%;
+  }
+}
+@media (max-width: 285px) {
+  .slider2-section .arrows {
+    right: 18%;
   }
 }
 /***************
@@ -1091,7 +1189,6 @@ h5 {
   padding: 0.5rem 0;
   margin: 0 auto;
   gap: 3rem;
-  background-color: transparent;
   display: flex;
   overflow: auto;
   scroll-behavior: smooth;
@@ -1152,8 +1249,8 @@ h5 {
   width: 95%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: 50%;
+  transform: translate(50%, -50%);
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
@@ -1178,7 +1275,7 @@ h5 {
   .slider3-section .arrows {
     width: 5rem;
     top: 1.5rem;
-    left: calc(100% - 5rem) !important;
+    right: 10.5%;
   }
   .slider3-section .arrows .arrow-left,
   .slider3-section .arrows .arrow-right {
@@ -1197,6 +1294,16 @@ h5 {
     height: 10rem;
   }
 }
+@media (max-width: 1010px) {
+  .slider3-section .arrows {
+    right: 11%;
+  }
+}
+@media (max-width: 740px) {
+  .slider3-section .arrows {
+    right: 11.5%;
+  }
+}
 @media (max-width: 700px) {
   .slider3-section .slider-container .category-item {
     width: 11rem;
@@ -1204,6 +1311,26 @@ h5 {
   .slider3-section .slider-container .category-item .image {
     width: 11rem;
     height: 11rem;
+  }
+}
+@media (max-width: 650px) {
+  .slider3-section .arrows {
+    right: 12%;
+  }
+}
+@media (max-width: 570px) {
+  .slider3-section .arrows {
+    right: 13%;
+  }
+}
+@media (max-width: 445px) {
+  .slider3-section .arrows {
+    right: 13.5%;
+  }
+}
+@media (max-width: 400px) {
+  .slider3-section .arrows {
+    right: 14%;
   }
 }
 @media (max-width: 360px) {
@@ -1217,6 +1344,27 @@ h5 {
     width: 14rem;
     height: 14rem;
   }
+  .slider3-section .arrows {
+    right: 15.5%;
+  }
+  .slider3-section #sliderdots {
+    display: none;
+  }
+}
+@media (max-width: 320px) {
+  .slider3-section .arrows {
+    right: 16%;
+  }
+}
+@media (max-width: 300px) {
+  .slider3-section .arrows {
+    right: 16.5%;
+  }
+}
+@media (max-width: 285px) {
+  .slider3-section .arrows {
+    right: 18%;
+  }
 }
 /***************
  # Slider 5
@@ -1229,7 +1377,6 @@ h5 {
   padding: 0.5rem 0;
   margin: 0 auto;
   gap: 1.5rem;
-  background-color: transparent;
   display: flex;
   overflow: auto;
   scroll-behavior: smooth;
@@ -1397,8 +1544,8 @@ h5 {
   width: 95%;
   position: absolute;
   top: 46%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: 50%;
+  transform: translate(50%, -50%);
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
@@ -1426,7 +1573,7 @@ h5 {
   .slider5-section .arrows {
     width: 5rem;
     top: 1.5rem;
-    left: calc(100% - 5rem) !important;
+    right: 10.5%;
     visibility: visible;
     opacity: 1;
   }
@@ -1436,6 +1583,56 @@ h5 {
     height: 1.8rem;
     line-height: 1.9rem;
     border-radius: 0;
+  }
+}
+@media (max-width: 1010px) {
+  .slider5-section .arrows {
+    right: 11%;
+  }
+}
+@media (max-width: 740px) {
+  .slider5-section .arrows {
+    right: 11.5%;
+  }
+}
+@media (max-width: 650px) {
+  .slider5-section .arrows {
+    right: 12%;
+  }
+}
+@media (max-width: 570px) {
+  .slider5-section .arrows {
+    right: 13%;
+  }
+}
+@media (max-width: 445px) {
+  .slider5-section .arrows {
+    right: 13.5%;
+  }
+}
+@media (max-width: 400px) {
+  .slider5-section .arrows {
+    right: 14%;
+  }
+}
+@media (max-width: 360px) {
+  .slider5-section .arrows {
+    right: 15.5%;
+  }
+}
+@media (max-width: 320px) {
+  .slider5-section .arrows {
+    right: 16%;
+  }
+}
+@media (max-width: 300px) {
+  .slider5-section .arrows {
+    right: 16.5%;
+  }
+}
+@media (max-width: 285px) {
+  .slider5-section .arrows {
+    right: 18%;
   }
 }
 /***************
@@ -1506,8 +1703,8 @@ h5 {
   width: 95%;
   position: absolute;
   top: 46%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: 50%;
+  transform: translate(50%, -50%);
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
@@ -1543,7 +1740,7 @@ h5 {
   .slider6-section .arrows {
     width: 5rem;
     top: 1.5rem;
-    left: calc(100% - 5rem) !important;
+    right: 10.5%;
     visibility: visible;
     opacity: 1;
   }
@@ -1553,6 +1750,56 @@ h5 {
     height: 1.8rem;
     line-height: 1.9rem;
     border-radius: 0;
+  }
+}
+@media (max-width: 1010px) {
+  .slider6-section .arrows {
+    right: 11%;
+  }
+}
+@media (max-width: 740px) {
+  .slider6-section .arrows {
+    right: 11.5%;
+  }
+}
+@media (max-width: 650px) {
+  .slider6-section .arrows {
+    right: 12%;
+  }
+}
+@media (max-width: 570px) {
+  .slider6-section .arrows {
+    right: 13%;
+  }
+}
+@media (max-width: 445px) {
+  .slider6-section .arrows {
+    right: 13.5%;
+  }
+}
+@media (max-width: 400px) {
+  .slider6-section .arrows {
+    right: 14%;
+  }
+}
+@media (max-width: 360px) {
+  .slider6-section .arrows {
+    right: 15.5%;
+  }
+}
+@media (max-width: 320px) {
+  .slider6-section .arrows {
+    right: 16%;
+  }
+}
+@media (max-width: 300px) {
+  .slider6-section .arrows {
+    right: 16.5%;
+  }
+}
+@media (max-width: 285px) {
+  .slider6-section .arrows {
+    right: 18%;
   }
 }
 /****************
