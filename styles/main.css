@@ -1730,7 +1730,7 @@ h5 {
 }
 
 @media (min-width: 1100px) {
-  .slider6-section .slider-container:hover .arrows {
+  .slider6-section:hover .arrows {
     width: 90%;
     visibility: visible;
     opacity: 1;
