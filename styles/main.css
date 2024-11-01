@@ -844,7 +844,7 @@ h5 {
   cursor: pointer;
 }
 .slider1-section #sliderdots {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 .slider1-section #sliderdots .dot {
   display: inline-block;
@@ -1096,7 +1096,7 @@ h5 {
   cursor: pointer;
 }
 .slider2-section #sliderdots {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 .slider2-section #sliderdots .dot {
   display: inline-block;
@@ -1929,7 +1929,7 @@ h5 {
   cursor: pointer;
 }
 .slider9-section #sliderdots {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 .slider9-section #sliderdots .dot {
   display: inline-block;
