@@ -571,6 +571,16 @@ dragSlider({
     autoplaySpeed: 3000
 });
 
+dragSlider({
+    containerSelector:'.slider4-section .slider-container',
+    dotsSelector:'.slider4-section #sliderdots',
+    prevArrowSelector:'.slider4-section .arrow-left',
+    nextArrowSelector:'.slider4-section .arrow-right',
+    slidesToShowDefault: 1,
+    slidesToScrollDefault: 1,
+    autoplaySpeed: 3000
+});
+
 
 
 function scrollSlider(options) {
