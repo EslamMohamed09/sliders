@@ -432,7 +432,7 @@ ul {
 }
 
 section {
-  padding: 2rem 7%;
+  padding: 1rem 7%;
 }
 
 /******************* # BUTTONS ********************/
@@ -1471,7 +1471,7 @@ h5 {
 .slider6-section .arrows {
   width: 95%;
   position: absolute;
-  top: 40%;
+  top: 46%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex !important;
@@ -1508,7 +1508,7 @@ h5 {
     width: 100%;
   }
   .slider6-section:hover .arrows {
-    width: 95%;
+    width: 96%;
   }
 }
 /****************
