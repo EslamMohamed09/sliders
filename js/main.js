@@ -48,7 +48,7 @@ function oldDotsSlider(options) {
     function setResponsive() {
         const responsiveSettings = [
             { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
-            { breakpoint: 355, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 360, settings: { slidesToShow: 2, slidesToScroll: 2 }},
             { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
             { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
             { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }}
@@ -219,7 +219,7 @@ function dotsSlider(options) {
     function setResponsive() {
         const responsiveSettings = [
             { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
-            { breakpoint: 355, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 360, settings: { slidesToShow: 2, slidesToScroll: 2 }},
             { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
             { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
             { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }}
@@ -376,7 +376,7 @@ dotsSlider({
 });
 
 
-function dotsSlider2(options) {
+function dragSlider(options) {
     const {
         containerSelector = '.slides-container',
         dotsSelector = '#sliderdots',
@@ -416,9 +416,10 @@ function dotsSlider2(options) {
     function setResponsive() {
         const responsiveSettings = [
             { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
-            { breakpoint: 355, settings: { slidesToShow: 2, slidesToScroll: 2 }},
-            { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
-            { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
+            { breakpoint: 360, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 560, settings: { slidesToShow: 3, slidesToScroll: 3 }},
+            { breakpoint: 700, settings: { slidesToShow: 4, slidesToScroll: 4 }},
+            { breakpoint: 1000, settings: { slidesToShow: 5, slidesToScroll: 5 }},
             { breakpoint: 1300, settings: { slidesToShow: 6, slidesToScroll: 6 }}
         ];
 
@@ -560,7 +561,7 @@ function dotsSlider2(options) {
     // autoSlide();
 }
 
-dotsSlider2({
+dragSlider({
     containerSelector:'.slider3-section .slider-container',
     dotsSelector:'.slider3-section #sliderdots',
     prevArrowSelector:'.slider3-section .arrow-left',
@@ -598,7 +599,7 @@ function scrollSlider(options) {
     function setResponsive() {
         const responsiveSettings = [
             { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
-            { breakpoint: 355, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 360, settings: { slidesToShow: 2, slidesToScroll: 2 }},
             { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
             { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
             { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }}
@@ -779,7 +780,7 @@ function rotationalSlider(options) {
     function setResponsive() {
         const responsiveSettings = [
             { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
-            { breakpoint: 355, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 360, settings: { slidesToShow: 2, slidesToScroll: 2 }},
             { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
             { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
             { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }}

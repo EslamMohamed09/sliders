@@ -518,7 +518,7 @@ h5 {font-size:1.1rem;}
 
 
 /*******************
- # products 1
+ # Slider 1
 ********************/
 .slider1-section {margin-top:5rem;
                   position:relative;
@@ -713,7 +713,7 @@ h5 {font-size:1.1rem;}
                             height:2rem;
                             padding:0;
                             font-size:1.2rem;
-                            line-height:2rem;
+                            line-height:2.1rem;
                             text-align:center;
                             padding:0;
                             border-radius:50%;
@@ -737,7 +737,7 @@ h5 {font-size:1.1rem;}
        }
 }
 
-@media (max-width:355px){
+@media (max-width:360px){
        .slider1-section {padding:2rem 4%;
            .slider-container {padding:0.5rem 5rem 0.5rem 0.3rem;
               .product-item {max-width:260px !important;
@@ -748,7 +748,7 @@ h5 {font-size:1.1rem;}
 }
 
 /***************
- # slider 2
+ # Slider 2
 ****************/
 .slider2-section {position:relative;
 
@@ -872,7 +872,7 @@ h5 {font-size:1.1rem;}
        /* <--> */
        .arrows {width:95%;
                 position:absolute;
-                top:46%;
+                top:50%;
                 left:50%;
                 transform:translate(-50%, -50%);
                 display:flex !important;
@@ -885,7 +885,7 @@ h5 {font-size:1.1rem;}
                             height:2rem;
                             padding:0;
                             font-size:1.2rem;
-                            line-height:2rem;
+                            line-height:2.1rem;
                             text-align:center;
                             padding:0;
                             border-radius:50%;
@@ -910,37 +910,36 @@ h5 {font-size:1.1rem;}
 
 }
 
-@media (max-width:355px){
-       .slider2-section {padding:2rem 4%;
-           .slider-container {padding:0.5rem 5rem 0.5rem 0.3rem;
-              .product-item {max-width:260px !important;
-                             margin-left:2.7rem;}
-           }
+@media (max-width:360px){
+       .slider2-section {
            #sliderdots {display:none;}
        }
 }
 
 /***************
- # slider 3
+ # Slider 3
 ****************/
 .slider3-section {position:relative;
 
-        .slider-container {padding:0.5rem 0;
-                           margin:0 auto;
-                           gap:3rem;
-                           background-color:transparent;
-                           display:flex;
-                           overflow:auto;
-                           scroll-behavior:smooth;
+       .slider-container {padding:0.5rem 0;
+                          margin:0 auto;
+                          gap:3rem;
+                          background-color:transparent;
+                          display:flex;
+                          overflow:auto;
+                          scroll-behavior:smooth;
               
-              .category-item {display:block;
-                              padding:1rem 0.2rem;
+              .category-item {width:11rem;
+                              display:block;background-color:rgba(228, 216, 216, 0.192);
+                              padding:1rem 0;
+                              text-align:center;
                               margin-bottom:1rem;
                               overflow:hidden;
                               position:relative;
 
-                     .image {width:100%;
+                     .image {width:11rem;
                              height:11rem;
+                             margin:auto;
                              border-radius:50%;
                              margin-bottom:1.2rem;
 
@@ -982,7 +981,7 @@ h5 {font-size:1.1rem;}
        /* <--> */
        .arrows {width:95%;
                 position:absolute;
-                top:46%;
+                top:50%;
                 left:50%;
                 transform:translate(-50%, -50%);
                 display:flex !important;
@@ -995,7 +994,7 @@ h5 {font-size:1.1rem;}
                             height:2rem;
                             padding:0;
                             font-size:1.2rem;
-                            line-height:2rem;
+                            line-height:2.1rem;
                             text-align:center;
                             padding:0;
                             border-radius:50%;
@@ -1006,21 +1005,34 @@ h5 {font-size:1.1rem;}
 
 }
 
-@media (max-width:355px){
-       .slider3-section {padding:2rem 4%;
-           .slider-container {padding:0.5rem 5rem 0.5rem 0.3rem;
-              .product-item {max-width:260px !important;
-                             margin-left:2.7rem;}
-           }
-           #sliderdots {display:none;}
+@media (max-width:1090px){
+       .slider3-section .slider-container .category-item {width:10rem;
+              .image {width:10rem;
+                      height:10rem;}
        }
 }
 
+@media (max-width:700px){
+       .slider3-section .slider-container .category-item {width:11rem;
+              .image {width:11rem;
+                      height:11rem;}
+       }
+}
+
+@media (max-width:360px){
+       .slider3-section {padding:1rem 7%;
+              .slider-container .category-item {width:14rem;
+                     .image {width:14rem;
+                             height:14rem;}
+              }
+       }
+}
+
+
 /***************
- # slider 5
+ # Slider 5
 ****************/
-.slider5-section {padding:1rem 7%;
-                  position:relative;
+.slider5-section {position:relative;
 
        .slider-container {padding:0.5rem 0;
                           margin:0 auto;
@@ -1188,40 +1200,23 @@ h5 {font-size:1.1rem;}
                             cursor:pointer;}
        }
 
-       #sliderdots {margin-top:3rem;
-
-              .dot {display:inline-block;
-                    width:10px;
-                    height:10px;
-                    margin:5px;
-                    background-color:#ccc;
-                    border-radius:50%;
-                    cursor:pointer;}
-   
-              .dot.active {background-color:#333;}
-
-       }
-
        &:hover .arrows {width:90%;
                         visibility:visible;
                         opacity:1;}
 }
 
 @media (max-width:355px){
-       .slider5-section {padding:2rem 4%;
-           .slider-container {padding:0.5rem 5rem 0.5rem 0.3rem;
-              .product-item {max-width:260px !important;
-                             margin-left:2.7rem;}
+       .slider5-section {
+           .slider-container {
+              .product-item {}
            }
-           #sliderdots {display:none;}
        }
 }
 
 /***************
- # slider 6
+ # Slider 6
 ****************/
-.slider6-section {padding:1rem 7%;
-                  position:relative;
+.slider6-section {position:relative;
 
        .slider-container {padding:0.5rem 0;
                           margin:0 auto;
@@ -1315,28 +1310,17 @@ h5 {font-size:1.1rem;}
                             cursor:pointer;}
        }
 
-       #sliderdots {margin-top:3rem;
-
-              .dot {display:inline-block;
-                    width:10px;
-                    height:10px;
-                    margin:5px;
-                    background-color:#ccc;
-                    border-radius:50%;
-                    cursor:pointer;}
-   
-              .dot.active {background-color:#333;}
-
-       }
-
        &:hover .arrows {width:90%;
                         visibility:visible;
                         opacity:1;}
 }
 
-@media (max-width:355px){
-       .slider6-section {padding:2rem 4%;
-           #sliderdots {display:none;}
+@media (max-width:360px){
+       .slider6-section {
+           .arrows {width:100%;}
+
+           &:hover .arrows {width:95%;}
+
        }
 }
 
@@ -1447,7 +1431,7 @@ h5 {font-size:1.1rem;}
                             height:2rem;
                             padding:0;
                             font-size:1.2rem;
-                            line-height:2rem;
+                            line-height:2.1rem;
                             text-align:center;
                             padding:0;
                             border-radius:50%;
@@ -1472,12 +1456,8 @@ h5 {font-size:1.1rem;}
 
 }
 
-@media (max-width:355px){
-       .slider9-section {padding:2rem 4%;
-           .slider-container {padding:0.5rem 5rem 0.5rem 0.3rem;
-              .product-item {max-width:260px !important;
-                             margin-left:2.7rem;}
-           }
+@media (max-width:360px){
+       .slider9-section {
            #sliderdots {display:none;}
        }
 }
