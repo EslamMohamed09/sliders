@@ -433,6 +433,7 @@ ul {
 
 section {
   padding: 1rem 7%;
+  margin-bottom: 2rem;
 }
 
 /******************* # BUTTONS ********************/
@@ -610,27 +611,19 @@ h5 {
   font-size: 1.1rem;
 }
 
-/*******************
- # Slider 1
-********************/
+/***************
+ # products 8
+****************/
 .slider1-section {
-  margin-top: 5rem;
-  position: relative;
   /* <--> */
 }
 .slider1-section .slider-container {
-  display: flex;
-  padding: 0.5rem 0;
-  margin: 0 auto;
   gap: 1.5rem;
-  background-color: transparent;
-  transition: transform 0.8s linear;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
 }
 .slider1-section .slider-container .product-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display: block;
   padding: 1rem 0.2rem;
   margin-bottom: 1rem;
   background-color: transparent;
@@ -825,10 +818,9 @@ h5 {
 .slider1-section .arrows {
   width: 95%;
   position: absolute;
-  top: 46%;
-  transform: translateY(-50%);
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   display: flex !important;
   flex-direction: row;
   justify-content: space-between;
@@ -864,17 +856,21 @@ h5 {
   background-color: #333;
 }
 
+@media (max-width: 1100px) {
+  .slider1-section .arrows {
+    width: 5rem;
+    top: 1.5rem;
+    left: calc(100% - 5rem) !important;
+  }
+  .slider1-section .arrows .arrow-left,
+  .slider1-section .arrows .arrow-right {
+    width: 2rem;
+    height: 1.8rem;
+    line-height: 1.9rem;
+    border-radius: 0;
+  }
+}
 @media (max-width: 360px) {
-  .slider1-section {
-    padding: 2rem 4%;
-  }
-  .slider1-section .slider-container {
-    padding: 0.5rem 5rem 0.5rem 0.3rem;
-  }
-  .slider1-section .slider-container .product-item {
-    max-width: 260px !important;
-    margin-left: 2.7rem;
-  }
   .slider1-section #sliderdots {
     display: none;
   }
@@ -1065,6 +1061,20 @@ h5 {
   background-color: #333;
 }
 
+@media (max-width: 1100px) {
+  .slider2-section .arrows {
+    width: 5rem;
+    top: 1.5rem;
+    left: calc(100% - 5rem) !important;
+  }
+  .slider2-section .arrows .arrow-left,
+  .slider2-section .arrows .arrow-right {
+    width: 2rem;
+    height: 1.8rem;
+    line-height: 1.9rem;
+    border-radius: 0;
+  }
+}
 @media (max-width: 360px) {
   .slider2-section #sliderdots {
     display: none;
@@ -1089,7 +1099,6 @@ h5 {
 .slider3-section .slider-container .category-item {
   width: 11rem;
   display: block;
-  background-color: rgba(228, 216, 216, 0.192);
   padding: 1rem 0;
   text-align: center;
   margin-bottom: 1rem;
@@ -1165,6 +1174,20 @@ h5 {
   cursor: pointer;
 }
 
+@media (max-width: 1100px) {
+  .slider3-section .arrows {
+    width: 5rem;
+    top: 1.5rem;
+    left: calc(100% - 5rem) !important;
+  }
+  .slider3-section .arrows .arrow-left,
+  .slider3-section .arrows .arrow-right {
+    width: 2rem;
+    height: 1.8rem;
+    line-height: 1.9rem;
+    border-radius: 0;
+  }
+}
 @media (max-width: 1090px) {
   .slider3-section .slider-container .category-item {
     width: 10rem;
@@ -1398,12 +1421,23 @@ h5 {
   background: var(--black);
   cursor: pointer;
 }
-.slider5-section:hover .arrows {
-  width: 90%;
-  visibility: visible;
-  opacity: 1;
-}
 
+@media (max-width: 1100px) {
+  .slider5-section .arrows {
+    width: 5rem;
+    top: 1.5rem;
+    left: calc(100% - 5rem) !important;
+    visibility: visible;
+    opacity: 1;
+  }
+  .slider5-section .arrows .arrow-left,
+  .slider5-section .arrows .arrow-right {
+    width: 2rem;
+    height: 1.8rem;
+    line-height: 1.9rem;
+    border-radius: 0;
+  }
+}
 /***************
  # Slider 6
 ****************/
@@ -1497,18 +1531,28 @@ h5 {
   background: var(--black);
   cursor: pointer;
 }
-.slider6-section:hover .arrows {
-  width: 90%;
-  visibility: visible;
-  opacity: 1;
-}
 
-@media (max-width: 360px) {
-  .slider6-section .arrows {
-    width: 100%;
+@media (min-width: 1100px) {
+  .slider6-section .slider-container:hover .arrows {
+    width: 90%;
+    visibility: visible;
+    opacity: 1;
   }
-  .slider6-section:hover .arrows {
-    width: 96%;
+}
+@media (max-width: 1100px) {
+  .slider6-section .arrows {
+    width: 5rem;
+    top: 1.5rem;
+    left: calc(100% - 5rem) !important;
+    visibility: visible;
+    opacity: 1;
+  }
+  .slider6-section .arrows .arrow-left,
+  .slider6-section .arrows .arrow-right {
+    width: 2rem;
+    height: 1.8rem;
+    line-height: 1.9rem;
+    border-radius: 0;
   }
 }
 /****************
@@ -1653,6 +1697,20 @@ h5 {
   background-color: #333;
 }
 
+@media (max-width: 1100px) {
+  .slider9-section .arrows {
+    width: 5rem;
+    top: 1.5rem;
+    left: calc(100% - 5rem) !important;
+  }
+  .slider9-section .arrows .arrow-left,
+  .slider9-section .arrows .arrow-right {
+    width: 2rem;
+    height: 1.8rem;
+    line-height: 1.9rem;
+    border-radius: 0;
+  }
+}
 @media (max-width: 360px) {
   .slider9-section #sliderdots {
     display: none;
