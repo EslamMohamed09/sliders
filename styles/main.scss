@@ -1001,38 +1001,25 @@ h5 {font-size:1.1rem;}
                             }                     
 
                             .content {gap:0.7rem;
-                                   width:100%;
-                                   padding:0 0.2rem;
-                                   text-align:center;
-                                   position:relative;
+                                      width:100%;
+                                      padding:0 0.2rem;
+                                      text-align:center;
+                                      position:relative;
 
                                    .category-name {font-size:14px;
-                                                 font-weight:bold;
-                                                 text-align:center;
-                                                 line-height:1rem;
-                                                 color:var(--gray11);}
+                                                   font-weight:bold;
+                                                   text-align:center;
+                                                   line-height:1rem;
+                                                   color:var(--gray11);}
 
                             }
-                            
-                            &:hover .icons {opacity:1;}
-
                      }       
-
-                     &::-webkit-scrollbar {height:3px;}
-                     
-                     &::-webkit-scrollbar-thumb {background:var(--red11);
-                                                 border-radius:0;
-                                                 cursor:grab;}
-                                                 
-                     &::-webkit-scrollbar-track {background:var(--red);
-                                                 border-radius:0;
-                                                 cursor:pointer;}
               }
 
               /* <--> */
               .arrows {width:107%;
                        position:absolute;
-                       top:35%;
+                       top:48%;
                        right:50%;
                        transform:translate(50%, -50%);
                        display:flex !important;
@@ -1107,8 +1094,8 @@ h5 {font-size:1.1rem;}
                            padding:0;
 
               .slider-wrapper {padding:0.5rem 0;
-                            margin:0 auto;
-                            gap:1.5rem;
+                               margin:0 auto;
+                               gap:1.5rem;
                      
                      .product-item {display:block;
                                     padding:1rem 0.2rem;
@@ -1227,7 +1214,7 @@ h5 {font-size:1.1rem;}
               /* <--> */
               .arrows {width:107%;
                        position:absolute;
-                       top:35%;
+                       top:40%;
                        right:50%;
                        transform:translate(50%, -50%);
                        display:flex !important;
@@ -1337,7 +1324,6 @@ h5 {font-size:1.1rem;}
 
                                    &:hover img:last-child {visibility:visible;
                                                            opacity:1;}
-
                             }
 
                             .stat {position:absolute;

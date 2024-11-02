@@ -1158,26 +1158,10 @@ h5 {
   line-height: 1rem;
   color: var(--gray11);
 }
-.slider3-section .section-container .slider-wrapper .category-item:hover .icons {
-  opacity: 1;
-}
-.slider3-section .section-container .slider-wrapper::-webkit-scrollbar {
-  height: 3px;
-}
-.slider3-section .section-container .slider-wrapper::-webkit-scrollbar-thumb {
-  background: var(--red11);
-  border-radius: 0;
-  cursor: grab;
-}
-.slider3-section .section-container .slider-wrapper::-webkit-scrollbar-track {
-  background: var(--red);
-  border-radius: 0;
-  cursor: pointer;
-}
 .slider3-section .section-container .arrows {
   width: 107%;
   position: absolute;
-  top: 35%;
+  top: 48%;
   right: 50%;
   transform: translate(50%, -50%);
   display: flex !important;
@@ -1397,7 +1381,7 @@ h5 {
 .slider4-section .section-container .arrows {
   width: 107%;
   position: absolute;
-  top: 35%;
+  top: 40%;
   right: 50%;
   transform: translate(50%, -50%);
   display: flex !important;
