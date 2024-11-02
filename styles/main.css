@@ -1256,15 +1256,30 @@ h5 {
   width: 100%;
   height: 17rem;
   margin-bottom: 1.2rem;
-  position: relative;
   background-color: var(--gray);
   border-bottom: 1px solid var(--gray3);
+  position: relative;
 }
 .slider4-section .section-container .slider-wrapper .category-item .image img {
   width: 70%;
   height: 50%;
   object-fit: contain;
   transition: all 0.7s linear;
+}
+.slider4-section .section-container .slider-wrapper .category-item .image::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: 2;
+}
+.slider4-section .section-container .slider-wrapper .category-item .image:hover::before {
+  animation: flashing 0.7s;
 }
 .slider4-section .section-container .slider-wrapper .category-item .content {
   gap: 0.7rem;
@@ -1319,6 +1334,16 @@ h5 {
   background-color: #333;
 }
 
+@keyframes flashing {
+  0%, 40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 200%;
+    height: 200%;
+  }
+}
 @media (max-width: 1100px) {
   .slider4-section .section-container .arrows {
     width: 5rem;
