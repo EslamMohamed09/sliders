@@ -157,7 +157,7 @@ function oldDotsSlider(options) {
 }
 
 oldDotsSlider({
-    containerSelector:'.slider1-section .slider-container',
+    containerSelector:'.slider1-section .slider-wrapper',
     dotsSelector:'.slider1-section #sliderdots',
     prevArrowSelector:'.slider1-section .arrow-left',
     nextArrowSelector:'.slider1-section .arrow-right',
@@ -366,7 +366,7 @@ function dotsSlider(options) {
 }
 
 dotsSlider({
-    containerSelector:'.slider2-section .slider-container',
+    containerSelector:'.slider2-section .slider-wrapper',
     dotsSelector:'.slider2-section #sliderdots',
     prevArrowSelector:'.slider2-section .arrow-left',
     nextArrowSelector:'.slider2-section .arrow-right',
@@ -554,7 +554,7 @@ function dragSliderFiveItems(options) {
 }
 
 dragSliderFiveItems({
-    containerSelector:'.slider4-section .slider-container',
+    containerSelector:'.slider4-section .slider-wrapper',
     dotsSelector:'.slider4-section #sliderdots',
     prevArrowSelector:'.slider4-section .arrow-left',
     nextArrowSelector:'.slider4-section .arrow-right',
@@ -742,7 +742,7 @@ function dragSliderSixItems(options) {
 }
 
 dragSliderSixItems({
-    containerSelector:'.slider3-section .slider-container',
+    containerSelector:'.slider3-section .slider-wrapper',
     dotsSelector:'.slider3-section #sliderdots',
     prevArrowSelector:'.slider3-section .arrow-left',
     nextArrowSelector:'.slider3-section .arrow-right',
@@ -754,7 +754,7 @@ dragSliderSixItems({
 
 function scrollSlider(options) {
     const {
-        containerSelector = '.slider-container',
+        containerSelector = '.slider-wrapper',
         prevArrowSelector = '.arrow-left',
         nextArrowSelector = '.arrow-right',
         slidesToShowDefault = 1,
@@ -893,7 +893,7 @@ function scrollSlider(options) {
 }
 
 scrollSlider({
-    containerSelector: '.slider5-section .slider-container',
+    containerSelector: '.slider5-section .slider-wrapper',
     prevArrowSelector: '.slider5-section .arrow-left',
     nextArrowSelector: '.slider5-section .arrow-right',
     slidesToShowDefault: 1,
@@ -901,7 +901,7 @@ scrollSlider({
 });
 
 scrollSlider({
-    containerSelector: '.slider6-section .slider-container',
+    containerSelector: '.slider6-section .slider-wrapper',
     prevArrowSelector: '.slider6-section .arrow-left',
     nextArrowSelector: '.slider6-section .arrow-right',
     slidesToShowDefault: 1,
@@ -1040,7 +1040,7 @@ function rotationalSlider(options) {
 }
 
 rotationalSlider({
-    containerSelector:'.slider9-section .slider-container',
+    containerSelector:'.slider9-section .slider-wrapper',
     dotsSelector:'.slider9-section #sliderdots',
     prevArrowSelector:'.slider9-section .arrow-left',
     nextArrowSelector:'.slider9-section .arrow-right',
@@ -1062,7 +1062,7 @@ const categoriesColors = [
     "var(--transparent-orange)"   // 9th color
 ];
 
-const categoryItems = document.querySelectorAll('.slider-container .category-item .image');
+const categoryItems = document.querySelectorAll('.slider-wrapper .category-item .image');
 
 categoryItems.forEach((item, index) => {
   item.style.backgroundColor = categoriesColors[index % categoriesColors.length];
