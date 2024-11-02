@@ -1265,6 +1265,7 @@ h5 {
   height: 50%;
   object-fit: contain;
   transition: all 0.7s linear;
+  z-index: 2;
 }
 .slider4-section .section-container .slider-wrapper .category-item .image::before {
   content: "";
@@ -1276,10 +1277,26 @@ h5 {
   width: 0;
   height: 0;
   opacity: 0;
-  z-index: 2;
+  z-index: 4;
 }
 .slider4-section .section-container .slider-wrapper .category-item .image:hover::before {
   animation: flashing 0.7s;
+}
+.slider4-section .section-container .slider-wrapper .category-item .image::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 3;
+}
+.slider4-section .section-container .slider-wrapper .category-item .image:not(:hover)::after {
+  animation: removeFlashing 0.4s;
 }
 .slider4-section .section-container .slider-wrapper .category-item .content {
   gap: 0.7rem;
@@ -1333,7 +1350,6 @@ h5 {
 .slider4-section .section-container #sliderdots .dot.active {
   background-color: #333;
 }
-
 @keyframes flashing {
   0%, 40% {
     opacity: 1;
@@ -1344,6 +1360,19 @@ h5 {
     height: 200%;
   }
 }
+@keyframes removeFlashing {
+  0%, 40% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 @media (max-width: 1100px) {
   .slider4-section .section-container .arrows {
     width: 5rem;
