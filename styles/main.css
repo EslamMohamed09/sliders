@@ -654,16 +654,23 @@ h5 {
 .slider1-section .section-container .slider-wrapper .product-item .image img:first-child {
   right: 50%;
   transform: translateX(50%);
+  z-index: 8;
 }
 .slider1-section .section-container .slider-wrapper .product-item .image img:last-child:not(:only-child) {
   right: -110%;
   transform: translateX(50%);
+  z-index: 9;
 }
 .slider1-section .section-container .slider-wrapper .product-item .image:hover img:first-child {
   right: 150%;
 }
 .slider1-section .section-container .slider-wrapper .product-item .image:hover img:last-child {
   right: 50%;
+}
+.slider1-section .section-container .slider-wrapper .product-item .image:hover .icons {
+  right: 0.6rem;
+  opacity: 1;
+  pointer-events: auto;
 }
 .slider1-section .section-container .slider-wrapper .product-item .stats {
   position: absolute;
@@ -714,6 +721,7 @@ h5 {
   background-color: transparent;
   transition: all 0.3s linear;
   opacity: 0;
+  z-index: 10;
 }
 .slider1-section .section-container .slider-wrapper .product-item .icons button {
   background-color: var(--white);
@@ -726,6 +734,7 @@ h5 {
   justify-content: center;
   align-items: center;
   box-shadow: var(--box-shadow11);
+  pointer-events: auto;
 }
 .slider1-section .section-container .slider-wrapper .product-item .icons button #icon {
   font-size: 0.9rem;
@@ -737,6 +746,10 @@ h5 {
 }
 .slider1-section .section-container .slider-wrapper .product-item .icons button:hover #icon {
   color: var(--white2);
+}
+.slider1-section .section-container .slider-wrapper .product-item .icons:hover {
+  right: 0.6rem;
+  opacity: 1;
 }
 .slider1-section .section-container .slider-wrapper .product-item .content {
   gap: 0.7rem;
@@ -906,9 +919,9 @@ h5 {
   width: 100%;
   height: 17rem;
   margin-bottom: 1.2rem;
-  position: relative;
   background-color: var(--gray);
   border-bottom: 1px solid var(--gray3);
+  position: relative;
 }
 .slider2-section .section-container .slider-wrapper .product-item .image img {
   width: 70%;
@@ -928,6 +941,10 @@ h5 {
   opacity: 0;
 }
 .slider2-section .section-container .slider-wrapper .product-item .image:hover img:last-child {
+  visibility: visible;
+  opacity: 1;
+}
+.slider2-section .section-container .slider-wrapper .product-item .image:hover .icons {
   visibility: visible;
   opacity: 1;
 }
@@ -964,7 +981,9 @@ h5 {
   gap: 0.5rem;
   background-color: transparent;
   transition: all 0.3s linear;
+  visibility: hidden;
   opacity: 0;
+  z-index: 10;
 }
 .slider2-section .section-container .slider-wrapper .product-item .icons button {
   background-color: var(--white);
@@ -1024,6 +1043,7 @@ h5 {
   color: var(--orange-red2);
 }
 .slider2-section .section-container .slider-wrapper .product-item:hover .icons {
+  visibility: visible;
   opacity: 1;
 }
 .slider2-section .section-container .arrows {
@@ -1268,6 +1288,7 @@ h5 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 9;
 }
 .slider4-section .section-container .slider-wrapper .product-item .image:hover img:first-child {
   visibility: hidden;
@@ -1311,6 +1332,7 @@ h5 {
   background-color: transparent;
   transition: all 0.3s linear;
   opacity: 0;
+  z-index: 10;
 }
 .slider4-section .section-container .slider-wrapper .product-item .icons button {
   background-color: var(--white);
@@ -1470,12 +1492,16 @@ h5 {
   object-fit: contain;
   transition: all 0.7s linear;
 }
+.slider5-section .section-container .slider-wrapper .product-item .image img:first-child {
+  z-index: 8;
+}
 .slider5-section .section-container .slider-wrapper .product-item .image img:last-child:not(:only-child) {
   visibility: hidden;
   opacity: 0;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 9;
 }
 .slider5-section .section-container .slider-wrapper .product-item .image:hover img:first-child {
   visibility: hidden;
@@ -1520,6 +1546,7 @@ h5 {
   background-color: transparent;
   transition: all 0.3s linear;
   opacity: 0;
+  z-index: 10;
 }
 .slider5-section .section-container .slider-wrapper .product-item .icons button {
   width: 100%;
@@ -1814,12 +1841,16 @@ h5 {
   object-fit: contain;
   transition: all 0.7s linear;
 }
+.slider9-section .section-container .slider-wrapper .product-item .image img:first-child {
+  z-index: 8;
+}
 .slider9-section .section-container .slider-wrapper .product-item .image img:last-child:not(:only-child) {
   visibility: hidden;
   opacity: 0;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 9;
 }
 .slider9-section .section-container .slider-wrapper .product-item .image:hover img:first-child {
   visibility: hidden;

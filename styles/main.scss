@@ -531,34 +531,40 @@ h5 {font-size:1.1rem;}
                                position:relative;
                      
                      .product-item {display:block;
-                                   padding:1rem 0.2rem;
-                                   margin-bottom:1rem;
-                                   background-color:transparent;
-                                   overflow:hidden;
-                                   position:relative;
+                                    padding:1rem 0.2rem;
+                                    margin-bottom:1rem;
+                                    background-color:transparent;
+                                    overflow:hidden;
+                                    position:relative;
 
                             .image {width:100%;
-                                   height:18rem;
-                                   margin-bottom:1.2rem;
-                                   background-color:var(--gray);
-                                   border-bottom:1px solid var(--gray3);
-                                   position:relative;
+                                    height:18rem;
+                                    margin-bottom:1.2rem;
+                                    background-color:var(--gray);
+                                    border-bottom:1px solid var(--gray3);
+                                    position:relative;
 
                                    img {width:70%;
-                                   height:55%;
-                                   object-fit:contain;
-                                   transition:all 0.4s linear;
-                                   position:absolute;}
+                                        height:55%;
+                                        object-fit:contain;
+                                        transition:all 0.4s linear;
+                                        position:absolute;}
 
                                    img:first-child {right:50%;
-                                                 transform:translateX(50%);}
+                                                    transform:translateX(50%);
+                                                    z-index:8;}
 
                                    img:last-child:not(:only-child) {right:-110%;
-                                                               transform:translateX(50%);}
+                                                                    transform:translateX(50%);
+                                                                     z-index:9;}
 
                                    &:hover img:first-child {right:150%;}
 
                                    &:hover img:last-child {right:50%;}
+
+                                   &:hover .icons {right:0.6rem;
+                                                   opacity:1;
+                                                   pointer-events:auto;}
                             }
 
                             .stats {position:absolute;
@@ -592,25 +598,27 @@ h5 {font-size:1.1rem;}
                             }
 
                             .icons {position:absolute;
-                                          top:1.5rem;
-                                          right:-3rem;
-                                          width:3rem;
-                                          height:fit-content;
-                                          gap:0.5rem;
-                                          background-color:transparent;
-                                          transition:all 0.3s linear;
-                                          opacity:0;
+                                    top:1.5rem;
+                                    right:-3rem;
+                                    width:3rem;
+                                    height:fit-content;
+                                    gap:0.5rem;
+                                    background-color:transparent;
+                                    transition:all 0.3s linear;
+                                    opacity:0;
+                                    z-index:10;
 
                                    button {background-color:var(--white);
-                                                 border:none;
-                                                 border-radius:50%;
-                                                 width:2.2rem;
-                                                 height:2.2rem;
-                                                 display:flex;
-                                                 flex-direction:row;
-                                                 justify-content:center;
-                                                 align-items:center;
-                                                 box-shadow:var(--box-shadow11);
+                                           border:none;
+                                           border-radius:50%;
+                                           width:2.2rem;
+                                           height:2.2rem;
+                                           display:flex;
+                                           flex-direction:row;
+                                           justify-content:center;
+                                           align-items:center;
+                                           box-shadow:var(--box-shadow11);
+                                           pointer-events:auto;
 
                                           #icon {font-size:0.9rem;
                                                  color:var(--black2);
@@ -620,41 +628,44 @@ h5 {font-size:1.1rem;}
 
                                           &:hover #icon {color:var(--white2);}
                                    }
+
+                                   &:hover {right:0.6rem;
+                                            opacity:1;}
                             }
 
                             .content {gap:0.7rem;
-                                   width:100%;
-                                   padding:0 0.2rem;
-                                   text-align:center;
-                                   position:relative;
+                                      width:100%;
+                                      padding:0 0.2rem;
+                                      text-align:center;
+                                      position:relative;
 
                                    .colors-circles {width:fit-content;
-                                                 height:fit-content;
-                                                 gap:1rem;
-                                                 margin-bottom:0.4rem;
-                                                 list-style:none;
+                                                    height:fit-content;
+                                                    gap:1rem;
+                                                    margin-bottom:0.4rem;
+                                                    list-style:none;
 
                                           .circle-outer {width:2.1rem;
-                                                        height:2.1rem;
-                                                        padding:0.45rem;
-                                                        margin:0;
-                                                        border-radius:50%;
-                                                        box-shadow:var(--box-shadow11);
-                                                        cursor:pointer;
+                                                         height:2.1rem;
+                                                         padding:0.45rem;
+                                                         margin:0;
+                                                         border-radius:50%;
+                                                         box-shadow:var(--box-shadow11);
+                                                         cursor:pointer;
 
                                                  .color-circle {width:100%;
-                                                               height:100%;
-                                                               border-radius:50%;
-                                                               border:none;
-                                                               position:relative;}
+                                                                height:100%;
+                                                                border-radius:50%;
+                                                                border:none;
+                                                                position:relative;}
 
                                                  .color-circle.checked::before {content:"✔";
-                                                                             color:white;
-                                                                             font-size:0.8rem;
-                                                                             position:absolute;
-                                                                             top:50%;
-                                                                             left:50%;
-                                                                             transform:translate(-50%, -50%);}
+                                                                                color:white;
+                                                                                font-size:0.8rem;
+                                                                                position:absolute;
+                                                                                top:50%;
+                                                                                left:50%;
+                                                                                transform:translate(-50%, -50%);}
                                           }
 
                                           .circle-outer:first-child .color-circle {background-color:sienna;}
@@ -665,9 +676,9 @@ h5 {font-size:1.1rem;}
                                    }
 
                                    .product-name {font-size:14px;
-                                                 font-weight:bold;
-                                                 line-height:1rem;
-                                                 color:var(--gray11);}
+                                                  font-weight:bold;
+                                                  line-height:1rem;
+                                                  color:var(--gray11);}
 
                                    .ratings {gap:0.1rem;
                                    svg {color:var(--yellow10);
@@ -689,7 +700,7 @@ h5 {font-size:1.1rem;}
 
                             }
                             &:hover .icons {right:0.6rem;
-                                          opacity:1;}
+                                            opacity:1;}
                      }
               }
 
@@ -779,28 +790,31 @@ h5 {font-size:1.1rem;}
                                     position:relative;
 
                             .image {width:100%;
-                                   height:17rem;
-                                   margin-bottom:1.2rem;
-                                   position:relative;
-                                   background-color:var(--gray);
-                                   border-bottom:1px solid var(--gray3);
+                                    height:17rem;
+                                    margin-bottom:1.2rem;
+                                    background-color:var(--gray);
+                                    border-bottom:1px solid var(--gray3);
+                                    position:relative;
 
                                    img {width:70%;
-                                   height:50%;
-                                   object-fit:contain;
-                                   transition:all 0.7s linear;}
+                                        height:50%;
+                                        object-fit:contain;
+                                        transition:all 0.7s linear;}
 
                                    img:last-child:not(:only-child) {visibility:hidden;
-                                                               opacity:0;
-                                                               position:absolute;
-                                                               left:50%;
-                                                               transform:translateX(-50%);}
+                                                                    opacity:0;
+                                                                    position:absolute;
+                                                                    left:50%;
+                                                                    transform:translateX(-50%);}
 
                                    &:hover img:first-child {visibility:hidden;
-                                                        opacity:0;}
+                                                            opacity:0;}
 
                                    &:hover img:last-child {visibility:visible;
-                                                        opacity:1;}
+                                                           opacity:1;}
+
+                                    &:hover .icons {visibility:visible;
+                                                    opacity:1;}
                             }
 
                             .stat {position:absolute;
@@ -813,30 +827,32 @@ h5 {font-size:1.1rem;}
                                    line-height:2.8;
                                    font-size:0.9rem;
                                    box-shadow:var(--box-shadow4);
-                            &.new {background-color:var(--shin-blue5);color:var(--white2);}
-                            &.top {background-color:var(--shin-orange);color:var(--white2);}
-                            &.hot {background-color:var(--yellow10);color:var(--white2);}
+                               &.new {background-color:var(--shin-blue5);color:var(--white2);}
+                               &.top {background-color:var(--shin-orange);color:var(--white2);}
+                               &.hot {background-color:var(--yellow10);color:var(--white2);}
                             }
 
                             .icons {position:absolute;
-                                   top:1.9rem;
-                                   right:0.5rem;
-                                   width:3rem;
-                                   height:fit-content;
-                                   gap:0.5rem;
-                                   background-color:transparent;
-                                   transition:all 0.3s linear;
-                                   opacity:0;
+                                    top:1.9rem;
+                                    right:0.5rem;
+                                    width:3rem;
+                                    height:fit-content;
+                                    gap:0.5rem;
+                                    background-color:transparent;
+                                    transition:all 0.3s linear;
+                                    visibility:hidden;
+                                    opacity:0;
+                                    z-index:10;
 
                                    button {background-color:var(--white);
-                                          border:1px solid var(--gray4);
-                                          border-radius:50%;
-                                          width:2.2rem;
-                                          height:2.2rem;
-                                          display:flex;
-                                          flex-direction:row;
-                                          justify-content:center;
-                                          align-items:center;
+                                           border:1px solid var(--gray4);
+                                           border-radius:50%;
+                                           width:2.2rem;
+                                           height:2.2rem;
+                                           display:flex;
+                                           flex-direction:row;
+                                           justify-content:center;
+                                           align-items:center;
 
                                           #icon {font-size:1rem;
                                                  color:var(--gray7);
@@ -844,7 +860,6 @@ h5 {font-size:1.1rem;}
 
                                           .fa-heart:hover {color:var(--orange-red2) !important;}
                                    }
-
                             }
 
                             .content {gap:0.7rem;
@@ -879,7 +894,8 @@ h5 {font-size:1.1rem;}
                                    }
 
                             }
-                            &:hover .icons {opacity:1;}
+                            &:hover .icons {visibility:visible;
+                                            opacity:1;}
                      }
               }
 
@@ -924,6 +940,7 @@ h5 {font-size:1.1rem;}
        }
 
 }
+
 
 @media(max-width:1100px){
        .slider2-section {
@@ -1094,35 +1111,36 @@ h5 {font-size:1.1rem;}
                             gap:1.5rem;
                      
                      .product-item {display:block;
-                                   padding:1rem 0.2rem;
-                                   margin-bottom:1rem;
-                                   background-color:transparent;
-                                   overflow:hidden;
-                                   position:relative;
+                                    padding:1rem 0.2rem;
+                                    margin-bottom:1rem;
+                                    background-color:transparent;
+                                    overflow:hidden;
+                                    position:relative;
 
                             .image {width:100%;
-                                   height:17rem;
-                                   margin-bottom:1.2rem;
-                                   position:relative;
-                                   background-color:var(--gray);
-                                   border-bottom:1px solid var(--gray3);
+                                    height:17rem;
+                                    margin-bottom:1.2rem;
+                                    position:relative;
+                                    background-color:var(--gray);
+                                    border-bottom:1px solid var(--gray3);
 
                                    img {width:70%;
-                                   height:50%;
-                                   object-fit:contain;
-                                   transition:all 0.7s linear;}
+                                        height:50%;
+                                        object-fit:contain;
+                                        transition:all 0.7s linear;}
 
                                    img:last-child:not(:only-child) {visibility:hidden;
-                                                               opacity:0;
-                                                               position:absolute;
-                                                               left:50%;
-                                                               transform:translateX(-50%);}
+                                                                    opacity:0;
+                                                                    position:absolute;
+                                                                    left:50%;
+                                                                    transform:translateX(-50%);
+                                                                    z-index:9;}
 
                                    &:hover img:first-child {visibility:hidden;
-                                                        opacity:0;}
+                                                            opacity:0;}
 
                                    &:hover img:last-child {visibility:visible;
-                                                        opacity:1;}
+                                                           opacity:1;}
                             }
 
                             .stat {position:absolute;
@@ -1141,24 +1159,25 @@ h5 {font-size:1.1rem;}
                             }
 
                             .icons {position:absolute;
-                                   top:1.9rem;
-                                   right:0.5rem;
-                                   width:3rem;
-                                   height:fit-content;
-                                   gap:0.5rem;
-                                   background-color:transparent;
-                                   transition:all 0.3s linear;
-                                   opacity:0;
+                                    top:1.9rem;
+                                    right:0.5rem;
+                                    width:3rem;
+                                    height:fit-content;
+                                    gap:0.5rem;
+                                    background-color:transparent;
+                                    transition:all 0.3s linear;
+                                    opacity:0;
+                                    z-index:10;
 
                                    button {background-color:var(--white);
-                                          border:1px solid var(--gray4);
-                                          border-radius:50%;
-                                          width:2.2rem;
-                                          height:2.2rem;
-                                          display:flex;
-                                          flex-direction:row;
-                                          justify-content:center;
-                                          align-items:center;
+                                           border:1px solid var(--gray4);
+                                           border-radius:50%;
+                                           width:2.2rem;
+                                           height:2.2rem;
+                                           display:flex;
+                                           flex-direction:row;
+                                           justify-content:center;
+                                           align-items:center;
 
                                           #icon {font-size:1rem;
                                                  color:var(--gray7);
@@ -1304,11 +1323,14 @@ h5 {font-size:1.1rem;}
                                         object-fit:contain;
                                         transition:all 0.7s linear;}
 
+                                   img:first-child {z-index:8;}
+
                                    img:last-child:not(:only-child) {visibility:hidden;
                                                                     opacity:0;
                                                                     position:absolute;
                                                                     left:50%;
-                                                                    transform:translateX(-50%);}
+                                                                    transform:translateX(-50%);
+                                                                    z-index:9;}
 
                                    &:hover img:first-child {visibility:hidden;
                                                             opacity:0;}
@@ -1334,20 +1356,21 @@ h5 {font-size:1.1rem;}
                             }
 
                             .icons {width:2.5rem;
-                                   height:fit-content;
-                                   position:absolute;
-                                   top:1.9rem;
-                                   right:1rem;
-                                   border:1px solid var(--gray4);
-                                   padding:0;
-                                   background-color:transparent;
-                                   transition:all 0.3s linear;
-                                   opacity:0;
+                                    height:fit-content;
+                                    position:absolute;
+                                    top:1.9rem;
+                                    right:1rem;
+                                    border:1px solid var(--gray4);
+                                    padding:0;
+                                    background-color:transparent;
+                                    transition:all 0.3s linear;
+                                    opacity:0;
+                                    z-index:10;
 
                                    button {width:100%;
-                                          background-color:transparent;
-                                          border:none;
-                                          padding:0.6rem 0.4rem;
+                                           background-color:transparent;
+                                           border:none;
+                                           padding:0.6rem 0.4rem;
 
                                           &:first-child {border-bottom:1px solid var(--gray4);}
 
@@ -1621,11 +1644,14 @@ h5 {font-size:1.1rem;}
                                         object-fit:contain;
                                         transition:all 0.7s linear;}
 
+                                   img:first-child {z-index:8;}
+
                                    img:last-child:not(:only-child) {visibility:hidden;
                                                                     opacity:0;
                                                                     position:absolute;
                                                                     left:50%;
-                                                                    transform:translateX(-50%);}
+                                                                    transform:translateX(-50%);
+                                                                    z-index:9;}
                             }
 
                             .image:hover img:first-child {visibility:hidden;
