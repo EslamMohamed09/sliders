@@ -1062,12 +1062,13 @@ const categoriesColors = [
     "var(--transparent-orange)"   // 9th color
 ];
 
-const categoryItems = document.querySelectorAll('.slider-wrapper .category-item .image');
+document.querySelectorAll('.slider-wrapper').forEach(sliderWrapper => {
+   const categoryItems = sliderWrapper.querySelectorAll('.category-item .image');
 
-categoryItems.forEach((item, index) => {
-  item.style.backgroundColor = categoriesColors[index % categoriesColors.length];
+   categoryItems.forEach((item, index) => {
+     item.style.backgroundColor = categoriesColors[index % categoriesColors.length];
+   });
 });
-
 
 /*** REMOVE BACKGROUND ***/
 function removeBackground(imgElement, targetColor) {

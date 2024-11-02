@@ -1097,12 +1097,12 @@ h5 {font-size:1.1rem;}
                                margin:0 auto;
                                gap:1.5rem;
                      
-                     .product-item {display:block;
-                                    padding:1rem 0.2rem;
-                                    margin-bottom:1rem;
-                                    background-color:transparent;
-                                    overflow:hidden;
-                                    position:relative;
+                     .category-item {display:block;
+                                     padding:1rem 0.2rem;
+                                     margin-bottom:1rem;
+                                     background-color:transparent;
+                                     overflow:hidden;
+                                     position:relative;
 
                             .image {width:100%;
                                     height:17rem;
@@ -1115,99 +1115,18 @@ h5 {font-size:1.1rem;}
                                         height:50%;
                                         object-fit:contain;
                                         transition:all 0.7s linear;}
-
-                                   img:last-child:not(:only-child) {visibility:hidden;
-                                                                    opacity:0;
-                                                                    position:absolute;
-                                                                    left:50%;
-                                                                    transform:translateX(-50%);
-                                                                    z-index:9;}
-
-                                   &:hover img:first-child {visibility:hidden;
-                                                            opacity:0;}
-
-                                   &:hover img:last-child {visibility:visible;
-                                                           opacity:1;}
-                            }
-
-                            .stat {position:absolute;
-                                   top:1.9rem;
-                                   left:0.9rem;
-                                   width:2.4rem;
-                                   height:2.4rem;
-                                   border-radius:50%;
-                                   text-align:center;
-                                   line-height:2.8;
-                                   font-size:0.9rem;
-                                   box-shadow:var(--box-shadow4);
-                            &.new {background-color:var(--shin-blue5);color:var(--white2);}
-                            &.top {background-color:var(--shin-orange);color:var(--white2);}
-                            &.hot {background-color:var(--yellow10);color:var(--white2);}
-                            }
-
-                            .icons {position:absolute;
-                                    top:1.9rem;
-                                    right:0.5rem;
-                                    width:3rem;
-                                    height:fit-content;
-                                    gap:0.5rem;
-                                    background-color:transparent;
-                                    transition:all 0.3s linear;
-                                    opacity:0;
-                                    z-index:10;
-
-                                   button {background-color:var(--white);
-                                           border:1px solid var(--gray4);
-                                           border-radius:50%;
-                                           width:2.2rem;
-                                           height:2.2rem;
-                                           display:flex;
-                                           flex-direction:row;
-                                           justify-content:center;
-                                           align-items:center;
-
-                                          #icon {font-size:1rem;
-                                                 color:var(--gray7);
-                                                 background:transparent;}
-
-                                          .fa-heart:hover {color:var(--orange-red2) !important;}
-                                   }
-
                             }
 
                             .content {gap:0.7rem;
-                                   width:100%;
-                                   padding:0 0.2rem;
-                                   text-align:center;
-                                   position:relative;
+                                      width:100%;
+                                      padding:0 0.2rem;
 
-                                   .product-name {font-size:14px;
-                                                 font-weight:bold;
-                                                 line-height:1rem;
-                                                 color:var(--gray11);}
-
-                                   p {color:var(--gray5);
-                                   padding:0;
-                                   margin:0;}
-
-                                   .ratings {gap:0.1rem;
-                                   svg {color:var(--yellow10);
-                                          font-size:1.1rem;}
-                                   }
-
-                                   .product-price {flex-wrap:nowrap;
-                                                 width:100%;
-                                                 margin:0;
-                                                 background-color:transparent;
-
-                                          .oldprice {color:var(--gray7);
-                                                 text-decoration:line-through !important;}
-
-                                          .price {color:var(--orange-red2);}
-                                   }
-
+                                   .category-name {font-size:14px;
+                                                   font-weight:bold;
+                                                   text-align:center;
+                                                   line-height:1rem;
+                                                   color:var(--gray11);}
                             }
-                            &:hover .icons {opacity:1;}
                      }
               }
 
