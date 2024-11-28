@@ -187,6 +187,7 @@ function dotsSlider(options) {
     let isDragging = false;
     let startX = 0;
     let scrollStart = 0;
+    let autoSlideInterval;
 
     function setupSlider() {
         slides = sliderContainer.children;
@@ -319,7 +320,10 @@ function dotsSlider(options) {
         sliderContainer.addEventListener('mousedown', startDrag);
         sliderContainer.addEventListener('mousemove', duringDrag);
         sliderContainer.addEventListener('mouseup', endDrag);
-        sliderContainer.addEventListener('mouseleave', endDrag); // ends drag if mouse leaves
+        sliderContainer.addEventListener('mouseleave', endDrag);
+
+        sliderContainer.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+        sliderContainer.addEventListener('mouseleave', autoSlide);
     }
 
     function startDrag(e) {
@@ -355,14 +359,15 @@ function dotsSlider(options) {
     }
 
     function autoSlide() {
-        setInterval(nextSlide, autoplaySpeed);
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, autoplaySpeed);
     }
 
     setupSlider();
     buildDots();
     setResponsive();
     attachEvents();
-    // autoSlide();
+    autoSlide();
 }
 
 dotsSlider({
@@ -396,6 +401,7 @@ function dragSliderFiveItems(options) {
     let isDragging = false;
     let startX = 0;
     let scrollStart = 0;
+    let autoSlideInterval;
 
     function setupSlider() {
         slides = sliderContainer.children;
@@ -508,7 +514,10 @@ function dragSliderFiveItems(options) {
         sliderContainer.addEventListener('mousedown', startDrag);
         sliderContainer.addEventListener('mousemove', duringDrag);
         sliderContainer.addEventListener('mouseup', endDrag);
-        sliderContainer.addEventListener('mouseleave', endDrag); // ends drag if mouse leaves
+        sliderContainer.addEventListener('mouseleave', endDrag);
+
+        sliderContainer.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+        sliderContainer.addEventListener('mouseleave', autoSlide);
     }
 
     function startDrag(e) {
@@ -544,13 +553,14 @@ function dragSliderFiveItems(options) {
     }
 
     function autoSlide() {
-        setInterval(nextSlide, autoplaySpeed);
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, autoplaySpeed);
     }
 
     setupSlider();
     setResponsive();
     attachEvents();
-    // autoSlide();
+    autoSlide();
 }
 
 dragSliderFiveItems({
@@ -564,7 +574,7 @@ dragSliderFiveItems({
 });
 
 
-function dragSliderSixItems(options) {
+function dragSliderSevenItems(options) {
     const {
         containerSelector = '.slides-container',
         dotsSelector = '#sliderdots',
@@ -584,6 +594,7 @@ function dragSliderSixItems(options) {
     let isDragging = false;
     let startX = 0;
     let scrollStart = 0;
+    let autoSlideInterval;
 
     function setupSlider() {
         slides = sliderContainer.children;
@@ -696,7 +707,10 @@ function dragSliderSixItems(options) {
         sliderContainer.addEventListener('mousedown', startDrag);
         sliderContainer.addEventListener('mousemove', duringDrag);
         sliderContainer.addEventListener('mouseup', endDrag);
-        sliderContainer.addEventListener('mouseleave', endDrag); // ends drag if mouse leaves
+        sliderContainer.addEventListener('mouseleave', endDrag);
+
+        sliderContainer.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+        sliderContainer.addEventListener('mouseleave', autoSlide);
     }
 
     function startDrag(e) {
@@ -732,16 +746,17 @@ function dragSliderSixItems(options) {
     }
 
     function autoSlide() {
-        setInterval(nextSlide, autoplaySpeed);
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, autoplaySpeed);
     }
 
     setupSlider();
     setResponsive();
     attachEvents();
-    // autoSlide();
+    autoSlide();
 }
 
-dragSliderSixItems({
+dragSliderSevenItems({
     containerSelector:'.slider3-section .slider-wrapper',
     dotsSelector:'.slider3-section #sliderdots',
     prevArrowSelector:'.slider3-section .arrow-left',
