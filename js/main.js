@@ -169,6 +169,7 @@ oldDotsSlider({
 
 function dotsSlider(options) {
     const {
+        section = 'slider-section',
         containerSelector = '.slides-container',
         dotsSelector = '#sliderdots',
         prevArrowSelector = '.arrow-left',
@@ -178,11 +179,12 @@ function dotsSlider(options) {
         autoplaySpeed = 3000
     } = options;
 
+    let sliderSection = document.querySelector(section);
+    let sliderContainer = document.querySelector(containerSelector);
     let currentIndex = 0;
+    let slides;
     let slidesToShow = slidesToShowDefault;
     let slidesToScroll = slidesToScrollDefault;
-    let slides;
-    let sliderContainer = document.querySelector(containerSelector);
     let dotsWrapper = document.querySelector(dotsSelector);
     let isDragging = false;
     let startX = 0;
@@ -199,7 +201,7 @@ function dotsSlider(options) {
     function buildDots() {
         dotsWrapper.innerHTML = '';
         const totalDots = Math.ceil(slides.length / slidesToScroll);
-        for (let i = 0; i < totalDots; i++) {
+        for (let i=0; i<totalDots; i++) {
             const dot = document.createElement('span');
             dot.classList.add('dot');
             dot.dataset.index = i;
@@ -275,7 +277,7 @@ function dotsSlider(options) {
             requestAnimationFrame(animation);
         }
     
-        animateScroll(sliderContainer.scrollLeft, scrollPosition, 600);
+        animateScroll(sliderContainer.scrollLeft, scrollPosition, 700);
     
         updateDots();
     
@@ -285,19 +287,17 @@ function dotsSlider(options) {
         }
     }
 
-    function nextSlide() {
-        currentIndex += slidesToScroll;
-        if (currentIndex >= slides.length) {
-            currentIndex = 0;
-        }
-        scrollToSlide(true);
-    }
-
     function prevSlide() {
         currentIndex -= slidesToScroll;
         if (currentIndex < 0) {
             currentIndex = slides.length - (slides.length % slidesToScroll || slidesToScroll);
         }
+        scrollToSlide(true);
+    }
+
+    function nextSlide() {
+        currentIndex += slidesToScroll;
+        if (currentIndex >= slides.length) {currentIndex = 0;}
         scrollToSlide(true);
     }
 
@@ -316,14 +316,13 @@ function dotsSlider(options) {
             });
         });
 
-        // Flexible dragging
         sliderContainer.addEventListener('mousedown', startDrag);
         sliderContainer.addEventListener('mousemove', duringDrag);
         sliderContainer.addEventListener('mouseup', endDrag);
         sliderContainer.addEventListener('mouseleave', endDrag);
 
-        sliderContainer.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
-        sliderContainer.addEventListener('mouseleave', autoSlide);
+        sliderSection.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+        sliderSection.addEventListener('mouseleave', autoSlide);
     }
 
     function startDrag(e) {
@@ -371,6 +370,7 @@ function dotsSlider(options) {
 }
 
 dotsSlider({
+    section:'.slider2-section',
     containerSelector:'.slider2-section .slider-wrapper',
     dotsSelector:'.slider2-section #sliderdots',
     prevArrowSelector:'.slider2-section .arrow-left',
@@ -470,27 +470,25 @@ function dragSliderFiveItems(options) {
         }
     
         animateScroll(sliderContainer.scrollLeft, scrollPosition, 600);
-    
-        updateDots();
-    
+        
         if (currentIndex >= slides.length) {
             currentIndex = 0;
             sliderContainer.scrollTo({ left: 0 });
         }
     }
 
-    function nextSlide() {
-        currentIndex += slidesToScroll;
-        if (currentIndex >= slides.length) {
-            currentIndex = 0;
-        }
-        scrollToSlide(true);
-    }
-
     function prevSlide() {
         currentIndex -= slidesToScroll;
         if (currentIndex < 0) {
             currentIndex = slides.length - (slides.length % slidesToScroll || slidesToScroll);
+        }
+        scrollToSlide(true);
+    }
+
+    function nextSlide() {
+        currentIndex += slidesToScroll;
+        if (currentIndex >= slides.length) {
+            currentIndex = 0;
         }
         scrollToSlide(true);
     }
@@ -516,8 +514,8 @@ function dragSliderFiveItems(options) {
         sliderContainer.addEventListener('mouseup', endDrag);
         sliderContainer.addEventListener('mouseleave', endDrag);
 
-        sliderContainer.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
-        sliderContainer.addEventListener('mouseleave', autoSlide);
+        // sliderContainer.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+        // sliderContainer.addEventListener('mouseleave', autoSlide);
     }
 
     function startDrag(e) {
@@ -560,7 +558,7 @@ function dragSliderFiveItems(options) {
     setupSlider();
     setResponsive();
     attachEvents();
-    autoSlide();
+    // autoSlide();
 }
 
 dragSliderFiveItems({
@@ -663,27 +661,25 @@ function dragSliderSevenItems(options) {
         }
     
         animateScroll(sliderContainer.scrollLeft, scrollPosition, 600);
-    
-        updateDots();
-    
+        
         if (currentIndex >= slides.length) {
             currentIndex = 0;
             sliderContainer.scrollTo({ left: 0 });
         }
     }
 
-    function nextSlide() {
-        currentIndex += slidesToScroll;
-        if (currentIndex >= slides.length) {
-            currentIndex = 0;
-        }
-        scrollToSlide(true);
-    }
-
     function prevSlide() {
         currentIndex -= slidesToScroll;
         if (currentIndex < 0) {
             currentIndex = slides.length - (slides.length % slidesToScroll || slidesToScroll);
+        }
+        scrollToSlide(true);
+    }
+
+    function nextSlide() {
+        currentIndex += slidesToScroll;
+        if (currentIndex >= slides.length) {
+            currentIndex = 0;
         }
         scrollToSlide(true);
     }
@@ -703,14 +699,13 @@ function dragSliderSevenItems(options) {
             });
         });
 
-        // Flexible dragging
         sliderContainer.addEventListener('mousedown', startDrag);
         sliderContainer.addEventListener('mousemove', duringDrag);
         sliderContainer.addEventListener('mouseup', endDrag);
         sliderContainer.addEventListener('mouseleave', endDrag);
 
-        sliderContainer.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
-        sliderContainer.addEventListener('mouseleave', autoSlide);
+        // sliderContainer.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+        // sliderContainer.addEventListener('mouseleave', autoSlide);
     }
 
     function startDrag(e) {
@@ -848,13 +843,13 @@ function scrollSlider(options) {
         animateScroll(sliderContainer.scrollLeft, scrollPosition, 600);
     }
 
-    function nextSlide() {
-        currentIndex = (currentIndex + slidesToScroll) % slides.length;
+    function prevSlide() {
+        currentIndex = (currentIndex - slidesToScroll + slides.length) % slides.length;
         scrollToSlide();
     }
 
-    function prevSlide() {
-        currentIndex = (currentIndex - slidesToScroll + slides.length) % slides.length;
+    function nextSlide() {
+        currentIndex = (currentIndex + slidesToScroll) % slides.length;
         scrollToSlide();
     }
 
@@ -880,7 +875,6 @@ function scrollSlider(options) {
 
             currentIndex = Math.round(sliderContainer.scrollLeft / (slideWidth + gapSize));
         });
-        
     }
 
     function startDrag(e) {
@@ -1065,6 +1059,182 @@ rotationalSlider({
 });
 
 
+function brandsSlider(options) {
+    const {
+        containerSelector = '.slides-container',
+        slidesToShowDefault = 1,
+        slidesToScrollDefault = 1,
+        autoplaySpeed = 3000
+    } = options;
+
+    let currentIndex = 0;
+    let slidesToShow = slidesToShowDefault;
+    let slidesToScroll = slidesToScrollDefault;
+    let slides;
+    let sliderContainer = document.querySelector(containerSelector);
+    let isDragging = false;
+    let startX = 0;
+    let scrollStart = 0;
+    let autoSlideInterval;
+
+    function setupSlider() {
+        slides = sliderContainer.children;
+        sliderContainer.style.display = 'flex';
+        sliderContainer.style.overflow = 'hidden';
+        updateSlidesToShow();
+    }
+
+    function setResponsive() {
+        const responsiveSettings = [
+            { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
+            { breakpoint: 360, settings: { slidesToShow: 2, slidesToScroll: 1 }},
+            { breakpoint: 560, settings: { slidesToShow: 3, slidesToScroll: 1 }},
+            { breakpoint: 720, settings: { slidesToShow: 4, slidesToScroll: 2 }},
+            { breakpoint: 1000, settings: { slidesToShow: 5, slidesToScroll: 2 }},
+            { breakpoint: 1300, settings: { slidesToShow: 6, slidesToScroll: 2 }},
+            { breakpoint: 1600, settings: { slidesToShow: 7, slidesToScroll: 2 }}
+        ];
+
+        responsiveSettings.forEach(resp => {
+            if (window.innerWidth >= resp.breakpoint) {
+                slidesToShow = resp.settings.slidesToShow;
+                slidesToScroll = resp.settings.slidesToScroll;
+            }
+        });
+        updateSlidesToShow();
+    }
+
+    function updateSlidesToShow() {
+        const wrapperWidth = sliderContainer.clientWidth;
+        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
+        const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
+        
+        Array.from(slides).forEach(slide => {
+            slide.style.flex = `0 0 ${slideWidth}px`;
+            slide.style.maxWidth = `${slideWidth}px`;
+        });
+    }
+
+    function scrollToSlide() {
+        const wrapperWidth = sliderContainer.clientWidth;
+        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
+        const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
+        const scrollPosition = currentIndex * (slideWidth + gapSize);
+    
+        function animateScroll(start, end, duration) {
+            let startTime = null;
+    
+            function animation(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = easeInOutQuad(timeElapsed, start, end - start, duration);
+    
+                sliderContainer.scrollLeft = run;
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+    
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+    
+            requestAnimationFrame(animation);
+        }
+    
+        animateScroll(sliderContainer.scrollLeft, scrollPosition, 600);
+    }
+
+    function prevSlide() {
+        currentIndex -= slidesToScroll;
+        if (currentIndex < 0) {
+            currentIndex = slides.length - (slides.length % slidesToScroll || slidesToScroll);
+        }
+        scrollToSlide(true);
+    }
+
+    function nextSlide() {
+        currentIndex += slidesToScroll;
+        if (currentIndex >= slides.length) {
+            currentIndex = 0;
+        }
+        scrollToSlide(true);
+    }
+
+    function attachEvents() {
+        window.addEventListener('resize', setResponsive);
+
+        sliderContainer.addEventListener('mousedown', startDrag);
+        sliderContainer.addEventListener('mousemove', duringDrag);
+        sliderContainer.addEventListener('mouseup', endDrag);
+        sliderContainer.addEventListener('mouseleave', endDrag);
+
+        sliderContainer.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+        sliderContainer.addEventListener('mouseleave', autoSlide);
+
+        sliderContainer.addEventListener('scroll', () => {
+            const wrapperWidth = sliderContainer.clientWidth;
+            const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.1;
+            const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
+
+            currentIndex = Math.round(sliderContainer.scrollLeft / (slideWidth + gapSize));
+        });
+    }
+
+    function startDrag(e) {
+        isDragging = true;
+        startX = e.clientX;
+        scrollStart = sliderContainer.scrollLeft;
+    }
+
+    function duringDrag(e) {
+        if (!isDragging) return;
+        const currentX = e.clientX;
+        const dragDistance = currentX - startX;
+        sliderContainer.scrollLeft = scrollStart - dragDistance;
+    }
+
+    function endDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+        const wrapperWidth = sliderContainer.clientWidth;
+        const slideWidth = wrapperWidth / slidesToShow;
+        const scrollLeft = sliderContainer.scrollLeft;
+
+        // Snap to nearest slide after drag
+        if (Math.abs(scrollLeft - currentIndex * slideWidth) > slideWidth / 2) {
+            if (scrollLeft > currentIndex * slideWidth) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        } else {
+            scrollToSlide(true);
+        }
+    }
+
+    function autoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, autoplaySpeed);
+    }
+
+    setupSlider();
+    setResponsive();
+    attachEvents();
+    autoSlide();
+}
+
+brandsSlider({
+    containerSelector:'.brand-section .slider-wrapper',
+    slidesToShowDefault: 1,
+    slidesToScrollDefault: 1,
+    autoplaySpeed: 4000
+});
+
+
+
+
 const categoriesColors = [
     "var(--transparent-green3)",  // 1st color
     "var(--transparent-yellow2)", // 2nd color
@@ -1086,62 +1256,62 @@ document.querySelectorAll('.slider-wrapper').forEach(sliderWrapper => {
 });
 
 /*** REMOVE BACKGROUND ***/
-function removeBackground(imgElement, targetColor) {
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
+// function removeBackground(imgElement, targetColor) {
+//   const canvas = document.createElement('canvas');
+//   const ctx = canvas.getContext('2d');
 
-  const originalImage = new Image();
-  originalImage.src = imgElement.src;
+//   const originalImage = new Image();
+//   originalImage.src = imgElement.src;
 
-  originalImage.onload = function () {
-    canvas.width = originalImage.width;
-    canvas.height = originalImage.height;
-    ctx.drawImage(originalImage, 0, 0, canvas.width, canvas.height);
+//   originalImage.onload = function () {
+//     canvas.width = originalImage.width;
+//     canvas.height = originalImage.height;
+//     ctx.drawImage(originalImage, 0, 0, canvas.width, canvas.height);
 
-    // Get image data
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
+//     // Get image data
+//     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+//     const data = imageData.data;
 
-    // Convert target color to RGBA format
-    const targetRGBA = hexToRGBA(targetColor);
+//     // Convert target color to RGBA format
+//     const targetRGBA = hexToRGBA(targetColor);
 
-    for (let i = 0; i < data.length; i += 4) {
-      const red = data[i];
-      const green = data[i + 1];
-      const blue = data[i + 2];
+//     for (let i = 0; i < data.length; i += 4) {
+//       const red = data[i];
+//       const green = data[i + 1];
+//       const blue = data[i + 2];
 
-      // Check if the pixel color matches the target color
-      if (red === targetRGBA.r &&
-          green === targetRGBA.g &&
-          blue === targetRGBA.b
-      ) {
-        data[i + 3] = 0; // Set alpha channel to 0 (transparent)
-      }
-    }
+//       // Check if the pixel color matches the target color
+//       if (red === targetRGBA.r &&
+//           green === targetRGBA.g &&
+//           blue === targetRGBA.b
+//       ) {
+//         data[i + 3] = 0; // Set alpha channel to 0 (transparent)
+//       }
+//     }
 
-    // Update the canvas with modified image data
-    ctx.putImageData(imageData, 0, 0);
+//     // Update the canvas with modified image data
+//     ctx.putImageData(imageData, 0, 0);
 
-    // Replace the original image with the processed image
-    imgElement.src = canvas.toDataURL();
-  };
-}
+//     // Replace the original image with the processed image
+//     imgElement.src = canvas.toDataURL();
+//   };
+// }
 
-function hexToRGBA(hex) {
-  const bigint = parseInt(hex.slice(1), 16);
-  const r = (bigint >> 16) & 255;
-  const g = (bigint >> 8) & 255;
-  const b = bigint & 255;
+// function hexToRGBA(hex) {
+//   const bigint = parseInt(hex.slice(1), 16);
+//   const r = (bigint >> 16) & 255;
+//   const g = (bigint >> 8) & 255;
+//   const b = bigint & 255;
 
-  return { r, g, b };
-}
+//   return { r, g, b };
+// }
 
-const productImages = document.querySelectorAll('.image img');
-productImages.forEach(function (img) {
-  const clonedImage = img.cloneNode();
-  removeBackground(clonedImage, '#ffffff');
-  img.parentNode.replaceChild(clonedImage, img);
-});
+// const productImages = document.querySelectorAll('.image img');
+// productImages.forEach(function (img) {
+//   const clonedImage = img.cloneNode();
+//   removeBackground(clonedImage, '#ffffff');
+//   img.parentNode.replaceChild(clonedImage, img);
+// });
 
 
 const productName = document.querySelectorAll(".product-name");
