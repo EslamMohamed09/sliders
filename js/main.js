@@ -234,6 +234,15 @@ function dotsSlider(options) {
                 slidesToScroll = resp.settings.slidesToScroll;
             }
         });
+
+        if(slides.length < 18 && window.innerWidth >= 1100){
+           slidesToScroll = 3;
+        } else if (slides.length < 13 && window.innerWidth >= 1100) {
+            slidesToScroll = 2;
+        } else if (slides.length < 10 && window.innerWidth >= 1100) {
+            slidesToScroll = 1;
+        }
+
         updateSlidesToShow();
         buildDots();
     }
