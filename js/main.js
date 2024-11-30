@@ -224,8 +224,9 @@ function dotsSlider(options) {
             { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
             { breakpoint: 360, settings: { slidesToShow: 2, slidesToScroll: 2 }},
             { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
-            { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
-            { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }}
+            { breakpoint: 1000, settings: { slidesToShow: 4, slidesToScroll: 4 }},
+            { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }},
+            { breakpoint: 1600, settings: { slidesToShow: 6, slidesToScroll: 6 }}
         ];
 
         responsiveSettings.forEach(resp => {
@@ -235,9 +236,9 @@ function dotsSlider(options) {
             }
         });
 
-        if(slides.length < 18 && window.innerWidth >= 1100){
+        if(slides.length === 19 && window.innerWidth >= 1100){
            slidesToScroll = 3;
-        } else if (slides.length < 13 && window.innerWidth >= 1100) {
+        } else if (slides.length < 18 && window.innerWidth >= 1100) {
             slidesToScroll = 2;
         } else if (slides.length < 10 && window.innerWidth >= 1100) {
             slidesToScroll = 1;
@@ -286,14 +287,13 @@ function dotsSlider(options) {
             requestAnimationFrame(animation);
         }
     
-        animateScroll(sliderContainer.scrollLeft, scrollPosition, 700);
-    
-        updateDots();
+        animateScroll(sliderContainer.scrollLeft, scrollPosition, 700);        
     
         if (currentIndex >= slides.length) {
             currentIndex = 0;
             sliderContainer.scrollTo({ left: 0 });
         }
+        updateDots();
     }
 
     function prevSlide() {
@@ -306,7 +306,12 @@ function dotsSlider(options) {
 
     function nextSlide() {
         currentIndex += slidesToScroll;
-        if (currentIndex >= slides.length) {currentIndex = 0;}
+
+        const totalRounds = Math.floor(slides.length / slidesToShow);
+        const remainder = slides.length % slidesToShow;
+        const lastRoundStartIndex = (totalRounds - 1) * slidesToShow + remainder;
+        console.log(lastRoundStartIndex)
+        if (currentIndex > lastRoundStartIndex) {currentIndex = 0;}
         scrollToSlide(true);
     }
 
@@ -386,7 +391,7 @@ dotsSlider({
     nextArrowSelector:'.slider2-section .arrow-right',
     slidesToShowDefault: 1,
     slidesToScrollDefault: 1,
-    autoplaySpeed: 3000
+    autoplaySpeed: 2000
 });
 
 
@@ -496,9 +501,12 @@ function dragSliderFiveItems(options) {
 
     function nextSlide() {
         currentIndex += slidesToScroll;
-        if (currentIndex >= slides.length) {
-            currentIndex = 0;
-        }
+        
+        const totalRounds = Math.floor(slides.length / slidesToShow);
+        const remainder = slides.length % slidesToShow;
+        const lastRoundStartIndex = (totalRounds - 1) * slidesToShow + remainder;
+
+        if (currentIndex > lastRoundStartIndex) {currentIndex = 0;}
         scrollToSlide(true);
     }
 
@@ -687,9 +695,12 @@ function dragSliderSevenItems(options) {
 
     function nextSlide() {
         currentIndex += slidesToScroll;
-        if (currentIndex >= slides.length) {
-            currentIndex = 0;
-        }
+
+        const totalRounds = Math.floor(slides.length / slidesToShow);
+        const remainder = slides.length % slidesToShow;
+        const lastRoundStartIndex = (totalRounds - 1) * slidesToShow + remainder;
+
+        if (currentIndex > lastRoundStartIndex) {currentIndex = 0;}
         scrollToSlide(true);
     }
 
@@ -1098,10 +1109,10 @@ function brandsSlider(options) {
             { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
             { breakpoint: 360, settings: { slidesToShow: 2, slidesToScroll: 1 }},
             { breakpoint: 560, settings: { slidesToShow: 3, slidesToScroll: 1 }},
-            { breakpoint: 720, settings: { slidesToShow: 4, slidesToScroll: 2 }},
-            { breakpoint: 1000, settings: { slidesToShow: 5, slidesToScroll: 2 }},
-            { breakpoint: 1300, settings: { slidesToShow: 6, slidesToScroll: 2 }},
-            { breakpoint: 1600, settings: { slidesToShow: 7, slidesToScroll: 2 }}
+            { breakpoint: 720, settings: { slidesToShow: 4, slidesToScroll: 1 }},
+            { breakpoint: 1000, settings: { slidesToShow: 5, slidesToScroll: 1 }},
+            { breakpoint: 1300, settings: { slidesToShow: 6, slidesToScroll: 1 }},
+            { breakpoint: 1600, settings: { slidesToShow: 7, slidesToScroll: 1 }}
         ];
 
         responsiveSettings.forEach(resp => {
@@ -1165,9 +1176,12 @@ function brandsSlider(options) {
 
     function nextSlide() {
         currentIndex += slidesToScroll;
-        if (currentIndex >= slides.length) {
-            currentIndex = 0;
-        }
+
+        const totalRounds = Math.floor(slides.length / slidesToShow);
+        const remainder = slides.length % slidesToShow;
+        const lastRoundStartIndex = (totalRounds - 1) * slidesToShow + remainder;
+
+        if (currentIndex > lastRoundStartIndex) {currentIndex = 0;}
         scrollToSlide(true);
     }
 
