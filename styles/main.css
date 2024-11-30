@@ -1994,28 +1994,4 @@ h5 {
   cursor: pointer;
 }
 
-section {
-  background-color: var(--red4);
-}
-
-@media (max-width: 1100px) {
-  .brand-section .section-container .arrows {
-    width: 5rem;
-    top: 0;
-    right: 2.7rem;
-  }
-  .brand-section .section-container .arrows .arrow-left,
-  .brand-section .section-container .arrows .arrow-right {
-    width: 2rem;
-    height: 1.8rem;
-    line-height: 1.9rem;
-    border-radius: 0;
-  }
-}
-@media (max-width: 360px) {
-  .brand-section #sliderdots {
-    display: none;
-  }
-}
-
 /*# sourceMappingURL=main.css.map */
