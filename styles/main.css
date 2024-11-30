@@ -1994,6 +1994,10 @@ h5 {
   cursor: pointer;
 }
 
+section {
+  background-color: var(--red4);
+}
+
 @media (max-width: 1100px) {
   .brand-section .section-container .arrows {
     width: 5rem;
