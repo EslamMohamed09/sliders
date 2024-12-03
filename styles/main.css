@@ -11,10 +11,6 @@
   scroll-behavior: smooth;
 }
 
-.container {
-  margin: 0 auto;
-}
-
 :root {
   --violet:#ebddf1;
   --violet2:#dfc5ec;
@@ -242,26 +238,6 @@
   --text-shadow4:0 0 4px rgb(6, 150, 42);
 }
 
-html {
-  font-size: 83% !important;
-  scroll-behavior: smooth;
-}
-
-@media (max-width: 900px) {
-  html {
-    font-size: 73% !important;
-  }
-}
-@media (max-width: 500px) {
-  html {
-    font-size: 63% !important;
-  }
-}
-body {
-  overflow-x: hidden;
-  background-color: var(--background-color);
-}
-
 .d-flex-r-st-st {
   display: flex;
   flex-direction: row;
@@ -430,13 +406,37 @@ body {
   align-items: flex-end;
 }
 
+html {
+  font-size: 83% !important;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 73% !important;
+  }
+}
+@media (max-width: 500px) {
+  html {
+    font-size: 63% !important;
+  }
+}
+body {
+  overflow-x: hidden;
+  background-color: var(--background-color);
+}
+
+.container {
+  margin: 0 auto;
+}
+
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-image: linear-gradient(125deg, #fb3c7f 0%, #ffc05e 100%);
-  border-radius: 10px;
+  border-radius: 0;
 }
 
 body {
@@ -603,7 +603,7 @@ section {
 
 img {
   max-width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 h1, h2, h3, h4, h5 {
@@ -1986,12 +1986,21 @@ h5 {
  # Brands
 ********************/
 .brand-section .slider-wrapper {
-  gap: 1.5rem;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+  gap: 3rem;
 }
-.brand-section .slider-wrapper img {
-  flex: 1 1 20rem;
-  margin: 4rem auto;
+.brand-section .slider-wrapper .image {
+  flex: 1 1 10rem;
+  margin: 3rem auto;
+  text-align: center;
   cursor: pointer;
+}
+.brand-section .slider-wrapper .image img {
+  width: 7rem;
+  height: 7rem;
+  margin: 1rem auto !important;
 }
 
 /*# sourceMappingURL=main.css.map */

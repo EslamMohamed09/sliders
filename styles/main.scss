@@ -8,8 +8,6 @@
    font-family:'Exo 2',sans-serif;
    scroll-behavior:smooth;}
 
-.container {margin:0 auto;}
-
 :root {--violet:#ebddf1;
        --violet2:#dfc5ec;
        --violet3:#d8b3eb;
@@ -127,7 +125,6 @@
        --olive8:#616666;
        --olive9:#536e6e;
        --olive10:#4a7474;
-
 
        --transparent-olive:#0aa0a01e;
 
@@ -270,15 +267,6 @@
        --text-shadow3:0 0 4px #00ffff9f;
        --text-shadow4:0 0 4px rgb(6, 150, 42);}
 
-html {font-size:83% !important;
-      scroll-behavior:smooth;}
-
-@media(max-width:900px){ html {font-size:73% !important;} }
-@media(max-width:500px){ html {font-size:63% !important;} }
-
-body {overflow-x:hidden;
-      background-color:var(--background-color);}
-
 .d-flex-r-st-st {display:flex;
                  flex-direction:row;
                  justify-content:flex-start;
@@ -399,10 +387,22 @@ body {overflow-x:hidden;
                    justify-content:flex-end;
                    align-items:flex-end}
 
-::-webkit-scrollbar {width:5px;}
+
+html {font-size:83% !important;
+      scroll-behavior:smooth;}
+
+@media(max-width:900px){ html {font-size:73% !important;} }
+@media(max-width:500px){ html {font-size:63% !important;} }
+
+body {overflow-x:hidden;
+      background-color:var(--background-color);}
+
+.container {margin:0 auto;}
+
+::-webkit-scrollbar {width:7px;}
 
 ::-webkit-scrollbar-thumb {background-image:linear-gradient(125deg, #fb3c7f 0%, #ffc05e 100%);
-                           border-radius:10px;}
+                           border-radius:0;}
 
 body {overflow-x:hidden;}
 
@@ -528,7 +528,7 @@ section {padding:1rem 7%;
 
 
 img {max-width:100%;
-     object-fit:cover;}
+     object-fit:contain;}
 
 h1, h2, h3, h4, h5 {font-weight:bold;
                     margin:0;
@@ -1809,8 +1809,17 @@ h5 {font-size:1.1rem;}
 /********************
  # Brands
 ********************/
-.brand-section .slider-wrapper {gap:1.5rem;
-       img {flex:1 1 20rem;
-            margin:4rem auto;
-            cursor:pointer;}
+.brand-section .slider-wrapper {flex-direction:row;
+                                flex-wrap:nowrap;
+                                margin:0 auto;
+                                gap:3rem;
+       .image {flex:1 1 10rem;
+               margin:3rem auto;
+               text-align:center;
+               cursor:pointer;
+
+              img {width:7rem;
+                   height:7rem;
+                   margin:1rem auto !important;}
+       }
 }
