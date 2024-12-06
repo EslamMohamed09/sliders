@@ -166,7 +166,6 @@ oldDotsSlider({
     autoplaySpeed: 3000
 });
 
-
 function dotsSlider(options) {
     const {
         section = 'slider-section',
@@ -310,7 +309,8 @@ function dotsSlider(options) {
         const totalRounds = Math.floor(slides.length / slidesToShow);
         const remainder = slides.length % slidesToShow;
         const lastRoundStartIndex = (totalRounds - 1) * slidesToShow + remainder;
-        if (currentIndex > lastRoundStartIndex) {currentIndex = 0;}
+
+        if (currentIndex > slides.length) {currentIndex = 0;}
         scrollToSlide(true);
     }
 
@@ -358,8 +358,7 @@ function dotsSlider(options) {
         const slideWidth = wrapperWidth / slidesToShow;
         const scrollLeft = sliderContainer.scrollLeft;
 
-        // Snap to nearest slide after drag
-        if (Math.abs(scrollLeft - currentIndex * slideWidth) > slideWidth / 2) {
+        if (Math.abs(scrollLeft - currentIndex * slideWidth) > slideWidth / 2) { // Snap to nearest slide after drag
             if (scrollLeft > currentIndex * slideWidth) {
                 nextSlide();
             } else {
@@ -381,17 +380,6 @@ function dotsSlider(options) {
     attachEvents();
     autoSlide();
 }
-
-dotsSlider({
-    section:'.slider2-section',
-    containerSelector:'.slider2-section .slider-wrapper',
-    dotsSelector:'.slider2-section #sliderdots',
-    prevArrowSelector:'.slider2-section .arrow-left',
-    nextArrowSelector:'.slider2-section .arrow-right',
-    slidesToShowDefault: 1,
-    slidesToScrollDefault: 1,
-    autoplaySpeed: 2000
-});
 
 function dragSliderSixItems(options) {
     const {
@@ -482,7 +470,7 @@ function dragSliderSixItems(options) {
             requestAnimationFrame(animation);
         }
     
-        animateScroll(sliderContainer.scrollLeft, scrollPosition, 600);
+        animateScroll(sliderContainer.scrollLeft, scrollPosition, 700);
         
         if (currentIndex >= slides.length) {
             currentIndex = 0;
@@ -505,7 +493,7 @@ function dragSliderSixItems(options) {
         const remainder = slides.length % slidesToShow;
         const lastRoundStartIndex = (totalRounds - 1) * slidesToShow + remainder;
 
-        if (currentIndex > lastRoundStartIndex) {currentIndex = 0;}
+        if (currentIndex > slides.length) {currentIndex = 0;}
         scrollToSlide(true);
     }
 
@@ -529,8 +517,8 @@ function dragSliderSixItems(options) {
         sliderContainer.addEventListener('mouseup', endDrag);
         sliderContainer.addEventListener('mouseleave', endDrag);
 
-        sliderSection.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
-        sliderSection.addEventListener('mouseleave', autoSlide);
+        // sliderSection.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+        // sliderSection.addEventListener('mouseleave', autoSlide);
     }
 
     function startDrag(e) {
@@ -553,8 +541,7 @@ function dragSliderSixItems(options) {
         const slideWidth = wrapperWidth / slidesToShow;
         const scrollLeft = sliderContainer.scrollLeft;
 
-        // Snap to nearest slide after drag
-        if (Math.abs(scrollLeft - currentIndex * slideWidth) > slideWidth / 2) {
+        if (Math.abs(scrollLeft - currentIndex * slideWidth) > slideWidth / 2) { // Snap to nearest slide after drag
             if (scrollLeft > currentIndex * slideWidth) {
                 nextSlide();
             } else {
@@ -573,20 +560,8 @@ function dragSliderSixItems(options) {
     setupSlider();
     setResponsive();
     attachEvents();
-    autoSlide();
+    // autoSlide();
 }
-
-dragSliderSixItems({
-    section:'.slider3-section',
-    containerSelector:'.slider3-section .slider-wrapper',
-    dotsSelector:'.slider3-section #sliderdots',
-    prevArrowSelector:'.slider3-section .arrow-left',
-    nextArrowSelector:'.slider3-section .arrow-right',
-    slidesToShowDefault: 1,
-    slidesToScrollDefault: 1,
-    autoplaySpeed: 3000
-});
-
 
 function dragSliderSevenItems(options) {
     const {
@@ -701,7 +676,7 @@ function dragSliderSevenItems(options) {
         const remainder = slides.length % slidesToShow;
         const lastRoundStartIndex = (totalRounds - 1) * slidesToShow + remainder;
 
-        if (currentIndex > lastRoundStartIndex) {currentIndex = 0;}
+        if (currentIndex > slides.length) {currentIndex = 0;}
         scrollToSlide(true);
     }
 
@@ -725,8 +700,8 @@ function dragSliderSevenItems(options) {
         sliderContainer.addEventListener('mouseup', endDrag);
         sliderContainer.addEventListener('mouseleave', endDrag);
 
-        sliderSection.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
-        sliderSection.addEventListener('mouseleave', autoSlide);
+        // sliderSection.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+        // sliderSection.addEventListener('mouseleave', autoSlide);
     }
 
     function startDrag(e) {
@@ -769,20 +744,138 @@ function dragSliderSevenItems(options) {
     setupSlider();
     setResponsive();
     attachEvents();
-    autoSlide();
+    // autoSlide();
 }
 
-dragSliderSevenItems({
-    section:'.slider4-section',
-    containerSelector:'.slider4-section .slider-wrapper',
-    dotsSelector:'.slider4-section #sliderdots',
-    prevArrowSelector:'.slider4-section .arrow-left',
-    nextArrowSelector:'.slider4-section .arrow-right',
-    slidesToShowDefault: 1,
-    slidesToScrollDefault: 1,
-    autoplaySpeed: 3000
-});
+function rotationalSlider(options) {
+    const {
+        containerSelector = '.slides-container',
+        dotsSelector = '#sliderdots',
+        prevArrowSelector = '.arrow-left',
+        nextArrowSelector = '.arrow-right',
+        slidesToShowDefault = 1,
+        slidesToScrollDefault = 1,
+        autoplaySpeed = 3000
+    } = options;
 
+    let currentIndex = 0;
+    let slidesToShow = slidesToShowDefault;
+    let slidesToScroll = slidesToScrollDefault;
+    let slides;
+    let sliderContainer = document.querySelector(containerSelector);
+    let dotsWrapper = document.querySelector(dotsSelector);
+
+    function setupSlider() {
+        slides = Array.from(sliderContainer.children);
+        sliderContainer.style.display = 'flex';
+        sliderContainer.style.overflow = 'hidden';
+        updateSlidesToShow();
+        buildDots();
+    }
+
+    function buildDots() {
+        dotsWrapper.innerHTML = '';
+        const totalDots = Math.ceil(slides.length / slidesToScroll);
+        for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.dataset.index = i;
+            dotsWrapper.appendChild(dot);
+        }
+        updateDots();
+    }
+
+    function updateDots() {
+        const dots = dotsWrapper.children;
+        const activeDotIndex = Math.floor(currentIndex / slidesToScroll);
+        Array.from(dots).forEach(dot => dot.classList.remove('active'));
+        if (dots[activeDotIndex]) {
+            dots[activeDotIndex].classList.add('active');
+        }
+    }
+
+    function setResponsive() {
+        const responsiveSettings = [
+            { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
+            { breakpoint: 360, settings: { slidesToShow: 2, slidesToScroll: 2 }},
+            { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
+            { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
+            { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }}
+        ];
+
+        responsiveSettings.forEach(resp => {
+            if (window.innerWidth >= resp.breakpoint) {
+                slidesToShow = resp.settings.slidesToShow;
+                slidesToScroll = resp.settings.slidesToScroll;
+            }
+        });
+        updateSlidesToShow();
+        buildDots();
+    }
+
+    function updateSlidesToShow() {
+        const wrapperWidth = sliderContainer.clientWidth;
+        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
+        const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
+        
+        slides.forEach(slide => {
+            slide.style.flex = `0 0 ${slideWidth}px`;
+            slide.style.maxWidth = `${slideWidth}px`;
+            slide.style.transition = 'transform 0.6s ease';
+        });
+    }
+
+    function addRotationEffect() {
+        const visibleSlides = slides.slice(currentIndex, currentIndex + slidesToShow);
+        slides.forEach(slide => slide.style.transform = 'rotateX(0deg)'); // Reset all slides
+        visibleSlides.forEach((slide, index) => {
+            setTimeout(() => {
+                slide.style.transform = 'rotateX(360deg)';
+            }, index * 70); // Staggered rotation
+        });
+    }
+
+    function scrollToSlide() {
+        const wrapperWidth = sliderContainer.clientWidth;
+        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
+        const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
+        const scrollPosition = currentIndex * (slideWidth + gapSize);
+    
+        sliderContainer.scrollLeft = scrollPosition;
+        updateDots();
+        addRotationEffect();
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + slidesToScroll) % slides.length;
+        scrollToSlide();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - slidesToScroll + slides.length) % slides.length;
+        scrollToSlide();
+    }
+
+    function attachEvents() {
+        const prevButton = document.querySelector(prevArrowSelector);
+        const nextButton = document.querySelector(nextArrowSelector);
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+        window.addEventListener('resize', setResponsive);
+
+        Array.from(dotsWrapper.children).forEach(dot => {
+            dot.addEventListener('click', e => {
+                currentIndex = parseInt(e.target.dataset.index) * slidesToScroll;
+                scrollToSlide();
+            });
+        });
+    }
+
+    setupSlider();
+    setResponsive();
+    attachEvents();
+}
 
 function scrollSlider(options) {
     const {
@@ -922,164 +1015,6 @@ function scrollSlider(options) {
     setResponsive();
     attachEvents();
 }
-
-scrollSlider({
-    containerSelector: '.slider5-section .slider-wrapper',
-    prevArrowSelector: '.slider5-section .arrow-left',
-    nextArrowSelector: '.slider5-section .arrow-right',
-    slidesToShowDefault: 1,
-    slidesToScrollDefault: 1,
-});
-
-scrollSlider({
-    containerSelector: '.slider6-section .slider-wrapper',
-    prevArrowSelector: '.slider6-section .arrow-left',
-    nextArrowSelector: '.slider6-section .arrow-right',
-    slidesToShowDefault: 1,
-    slidesToScrollDefault: 1,
-});
-
-
-function rotationalSlider(options) {
-    const {
-        containerSelector = '.slides-container',
-        dotsSelector = '#sliderdots',
-        prevArrowSelector = '.arrow-left',
-        nextArrowSelector = '.arrow-right',
-        slidesToShowDefault = 1,
-        slidesToScrollDefault = 1,
-        autoplaySpeed = 3000
-    } = options;
-
-    let currentIndex = 0;
-    let slidesToShow = slidesToShowDefault;
-    let slidesToScroll = slidesToScrollDefault;
-    let slides;
-    let sliderContainer = document.querySelector(containerSelector);
-    let dotsWrapper = document.querySelector(dotsSelector);
-
-    function setupSlider() {
-        slides = Array.from(sliderContainer.children);
-        sliderContainer.style.display = 'flex';
-        sliderContainer.style.overflow = 'hidden';
-        updateSlidesToShow();
-        buildDots();
-    }
-
-    function buildDots() {
-        dotsWrapper.innerHTML = '';
-        const totalDots = Math.ceil(slides.length / slidesToScroll);
-        for (let i = 0; i < totalDots; i++) {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            dot.dataset.index = i;
-            dotsWrapper.appendChild(dot);
-        }
-        updateDots();
-    }
-
-    function updateDots() {
-        const dots = dotsWrapper.children;
-        const activeDotIndex = Math.floor(currentIndex / slidesToScroll);
-        Array.from(dots).forEach(dot => dot.classList.remove('active'));
-        if (dots[activeDotIndex]) {
-            dots[activeDotIndex].classList.add('active');
-        }
-    }
-
-    function setResponsive() {
-        const responsiveSettings = [
-            { breakpoint: 10, settings: { slidesToShow: 1, slidesToScroll: 1 }},
-            { breakpoint: 360, settings: { slidesToShow: 2, slidesToScroll: 2 }},
-            { breakpoint: 650, settings: { slidesToShow: 3, slidesToScroll: 3 }},
-            { breakpoint: 1100, settings: { slidesToShow: 4, slidesToScroll: 4 }},
-            { breakpoint: 1300, settings: { slidesToShow: 5, slidesToScroll: 5 }}
-        ];
-
-        responsiveSettings.forEach(resp => {
-            if (window.innerWidth >= resp.breakpoint) {
-                slidesToShow = resp.settings.slidesToShow;
-                slidesToScroll = resp.settings.slidesToScroll;
-            }
-        });
-        updateSlidesToShow();
-        buildDots();
-    }
-
-    function updateSlidesToShow() {
-        const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
-        const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
-        
-        slides.forEach(slide => {
-            slide.style.flex = `0 0 ${slideWidth}px`;
-            slide.style.maxWidth = `${slideWidth}px`;
-            slide.style.transition = 'transform 0.6s ease';
-        });
-    }
-
-    function addRotationEffect() {
-        const visibleSlides = slides.slice(currentIndex, currentIndex + slidesToShow);
-        slides.forEach(slide => slide.style.transform = 'rotateX(0deg)'); // Reset all slides
-        visibleSlides.forEach((slide, index) => {
-            setTimeout(() => {
-                slide.style.transform = 'rotateX(360deg)';
-            }, index * 70); // Staggered rotation
-        });
-    }
-
-    function scrollToSlide() {
-        const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
-        const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
-        const scrollPosition = currentIndex * (slideWidth + gapSize);
-    
-        sliderContainer.scrollLeft = scrollPosition;
-        updateDots();
-        addRotationEffect();
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + slidesToScroll) % slides.length;
-        scrollToSlide();
-    }
-
-    function prevSlide() {
-        currentIndex = (currentIndex - slidesToScroll + slides.length) % slides.length;
-        scrollToSlide();
-    }
-
-    function attachEvents() {
-        const prevButton = document.querySelector(prevArrowSelector);
-        const nextButton = document.querySelector(nextArrowSelector);
-
-        prevButton.addEventListener('click', prevSlide);
-        nextButton.addEventListener('click', nextSlide);
-        window.addEventListener('resize', setResponsive);
-
-        Array.from(dotsWrapper.children).forEach(dot => {
-            dot.addEventListener('click', e => {
-                currentIndex = parseInt(e.target.dataset.index) * slidesToScroll;
-                scrollToSlide();
-            });
-        });
-    }
-
-    setupSlider();
-    setResponsive();
-    attachEvents();
-}
-
-rotationalSlider({
-    containerSelector:'.slider9-section .slider-wrapper',
-    dotsSelector:'.slider9-section #sliderdots',
-    prevArrowSelector:'.slider9-section .arrow-left',
-    nextArrowSelector:'.slider9-section .arrow-right',
-    slidesToShowDefault: 1,
-    slidesToScrollDefault: 1,
-    autoplaySpeed: 3000
-});
-
 
 function infiniteScrollSlider(options) {
     const {
@@ -1264,13 +1199,58 @@ function infiniteScrollSlider(options) {
 }
 
 
-infiniteScrollSlider({
-    section:'.brand-section',
-    containerSelector:'.brand-section .slider-wrapper',
+dotsSlider({
+    section:'.slider2-section',
+    containerSelector:'.slider2-section .slider-wrapper',
+    dotsSelector:'.slider2-section #sliderdots',
+    prevArrowSelector:'.slider2-section .arrow-left',
+    nextArrowSelector:'.slider2-section .arrow-right',
+});
+
+dragSliderSixItems({
+    section:'.slider3-section',
+    containerSelector:'.slider3-section .slider-wrapper',
+    dotsSelector:'.slider3-section #sliderdots',
+    prevArrowSelector:'.slider3-section .arrow-left',
+    nextArrowSelector:'.slider3-section .arrow-right',
+});
+
+dragSliderSevenItems({
+    section:'.slider4-section',
+    containerSelector:'.slider4-section .slider-wrapper',
+    dotsSelector:'.slider4-section #sliderdots',
+    prevArrowSelector:'.slider4-section .arrow-left',
+    nextArrowSelector:'.slider4-section .arrow-right',
+});
+
+scrollSlider({
+    containerSelector: '.slider5-section .slider-wrapper',
+    prevArrowSelector: '.slider5-section .arrow-left',
+    nextArrowSelector: '.slider5-section .arrow-right',
     slidesToShowDefault: 1,
     slidesToScrollDefault: 1,
-    autoplaySpeed:3000
 });
+
+scrollSlider({
+    containerSelector: '.slider6-section .slider-wrapper',
+    prevArrowSelector: '.slider6-section .arrow-left',
+    nextArrowSelector: '.slider6-section .arrow-right',
+    slidesToShowDefault: 1,
+    slidesToScrollDefault: 1,
+});
+
+rotationalSlider({
+    containerSelector:'.slider9-section .slider-wrapper',
+    dotsSelector:'.slider9-section #sliderdots',
+    prevArrowSelector:'.slider9-section .arrow-left',
+    nextArrowSelector:'.slider9-section .arrow-right',
+    slidesToShowDefault: 1,
+    slidesToScrollDefault: 1,
+    autoplaySpeed: 3000
+});
+
+infiniteScrollSlider({section:'.brand-section', containerSelector:'.brand-section .slider-wrapper'});
+
 
 
 const categoriesColors = [
