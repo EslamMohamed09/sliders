@@ -1,4 +1,4 @@
-function oldDotsSlider(options) {
+function dotsWithoutDragSlider(options) {
     const {
         containerSelector = '.slides-container',
         dotsSelector = '#sliderdots',
@@ -113,19 +113,17 @@ function oldDotsSlider(options) {
         }
     }
 
-    function nextSlide() {
-        currentIndex += slidesToScroll;
-        if (currentIndex >= slides.length) {
-            currentIndex = 0;
-        }
-        scrollToSlide();
-    }
-
     function prevSlide() {
         currentIndex -= slidesToScroll;
         if (currentIndex < 0) {
             currentIndex = slides.length - (slides.length % slidesToScroll || slidesToScroll);
         }
+        scrollToSlide();
+    }
+
+    function nextSlide() {
+        currentIndex += slidesToScroll;
+        if (currentIndex >= slides.length) {currentIndex = 0;}
         scrollToSlide();
     }
 
@@ -156,16 +154,6 @@ function oldDotsSlider(options) {
     // autoSlide();
 }
 
-oldDotsSlider({
-    containerSelector:'.slider1-section .slider-wrapper',
-    dotsSelector:'.slider1-section #sliderdots',
-    prevArrowSelector:'.slider1-section .arrow-left',
-    nextArrowSelector:'.slider1-section .arrow-right',
-    slidesToShowDefault: 1,
-    slidesToScrollDefault: 1,
-    autoplaySpeed: 3000
-});
-
 function dotsSlider(options) {
     const {
         section = 'slider-section',
@@ -189,6 +177,7 @@ function dotsSlider(options) {
     let startX = 0;
     let scrollStart = 0;
     let autoSlideInterval;
+    const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
 
     function setupSlider() {
         slides = sliderContainer.children;
@@ -235,11 +224,11 @@ function dotsSlider(options) {
             }
         });
 
-        if(slides.length === 19 && window.innerWidth >= 1100){
+        if(slides.length === 19 && window.innerWidth <= 1100){
            slidesToScroll = 3;
-        } else if (slides.length < 18 && window.innerWidth >= 1100) {
+        } else if (slides.length < 18 && window.innerWidth <= 1100) {
             slidesToScroll = 2;
-        } else if (slides.length < 10 && window.innerWidth >= 1100) {
+        } else if (slides.length < 10 && window.innerWidth <= 1100) {
             slidesToScroll = 1;
         }
 
@@ -249,7 +238,6 @@ function dotsSlider(options) {
 
     function updateSlidesToShow() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         
         Array.from(slides).forEach(slide => {
@@ -260,7 +248,6 @@ function dotsSlider(options) {
 
     function scrollToSlide() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         const scrollPosition = currentIndex * (slideWidth + gapSize);
     
@@ -305,12 +292,7 @@ function dotsSlider(options) {
 
     function nextSlide() {
         currentIndex += slidesToScroll;
-
-        const totalRounds = Math.floor(slides.length / slidesToShow);
-        const remainder = slides.length % slidesToShow;
-        const lastRoundStartIndex = (totalRounds - 1) * slidesToShow + remainder;
-
-        if (currentIndex > slides.length) {currentIndex = 0;}
+        if (currentIndex >= slides.length) {currentIndex = 0;}
         scrollToSlide(true);
     }
 
@@ -334,8 +316,8 @@ function dotsSlider(options) {
         sliderContainer.addEventListener('mouseup', endDrag);
         sliderContainer.addEventListener('mouseleave', endDrag);
 
-        sliderSection.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
-        sliderSection.addEventListener('mouseleave', autoSlide);
+        // sliderSection.addEventListener('mouseover', () => clearInterval(autoSlideInterval));
+        // sliderSection.addEventListener('mouseleave', autoSlide);
     }
 
     function startDrag(e) {
@@ -378,7 +360,7 @@ function dotsSlider(options) {
     buildDots();
     setResponsive();
     attachEvents();
-    autoSlide();
+    // autoSlide();
 }
 
 function scrollSlider(options) {
@@ -404,6 +386,7 @@ function scrollSlider(options) {
     let startX = 0;
     let scrollStart = 0;
     let autoSlideInterval;
+    const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
 
     function setupSlider() {
         slides = sliderContainer.children;
@@ -434,7 +417,6 @@ function scrollSlider(options) {
 
     function updateSlidesToShow() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         
         Array.from(slides).forEach(slide => {
@@ -445,7 +427,6 @@ function scrollSlider(options) {
 
     function scrollToSlide() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         const scrollPosition = currentIndex * (slideWidth + gapSize);
     
@@ -489,11 +470,6 @@ function scrollSlider(options) {
 
     function nextSlide() {
         currentIndex += slidesToScroll;
-        
-        const totalRounds = Math.floor(slides.length / slidesToShow);
-        const remainder = slides.length % slidesToShow;
-        const lastRoundStartIndex = (totalRounds - 1) * slidesToShow + remainder;
-
         if (currentIndex > slides.length) {currentIndex = 0;}
         scrollToSlide(true);
     }
@@ -750,6 +726,7 @@ function scrollBarSlider(options) {
     let isDragging = false;
     let startX = 0;
     let scrollStart = 0;
+    const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
 
     function setupSlider() {
         sliderContainer.style.scrollBehavior = 'smooth';
@@ -776,7 +753,6 @@ function scrollBarSlider(options) {
 
     function updateSlidesToShow() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
 
         Array.from(slides).forEach(slide => {
@@ -787,7 +763,6 @@ function scrollBarSlider(options) {
 
     function scrollToSlide() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         const scrollPosition = currentIndex * (slideWidth + gapSize);
     
@@ -898,6 +873,7 @@ function rotationalSlider(options) {
     let slides;
     let sliderContainer = document.querySelector(containerSelector);
     let dotsWrapper = document.querySelector(dotsSelector);
+    const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
 
     function setupSlider() {
         slides = Array.from(sliderContainer.children);
@@ -949,7 +925,6 @@ function rotationalSlider(options) {
 
     function updateSlidesToShow() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         
         slides.forEach(slide => {
@@ -971,7 +946,6 @@ function rotationalSlider(options) {
 
     function scrollToSlide() {
         const wrapperWidth = sliderContainer.clientWidth;
-        const gapSize = parseFloat(getComputedStyle(document.documentElement).fontSize) * 1.5;
         const slideWidth = (wrapperWidth - gapSize * (slidesToShow - 1)) / slidesToShow;
         const scrollPosition = currentIndex * (slideWidth + gapSize);
     
@@ -1193,6 +1167,12 @@ function infiniteScrollSlider(options) {
     autoSlide();
 }
 
+dotsWithoutDragSlider({
+    containerSelector:'.slider1-section .slider-wrapper',
+    dotsSelector:'.slider1-section #sliderdots',
+    prevArrowSelector:'.slider1-section .arrow-left',
+    nextArrowSelector:'.slider1-section .arrow-right',
+});
 
 dotsSlider({
     section:'.slider2-section',
@@ -1213,35 +1193,19 @@ scrollSlider({
 scrollSliderSixItems({
     section:'.slider4-section',
     containerSelector:'.slider4-section .slider-wrapper',
-    dotsSelector:'.slider4-section #sliderdots',
     prevArrowSelector:'.slider4-section .arrow-left',
     nextArrowSelector:'.slider4-section .arrow-right',
 });
 
-scrollBarSlider({
-    containerSelector:'.slider5-section .slider-wrapper',
-    prevArrowSelector:'.slider5-section .arrow-left',
-    nextArrowSelector:'.slider5-section .arrow-right',
-    slidesToShowDefault: 1,
-    slidesToScrollDefault: 1,
-});
+scrollBarSlider({containerSelector:'.slider5-section .slider-wrapper', prevArrowSelector:'.slider5-section .arrow-left', nextArrowSelector:'.slider5-section .arrow-right'});
 
-scrollBarSlider({
-    containerSelector:'.slider6-section .slider-wrapper',
-    prevArrowSelector:'.slider6-section .arrow-left',
-    nextArrowSelector:'.slider6-section .arrow-right',
-    slidesToShowDefault: 1,
-    slidesToScrollDefault: 1,
-});
+scrollBarSlider({containerSelector:'.slider6-section .slider-wrapper', prevArrowSelector:'.slider6-section .arrow-left', nextArrowSelector:'.slider6-section .arrow-right'});
 
 rotationalSlider({
     containerSelector:'.slider9-section .slider-wrapper',
     dotsSelector:'.slider9-section #sliderdots',
     prevArrowSelector:'.slider9-section .arrow-left',
     nextArrowSelector:'.slider9-section .arrow-right',
-    slidesToShowDefault: 1,
-    slidesToScrollDefault: 1,
-    autoplaySpeed: 3000
 });
 
 infiniteScrollSlider({section:'.brand-section', containerSelector:'.brand-section .slider-wrapper'});
