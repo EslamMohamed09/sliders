@@ -1005,6 +1005,7 @@ function rotationalSlider(options) {
     setResponsive();
     attachEvents();
 }
+  
 
 function infiniteScrollSlider(options) {
     const {
