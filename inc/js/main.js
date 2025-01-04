@@ -362,6 +362,152 @@ function dotsSlider(options) {
     // autoSlide();
 }
 
+function dotsSlider2(options) {
+    const {
+        section = 'slider-section',
+        containerSelector = '.slides-container',
+        dotsSelector = '#sliderdots',
+        prevArrowSelector = '.arrow-left',
+        nextArrowSelector = '.arrow-right',
+        autoplaySpeed = 3000
+    } = options;
+
+    let sliderSection = document.querySelector(section);
+    let sliderContainer = document.querySelector(containerSelector);
+    let currentIndex = 0;
+    let slides;
+    let dotsWrapper = document.querySelector(dotsSelector);
+    let isDragging = false;
+    let startX = 0;
+    let scrollStart = 0;
+    let autoSlideInterval;
+    const gapSize = 0; // No gap needed for one-slide view
+
+    function setupSlider() {
+        slides = sliderContainer.children;
+        sliderContainer.style.display = 'flex';
+        sliderContainer.style.overflow = 'hidden';
+        updateSlidesToShow();
+    }
+
+    function buildDots() {
+        dotsWrapper.innerHTML = '';
+        for (let i = 0; i < slides.length; i++) {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.dataset.index = i;
+            dotsWrapper.appendChild(dot);
+        }
+        updateDots();
+    }
+
+    function updateDots() {
+        const dots = dotsWrapper.children;
+        Array.from(dots).forEach(dot => dot.classList.remove('active'));
+        if (dots[currentIndex]) {
+            dots[currentIndex].classList.add('active');
+        }
+    }
+
+    function updateSlidesToShow() {
+        const wrapperWidth = sliderContainer.clientWidth;
+        const slideWidth = wrapperWidth; // Full width for one slide
+        Array.from(slides).forEach(slide => {
+            slide.style.flex = `0 0 ${slideWidth}px`;
+            slide.style.maxWidth = `${slideWidth}px`;
+        });
+    }
+
+    function scrollToSlide() {
+        const wrapperWidth = sliderContainer.clientWidth;
+        const scrollPosition = currentIndex * wrapperWidth;
+
+        sliderContainer.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+
+        updateDots();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+        scrollToSlide();
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+        scrollToSlide();
+    }
+
+    function attachEvents() {
+        const prevButton = document.querySelector(prevArrowSelector);
+        const nextButton = document.querySelector(nextArrowSelector);
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+        window.addEventListener('resize', updateSlidesToShow);
+
+        Array.from(dotsWrapper.children).forEach(dot => {
+            dot.addEventListener('click', e => {
+                currentIndex = parseInt(e.target.dataset.index);
+                scrollToSlide();
+            });
+        });
+
+        sliderContainer.addEventListener('mousedown', startDrag);
+        sliderContainer.addEventListener('mousemove', duringDrag);
+        sliderContainer.addEventListener('mouseup', endDrag);
+        sliderContainer.addEventListener('mouseleave', endDrag);
+    }
+
+    function startDrag(e) {
+        isDragging = true;
+        startX = e.clientX;
+        scrollStart = sliderContainer.scrollLeft;
+    }
+
+    function duringDrag(e) {
+        if (!isDragging) return;
+        const dragDistance = e.clientX - startX;
+        sliderContainer.scrollLeft = scrollStart - dragDistance;
+    }
+
+    function endDrag() {
+        if (!isDragging) return;
+        isDragging = false;
+
+        const wrapperWidth = sliderContainer.clientWidth;
+        const threshold = wrapperWidth / 4; // Drag sensitivity threshold
+        const currentScroll = sliderContainer.scrollLeft;
+        const targetScroll = currentIndex * wrapperWidth;
+
+        if (Math.abs(currentScroll - targetScroll) > threshold) {
+            if (currentScroll > targetScroll) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        } else {
+            scrollToSlide();
+        }
+    }
+
+    setupSlider();
+    buildDots();
+    updateSlidesToShow();
+    attachEvents();
+}
+
+dotsSlider2({
+    section: '.slider7-section',
+    containerSelector: '.slider7-section .slider-wrapper',
+    dotsSelector: '.slider7-section #sliderdots',
+    prevArrowSelector: '.slider7-section .arrow-left',
+    nextArrowSelector: '.slider7-section .arrow-right',
+});
+
+
 function scrollSlider(options) {
     const {
         section = 'slider-section',
@@ -1005,7 +1151,6 @@ function rotationalSlider(options) {
     setResponsive();
     attachEvents();
 }
-  
 
 function infiniteScrollSlider(options) {
     const {
@@ -1223,6 +1368,14 @@ scrollBarSlider({containerSelector:'.slider5-section .slider-wrapper', prevArrow
 
 scrollBarSlider({containerSelector:'.slider6-section .slider-wrapper', prevArrowSelector:'.slider6-section .arrow-left', nextArrowSelector:'.slider6-section .arrow-right'});
 
+dotsSlider2({
+    section:'.slider7-section',
+    containerSelector:'.slider7-section .slider-wrapper',
+    dotsSelector:'.slider7-section #sliderdots',
+    prevArrowSelector:'.slider7-section .arrow-left',
+    nextArrowSelector:'.slider7-section .arrow-right',
+});
+
 rotationalSlider({
     containerSelector:'.slider9-section .slider-wrapper',
     dotsSelector:'.slider9-section #sliderdots',
@@ -1233,7 +1386,7 @@ rotationalSlider({
 infiniteScrollSlider({section:'.brand-section', containerSelector:'.brand-section .slider-wrapper'});
 
 
-
+/* Colors loop */
 const categoriesColors = [
     "var(--transparent-green3)",  // 1st color
     "var(--transparent-yellow2)", // 2nd color
@@ -1255,62 +1408,62 @@ document.querySelectorAll('.slider-wrapper').forEach(sliderWrapper => {
 });
 
 /*** REMOVE BACKGROUND ***/
-// function removeBackground(imgElement, targetColor) {
-//   const canvas = document.createElement('canvas');
-//   const ctx = canvas.getContext('2d');
+function removeBackground(imgElement, targetColor) {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
 
-//   const originalImage = new Image();
-//   originalImage.src = imgElement.src;
+  const originalImage = new Image();
+  originalImage.src = imgElement.src;
 
-//   originalImage.onload = function () {
-//     canvas.width = originalImage.width;
-//     canvas.height = originalImage.height;
-//     ctx.drawImage(originalImage, 0, 0, canvas.width, canvas.height);
+  originalImage.onload = function () {
+    canvas.width = originalImage.width;
+    canvas.height = originalImage.height;
+    ctx.drawImage(originalImage, 0, 0, canvas.width, canvas.height);
 
-//     // Get image data
-//     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-//     const data = imageData.data;
+    // Get image data
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
 
-//     // Convert target color to RGBA format
-//     const targetRGBA = hexToRGBA(targetColor);
+    // Convert target color to RGBA format
+    const targetRGBA = hexToRGBA(targetColor);
 
-//     for (let i = 0; i < data.length; i += 4) {
-//       const red = data[i];
-//       const green = data[i + 1];
-//       const blue = data[i + 2];
+    for (let i = 0; i < data.length; i += 4) {
+      const red = data[i];
+      const green = data[i + 1];
+      const blue = data[i + 2];
 
-//       // Check if the pixel color matches the target color
-//       if (red === targetRGBA.r &&
-//           green === targetRGBA.g &&
-//           blue === targetRGBA.b
-//       ) {
-//         data[i + 3] = 0; // Set alpha channel to 0 (transparent)
-//       }
-//     }
+      // Check if the pixel color matches the target color
+      if (red === targetRGBA.r &&
+          green === targetRGBA.g &&
+          blue === targetRGBA.b
+      ) {
+        data[i + 3] = 0; // Set alpha channel to 0 (transparent)
+      }
+    }
 
-//     // Update the canvas with modified image data
-//     ctx.putImageData(imageData, 0, 0);
+    // Update the canvas with modified image data
+    ctx.putImageData(imageData, 0, 0);
 
-//     // Replace the original image with the processed image
-//     imgElement.src = canvas.toDataURL();
-//   };
-// }
+    // Replace the original image with the processed image
+    imgElement.src = canvas.toDataURL();
+  };
+}
 
-// function hexToRGBA(hex) {
-//   const bigint = parseInt(hex.slice(1), 16);
-//   const r = (bigint >> 16) & 255;
-//   const g = (bigint >> 8) & 255;
-//   const b = bigint & 255;
+function hexToRGBA(hex) {
+  const bigint = parseInt(hex.slice(1), 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
 
-//   return { r, g, b };
-// }
+  return { r, g, b };
+}
 
-// const productImages = document.querySelectorAll('.image img');
-// productImages.forEach(function (img) {
-//   const clonedImage = img.cloneNode();
-//   removeBackground(clonedImage, '#ffffff');
-//   img.parentNode.replaceChild(clonedImage, img);
-// });
+const productImages = document.querySelectorAll('.image img');
+productImages.forEach(function (img) {
+  const clonedImage = img.cloneNode();
+  removeBackground(clonedImage, '#ffffff');
+  img.parentNode.replaceChild(clonedImage, img);
+});
 
 
 const productName = document.querySelectorAll(".product-name");
