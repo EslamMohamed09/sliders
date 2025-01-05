@@ -381,7 +381,7 @@ function dotsSlider2(options) {
     let startX = 0;
     let scrollStart = 0;
     let autoSlideInterval;
-    const gapSize = 0; // No gap needed for one-slide view
+    const gapSize = 0;
 
     function setupSlider() {
         slides = sliderContainer.children;
@@ -422,10 +422,34 @@ function dotsSlider2(options) {
         const wrapperWidth = sliderContainer.clientWidth;
         const scrollPosition = currentIndex * wrapperWidth;
 
-        sliderContainer.scrollTo({
-            left: scrollPosition,
-            behavior: 'smooth'
-        });
+        function animateScroll(start, end, duration) {
+            let startTime = null;
+    
+            function animation(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = easeInOutQuad(timeElapsed, start, end - start, duration);
+    
+                sliderContainer.scrollLeft = run;
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+    
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+    
+            requestAnimationFrame(animation);
+        }
+
+        animateScroll(sliderContainer.scrollLeft, scrollPosition, 700);
+        
+        if (currentIndex >= slides.length) {
+            currentIndex = 0;
+            sliderContainer.scrollTo({ left: 0 });
+        }
 
         updateDots();
     }
@@ -500,11 +524,11 @@ function dotsSlider2(options) {
 }
 
 dotsSlider2({
-    section: '.slider7-section',
-    containerSelector: '.slider7-section .slider-wrapper',
-    dotsSelector: '.slider7-section #sliderdots',
-    prevArrowSelector: '.slider7-section .arrow-left',
-    nextArrowSelector: '.slider7-section .arrow-right',
+    section:'.slider7-section',
+    containerSelector:'.slider7-section .slider-wrapper',
+    dotsSelector:'.slider7-section #sliderdots',
+    prevArrowSelector:'.slider7-section .arrow-left',
+    nextArrowSelector:'.slider7-section .arrow-right',
 });
 
 

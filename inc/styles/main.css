@@ -1829,13 +1829,13 @@ h5 {
 .slider7-section .section-container .slider-wrapper {
   padding: 0.5rem 0;
   margin: 0 auto;
-  gap: 1.5rem;
 }
 .slider7-section .section-container .slider-wrapper .block {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 .slider7-section .section-container .slider-wrapper .block .product-item {
   flex: 1 1 20rem;
