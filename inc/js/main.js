@@ -523,14 +523,6 @@ function dotsSlider2(options) {
     attachEvents();
 }
 
-dotsSlider2({
-    section:'.slider7-section',
-    containerSelector:'.slider7-section .slider-wrapper',
-    dotsSelector:'.slider7-section #sliderdots',
-    prevArrowSelector:'.slider7-section .arrow-left',
-    nextArrowSelector:'.slider7-section .arrow-right',
-});
-
 
 function scrollSlider(options) {
     const {
@@ -1374,31 +1366,35 @@ dotsSlider({
     nextArrowSelector:'.slider2-section .arrow-right',
 });
 
-scrollSlider({
+dotsSlider2({
     section:'.slider3-section',
     containerSelector:'.slider3-section .slider-wrapper',
+    dotsSelector:'.slider3-section #sliderdots',
     prevArrowSelector:'.slider3-section .arrow-left',
     nextArrowSelector:'.slider3-section .arrow-right',
 });
 
-scrollSliderSixItems({
+scrollSlider({
     section:'.slider4-section',
     containerSelector:'.slider4-section .slider-wrapper',
     prevArrowSelector:'.slider4-section .arrow-left',
     nextArrowSelector:'.slider4-section .arrow-right',
 });
 
-scrollBarSlider({containerSelector:'.slider5-section .slider-wrapper', prevArrowSelector:'.slider5-section .arrow-left', nextArrowSelector:'.slider5-section .arrow-right'});
-
-scrollBarSlider({containerSelector:'.slider6-section .slider-wrapper', prevArrowSelector:'.slider6-section .arrow-left', nextArrowSelector:'.slider6-section .arrow-right'});
-
-dotsSlider2({
-    section:'.slider7-section',
-    containerSelector:'.slider7-section .slider-wrapper',
-    dotsSelector:'.slider7-section #sliderdots',
-    prevArrowSelector:'.slider7-section .arrow-left',
-    nextArrowSelector:'.slider7-section .arrow-right',
+scrollSliderSixItems({
+    section:'.slider5-section',
+    containerSelector:'.slider5-section .slider-wrapper',
+    prevArrowSelector:'.slider5-section .arrow-left',
+    nextArrowSelector:'.slider5-section .arrow-right',
 });
+
+scrollBarSlider({containerSelector:'.slider6-section .slider-wrapper', 
+                 prevArrowSelector:'.slider6-section .arrow-left', 
+                 nextArrowSelector:'.slider6-section .arrow-right'});
+
+scrollBarSlider({containerSelector:'.slider7-section .slider-wrapper', 
+                 prevArrowSelector:'.slider7-section .arrow-left', 
+                 nextArrowSelector:'.slider7-section .arrow-right'});
 
 rotationalSlider({
     containerSelector:'.slider9-section .slider-wrapper',
